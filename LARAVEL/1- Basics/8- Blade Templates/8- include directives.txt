@@ -1,0 +1,24 @@
+//note avoid using the __DIR__ and __FILE__
+
+
+
+@include('shared.errors')
+@include('view.name', ['status' => 'complete'])
+
+@includeIf('view.name', ['status' => 'complete'])
+
+
+@includeWhen($boolean, 'view.name', ['status' => 'complete'])
+
+
+@includeUnless($boolean, 'view.name', ['status' => 'complete'])
+
+
+@includeFirst(['custom.admin', 'admin'], ['status' => 'complete'])
+
+
+
+
+//loop through included view by records
+@each('view.name', $jobs, 'job')	//args view-name,$collection,$var
+@each('view.name', $jobs, 'job', 'view.empty')

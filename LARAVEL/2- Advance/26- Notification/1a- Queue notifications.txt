@@ -1,0 +1,24 @@
+implement ShouldQueue
+php artisan queue:table
+php artisan queue:work
+QUEUE_CONNECTION=database
+
+ 
+
+
+public $afterCommit = true;		//dispatch notification after db transection
+
+
+
+public $connection = 'redis';		//custom queue connection for notification
+
+
+
+//Customizing Notification Channel Queues
+public function viaQueues()		
+{
+    return [
+        'mail' => 'mail-queue',
+        'slack' => 'slack-queue',
+    ];
+}

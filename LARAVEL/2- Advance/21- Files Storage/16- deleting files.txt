@@ -1,0 +1,3 @@
+Storage::disk('s3')->delete('path/file.jpg');
+Storage::delete('file.jpg'); 
+Storage::delete(['file.jpg', 'file2.jpg']);

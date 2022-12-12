@@ -1,0 +1,10 @@
+->before(function () {})
+->after(function () {});
+
+->onSuccess(function () {})
+->onFailure(function () {});
+
+
+
+//in closure access output
+Stringable $output

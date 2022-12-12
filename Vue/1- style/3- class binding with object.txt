@@ -1,0 +1,25 @@
+V-bind:class=“{display:show,color:hide}”	display class will apply if show true
+
+
+
+
+Show:true
+
+
+.display{
+display:block
+}
+
+
+
+
+//binding full obj
+computed: {
+  classObject() {
+    return {
+      active: this.isActive && !this.error,
+      'text-danger': this.error && this.error.type === 'fatal'
+    }
+  }
+}
+<div :class="classObject"></div>

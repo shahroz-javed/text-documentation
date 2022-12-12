@@ -1,0 +1,5 @@
+//desc
+
+protected $signature = 'mail:send
+                        {user : The ID of the user}
+                        {--queue : Whether the job should be queued}';

@@ -1,0 +1,13 @@
+public $message = 'Hello World!';
+
+
+<h1>{{ $message }}</h1>		//only public properties will available private ones has to pass to view.
+
+
+
+
+//fill and reset properties
+$this->fill(['message' => 'Hello World!']);
+$this->reset('search');
+$this->reset(['search', 'isActive']);
+$this->resetExcept('search');

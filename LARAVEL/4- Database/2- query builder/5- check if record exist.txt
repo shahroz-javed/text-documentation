@@ -1,0 +1,2 @@
+DB::table('orders')->where('finalized', 1)->exists()
+DB::table('orders')->where('finalized', 1)->doesntExist()

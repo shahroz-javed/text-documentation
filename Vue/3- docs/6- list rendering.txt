@@ -1,0 +1,38 @@
+<li v-for="(item,index) in items">
+  <span v-for="childItem in item.children">
+    {{ item.message }} {{ childItem }}
+  </span>
+</li>
+<div v-for="item of items"></div>
+
+
+
+
+
+//v-for with an Object
+<li v-for="(value, key,index) in myObject">
+  {{ key }}: {{ value }}
+</li>
+
+
+
+//v-for with a Range
+<span v-for="n in 10">{{ n }}</span>
+
+
+
+//can use v-for on template
+//v-if has a higher priority than v-for
+//so use like
+<template v-for="todo in todos">
+  <li v-if="!todo.isComplete">
+    {{ todo.name }}
+  </li>
+</template>
+
+
+
+
+
+//Maintaining State with key
+:key="item.id"

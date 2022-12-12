@@ -1,0 +1,25 @@
+//Learn about Connect
+https://stripe.com/docs/connect
+https://stripe.com/docs/connect/custom-accounts
+https://stripe.com/connect/pricing
+https://stripe.com/docs/connect/required-verification-information
+
+//three steps
+Properly identify the country to use.
+Create the account.
+Move onto the identity verification process.
+
+
+//Requirements for creating Custom accounts
+Minimum API version: You must be using an API version at least as recent as 2014-12-17
+Terms of Service update:
+Handling information requests:You must collect this information from your user and provide it to Stripe.
+Platform in a supported country:
+Platforms in the UAE:
+
+
+
+
+
+https://dashboard.stripe.com/test/settings/connect
+https://dashboard.stripe.com/test/settings/connect/custom

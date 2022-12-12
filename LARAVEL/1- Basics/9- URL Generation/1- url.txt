@@ -1,0 +1,10 @@
+echo url("/posts/{$post->id}");
+
+echo url()->current();
+echo url()->full();
+echo url()->previous();
+
+
+
+use Illuminate\Support\Facades\URL;
+echo URL::current();

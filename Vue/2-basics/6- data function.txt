@@ -1,0 +1,17 @@
+<template>
+  <div>
+    Component
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'First',
+data(){
+	return{
+		show:true,
+	}	
+},
+
+}
+</script>

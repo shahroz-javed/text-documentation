@@ -1,0 +1,26 @@
+//state method modifies one of its default attribute values
+
+
+public function unverified()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'email_verified_at' => null,
+            ];
+        });
+    }
+
+
+//if model has softdelete
+$user = User::factory()->trashed()->create();
+
+
+//callbacks to perform something after creating model
+public function configure()
+    {
+        return $this->afterMaking(function (User $user) {
+            //
+        })->afterCreating(function (User $user) {
+            //
+        });
+    }

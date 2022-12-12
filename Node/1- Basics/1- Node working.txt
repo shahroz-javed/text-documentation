@@ -1,0 +1,6 @@
+async [non-blocking]
+single thread use to handle multiple request
+node use event queue
+
+use for data-intensive and real time applications
+don't use for cpu-intensive app[image processing etc]

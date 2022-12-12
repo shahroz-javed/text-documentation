@@ -1,0 +1,2 @@
+configure driver name in .env
+php artisan cache:table

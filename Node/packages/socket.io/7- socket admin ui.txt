@@ -1,0 +1,9 @@
+import { instrument } from '@socket.io/admin-ui'
+
+
+instrument(io, { auth: false })
+
+
+//go to
+https://admin.socket.io/
+connect with your server url i.e http://localhost:5000/

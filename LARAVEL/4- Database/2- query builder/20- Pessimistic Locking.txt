@@ -1,0 +1,13 @@
+// prevents the selected rows from being modified until your transaction is committed
+
+DB::table('users')
+        ->where('votes', '>', 100)
+        ->sharedLock()
+        ->get();
+
+
+//prevents the selected records from being modified or from being selected with another shared lock
+DB::table('users')
+        ->where('votes', '>', 100)
+        ->lockForUpdate()
+        ->get();

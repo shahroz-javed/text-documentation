@@ -1,0 +1,20 @@
+select('')
+update('')
+insert('')
+delete('')
+statement('')
+
+
+DB::select('select * from users where id = :id', ['id' => 1]);
+DB::insert('insert into users (id, name) values (?, ?)', [1, 'Marc']);
+DB::update('update users set votes = 100 where name = ?',['Anita']);
+DB::delete('delete from users');
+
+//for operations that do not return any value
+DB::statement('drop table users');
+
+//un recommended
+DB::unprepared('update users set votes = 100 where name = "Dries"');
+
+
+DB::scalar("select count(case when food = 'burger' then 1 end) as burgers from menu");

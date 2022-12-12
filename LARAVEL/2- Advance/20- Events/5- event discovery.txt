@@ -1,0 +1,37 @@
+//listener class start with __invoke or handle method
+//Laravel will register those methods as event listeners for the event that is type-hinted in the method's signature
+
+
+public function handle(PodcastProcessed $event)
+    {
+        //
+    }
+
+
+
+
+//Event discovery is disabled by default
+//to enable in boot of eventserviceprovider
+public function shouldDiscoverEvents()
+{
+    return true;
+}
+
+
+
+//discover listeners from other folders
+protected function discoverEventsWithin()
+{
+    return [
+        $this->app->path('Listeners'),
+	$this->app->path('Category\Listeners'),
+    ];
+}
+
+
+
+
+
+//in production, it is not efficient for the framework to scan all of your listeners on every request.
+php artisan event:cache
+php artisan event:cache

@@ -1,0 +1,13 @@
+//execute when $search is set
+->when($search, function ($query, $sortByVotes) {
+                    $query->orderBy('votes');
+                })->get()
+
+
+
+//if sortbyvotes is set 2nd arg closure run else third arg closure
+->when($sortByVotes, function ($query, $sortByVotes) {
+                    $query->orderBy('votes');
+                }, function ($query) {
+                    $query->orderBy('name');
+                })->get()

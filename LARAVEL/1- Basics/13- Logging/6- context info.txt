@@ -1,0 +1,1 @@
+Log::info('User failed to login.', ['id' => $user->id]);

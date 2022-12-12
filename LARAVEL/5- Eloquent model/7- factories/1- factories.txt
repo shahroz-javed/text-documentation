@@ -1,0 +1,24 @@
+//in app.php
+'faker_locale' => 'en_US',
+
+//example
+UserFactory
+
+can use fake() helper instead of this->faker
+
+
+php artisan make:factory PostFactory
+
+
+//HasFactory on model
+will look for a factory has a class name matching the model name and is suffixed with Factory
+
+
+//if not following conventions
+protected static function newFactory()
+{
+    //on model
+    return FlightFactory::new();
+}
+
+protected $model = Flight::class;	//in factory

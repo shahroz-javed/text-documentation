@@ -1,0 +1,25 @@
+<button wire:click="$emit('postAdded')">
+
+protected $listeners = ['postAdded' => 'incrementPostCount'];
+ 
+public function incrementPostCount()
+    {
+        $this->postCount = Post::count();
+    }
+
+
+
+protected $listeners = ['postAdded'];
+
+
+//when any other component on the page emits a postAdded event, this component 
+	will pick it up and fire the incrementPostCount method on itself
+
+
+
+
+//alternate of $listener property
+protected function getListeners()
+    {
+        return ['postAdded' => 'incrementPostCount'];
+    }

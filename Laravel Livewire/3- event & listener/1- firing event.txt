@@ -1,0 +1,8 @@
+<button wire:click="$emit('postAdded')">
+
+$this->emit('postAdded');/
+
+
+<script>
+    Livewire.emit('postAdded')
+</script>

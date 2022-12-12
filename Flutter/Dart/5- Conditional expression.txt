@@ -1,0 +1,3 @@
+condition ? exp1 :exp2;
+
+x ?? 'guest';	//print guest if x is null

@@ -1,0 +1,7 @@
+//retrieve and store
+$value = Cache::remember('users', $seconds, function () {
+    return DB::table('users')->get();
+});
+$value = Cache::rememberForever('users', function () {
+    return DB::table('users')->get();
+});

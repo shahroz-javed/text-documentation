@@ -1,0 +1,7 @@
+//Typically, the rate limiter utilizes your default application cache
+
+'default' => 'memcached',
+ 
+
+//defining custom cache for limiter
+'limiter' => 'redis',

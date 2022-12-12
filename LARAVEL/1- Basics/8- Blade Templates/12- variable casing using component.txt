@@ -1,0 +1,7 @@
+//casing
+<x-alert alert-type="error" :message="$message"/>
+public function __construct($alertType, $message)
+    {
+        $this->alertType = $alertType;
+        $this->message = $message;
+    }

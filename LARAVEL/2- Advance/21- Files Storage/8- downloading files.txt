@@ -1,0 +1,2 @@
+return Storage::download('file.jpg');
+return Storage::download('file.jpg', $name, $headers);

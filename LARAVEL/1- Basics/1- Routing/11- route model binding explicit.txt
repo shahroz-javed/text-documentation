@@ -1,0 +1,27 @@
+//RouteServiceProvider boot		in routes where user will use will bind to User::class
+Route::model('user', User::class);
+
+
+
+//customizing column
+Route::bind('user', function ($value) {
+        return User::where('name', $value)->firstOrFail();
+    });
+
+
+or in model
+
+public function resolveRouteBinding($value, $field = null)
+{
+    return $this->where('name', $value)->firstOrFail();
+}
+
+
+
+
+
+//resolve child binding of parent
+public function resolveChildRouteBinding($childType, $value, $field)
+{
+    return parent::resolveChildRouteBinding($childType, $value, $field);
+}

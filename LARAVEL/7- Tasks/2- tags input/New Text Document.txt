@@ -1,0 +1,7 @@
+https://www.jqueryscript.net/form/Tiny-Text-Field-Based-Tags-Input-Plugin-For-jQuery-Tagify.html
+
+<link rel="stylesheet" href="{{ asset('admin-assets/tagify/tagify.css') }}">
+<script src="{{ asset('admin-assets/tagify/jQuery.tagify.min.js') }}"></script>
+
+
+$('[name=tags]').tagify();

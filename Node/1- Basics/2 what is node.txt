@@ -1,0 +1,4 @@
+js engine use to execute js in browser
+node has js engine and some other libs to execute js on server
+
+node is run time env for excuting js code

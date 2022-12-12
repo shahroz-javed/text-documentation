@@ -1,0 +1,28 @@
+first()
+find()
+firstWhere('active',1)
+findOr(1, function () { });
+firstOr(function () { });
+findOrFail(1)
+firstOrFail()
+
+
+
+
+
+//Retrieving Or Creating Models
+firstOrCreate( ['name' => 'London to Paris'], ['delayed' => 1, 'arrival_time' => '11:30'] )
+firstOrNew( ['name' => 'London to Paris'], ['delayed' => 1, 'arrival_time' => '11:30'] )
+
+
+
+
+
+//Retriving aggregates
+count()
+sum() 
+max()
+min()
+avg()
+exists()
+doesntExist()

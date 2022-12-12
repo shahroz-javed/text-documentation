@@ -1,0 +1,16 @@
+code become complex
+
+
+//change color of text depending on first element
+btn.addEventListener('click',()=>{
+    setTimeout(()=>{
+        first.style.color='red'
+        setTimeout(() => {
+            second.style.color = 'green'
+            setTimeout(() => {
+                third.style.color = 'blue'
+            }, 3000);
+        }, 3000);
+    },3000);
+
+});

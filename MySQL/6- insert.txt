@@ -1,0 +1,7 @@
+//when have to insert all cols
+INSERT INTO Customers VALUES ('Cardinal', 'Stavanger', 'Norway');
+
+
+
+INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');

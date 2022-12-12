@@ -1,0 +1,28 @@
+Constants do not have a dollar sign ($)before them;  
+◦ Constants may be defined and accessed anywhere without regardto variable scoping rules;  
+◦ Constants may not be redefined or undefined once they have beenset; and  
+◦ Constants may only evaluate to scalar values or arrays.
+
+
+
+
+define("CONSTANT", "Hello world.");
+const CONSTANT = 'Hello World';
+
+defined('CONSTANT')
+get_defined_constants()
+
+
+echo constant("MAXSIZE");
+
+
+//magic constant
+__LINE__ 
+__FILE__ 
+__DIR__  
+__FUNCTION__   
+__CLASS__ 
+__TRAIT__   
+__METHOD__ 
+__NAMESPACE__  
+ClassName::class  

@@ -1,0 +1,7 @@
+//in app service provider boot
+
+
+
+DB::whenQueryingForLongerThan(500, function (Connection $connection, QueryExecuted $event) {
+            // Notify development team...
+        });

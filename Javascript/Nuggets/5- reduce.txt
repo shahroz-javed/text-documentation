@@ -1,0 +1,31 @@
+reduce to a single val	--	[arr,num,obj]
+1st param ('acc')	-- 	total no of calculations
+2nd param ('cur')	--	current iteration/value
+
+
+//initial values can be obj,arr etc also
+//first arg i.e total will = initial value initially
+
+//syntax
+const dailyTotal = people.reduce((total,person)=>{
+	return total;
+},initialValue)
+
+
+
+
+
+//example
+const dailyTotal = people.reduce((total,person)=>{
+	total +=person.salary;
+	return total;
+},0)
+
+
+//cart example
+const Total = cart.reduce((total,cartItem)=>{
+	const {price,amount}=cartitem;
+	total.totalItems +=amount;
+	total.cartTotal +=amount * price;
+	return total;
+},{totalItems:0,cartTotal:0)

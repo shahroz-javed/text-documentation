@@ -1,0 +1,5 @@
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+
+
+//delete all records
+DELETE FROM Customers;

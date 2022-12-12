@@ -1,0 +1,42 @@
+$posts = Post::withCount('comments')->get();
+
+$posts = Post::withCount(['votes', 'comments' => function (Builder $query) {
+    $query->where('content', 'like', 'code%');
+}])->get();
+
+
+//multiple count sam erelation
+$posts = Post::withCount([
+    'comments',
+    'comments as pending_comments_count' => function (Builder $query) {
+        $query->where('approved', false);
+    },
+])->get();
+
+
+
+$posts[0]->votes_count
+echo $posts[0]->comments_count;
+echo $posts[0]->pending_comments_count;
+
+
+
+//Deferred Count Loading
+$book->loadCount('genres');
+$book->loadCount(['reviews' => function ($query) {
+    $query->where('rating', 5);
+}])
+
+
+
+
+
+
+//all functions
+withCount, withMin, withMax, withAvg, withSum, withExists methods. These methods will place a {relation}_{function}_{column}
+loadCount, loadSum
+morphWithCount,
+loadMorphCount,
+
+
+

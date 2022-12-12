@@ -1,0 +1,41 @@
+$post->comments()->save($comment);
+$post->comments()->saveMany($comments);
+
+
+$post->comments()->saveMany([
+    new Comment(['message' => 'A new comment.']),
+    new Comment(['message' => 'Another new comment.']),
+]);
+
+
+
+
+//If you plan on accessing the relationship after using the save or saveMany
+$post->refresh();
+
+
+
+
+//Recursively Saving Models & Relationships
+$post->comments[0]->message = 'Message';
+$post->comments[0]->author->name = 'Author Name';
+$post->push();
+
+
+
+
+
+//create [save accepts a full Eloquent model instance while create accepts a plain PHP array.]
+$comment = $post->comments()->create([
+    'message' => 'A new comment.',
+]);
+$post->comments()->createMany([[],[],]);
+
+
+
+
+//Belongs To Relationships [--assign a child model to a new parent model]
+$user->account()->associate($account);
+$user->save();
+$user->account()->dissociate();
+$user->save();

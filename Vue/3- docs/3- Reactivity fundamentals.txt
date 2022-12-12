@@ -1,0 +1,53 @@
+data() {
+    return {
+      count: 0
+    }
+  },
+
+methods: {
+    increment() {
+      this.count++
+    }
+  },
+
+
+mounted() {
+    // methods can be called in lifecycle hooks, or other methods!
+    this.increment()
+  }
+
+
+
+//DOM Update Timing
+To wait for the DOM update to complete after a state change, you can use the nextTick() global API
+increment() {
+      this.count++
+      nextTick(() => {
+        // access updated DOM
+      })
+    }
+
+
+
+
+//statefull methods [in methods]
+click: debounce(function () {
+      // ... respond to click ...
+    }, 500)
+
+
+//To keep each component instance's debounced function independent of the others
+created() {
+    // each instance now has its own copy of debounced handler
+    this.debouncedClick = _.debounce(this.click, 500)
+  },
+unmounted() {
+    // also a good idea to cancel the timer
+    // when the component is removed
+    this.debouncedClick.cancel()
+  },
+methods: {
+    click() {
+      // ... respond to click ...
+    }
+  }

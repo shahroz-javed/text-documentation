@@ -1,0 +1,37 @@
+//one to one
+return $this->hasOne(Phone::class, 'foreign_key', 'local_key');
+
+//one to many
+return $this->hasMany(Comment::class, 'foreign_key', 'local_key');
+
+
+
+//default models
+return $this->belongsTo(User::class)->withDefault(function ($user, $post) {
+        $user->name = 'Guest Author';
+    });
+
+
+
+
+
+
+//inverse of relationship
+return $this->belongsTo(User::class, 'foreign_key', 'owner_key');
+
+
+
+//methods
+$posts = Post::whereBelongsTo($user, 'author')->get();
+->latestOfMany()
+->oldestOfMany()
+->ofMany('price', 'max')
+->ofMany([
+        'published_at' => 'max',
+        'id' => 'max',
+    ], function ($query) {
+        $query->where('published_at', '<', now());
+    })
+
+
+

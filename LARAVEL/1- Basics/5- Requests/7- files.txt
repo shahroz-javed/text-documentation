@@ -1,0 +1,11 @@
+$file = $request->file('photo');
+
+$file = $request->photo;
+
+$request->hasFile('photo')
+
+
+$request->file('photo')->isValid()
+
+$request->photo->path();
+$request->photo->extension();

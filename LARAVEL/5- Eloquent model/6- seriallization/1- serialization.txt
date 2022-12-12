@@ -1,0 +1,49 @@
+//to Array
+	$user->toArray()
+	$user->attributesToArray();
+
+
+//To JSON
+	$user->toJson();
+	$user->toJson(JSON_PRETTY_PRINT);
+
+
+JSON attribute will be "snake case".
+
+
+
+//hide attr from JSON
+	$hidden = ['password'];
+	$visible = ['first_name', 'last_name'];
+
+
+
+//temporary modify visibility
+	$user->makeVisible('attribute')->toArray();
+	$user->makeHidden('attribute')->toArray();
+
+
+//Appending Values To JSON
+	public function getIsAdminAttribute()
+    		{
+        		return $this->attributes['admin'] === 'yes';
+    		}
+	protected $appends = ['is_admin'];		//is_admin is by accessor name
+	
+
+//apending at run time
+	$user->append('is_admin')->toArray();
+	$user->setAppends(['is_admin'])->toArray();
+
+
+
+
+//customize the date format
+protected function serializeDate(DateTimeInterface $date)
+{
+    return $date->format('Y-m-d');
+}
+protected $casts = [
+    'birthday' => 'date:Y-m-d',
+    'joined_at' => 'datetime:Y-m-d H:00',
+];

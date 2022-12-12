@@ -1,0 +1,38 @@
+public function isSelected($option)
+{
+    return $option === $this->selected;
+}
+
+
+//execute in component
+<option {{ $isSelected($value) ? 'selected="selected"' : '' }} value="{{ $value }}">
+    {{ $label }}
+</option>
+
+
+
+
+
+//Accessing Attributes & Slots Within Component Classes
+public function render()
+{
+    return function (array $data) {
+        // $data['componentName'];
+        // $data['attributes'];
+        // $data['slot'];
+
+        return '<div>Components content</div>';
+    };
+}
+
+
+
+
+
+
+//dependency
+add dependencies in __construct before properties
+
+//Hiding Attributes / Methods
+public $type;
+protected $except = ['type'];

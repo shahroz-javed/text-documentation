@@ -1,0 +1,39 @@
+php artisan make:notification InvoicePaid
+php artisan notifications:table
+php artisan migrate
+
+
+use Notifiable;		//in model
+
+
+
+//sending
+$user->notify(new InvoicePaid($invoice));
+Notification::send($users, new InvoicePaid($invoice));
+
+
+
+
+
+
+//channels
+mail, database, broadcast, nexmo, slack
+function via(){
+	return['database']
+	}
+
+
+
+//delaying
+$user->notify((new InvoicePaid($invoice))->delay([
+    'mail' => now()->addMinutes(5),
+    'sms' => now()->addMinutes(10),
+]));
+
+
+
+
+
+//methods
+line('')
+action('')

@@ -1,0 +1,14 @@
+stripe.customers.create({...}, function(err, result) {});
+
+stripe.customers.create({...}).then(
+       function(result) {},
+      function(err) {}
+      );
+
+//err.type
+StripeCardError
+StripeRateLimitError
+StripeInvalidRequestError
+StripeAPIError
+StripeConnectionError
+StripeAuthenticationError

@@ -1,0 +1,44 @@
+import {FieldArray} from 'formik'
+
+phNumbers: [''],		//in initialvalues
+
+
+<FieldArray type='text' name='phNumbers' className='form-control'>
+              {(props) => {
+                // console.log(props)
+                const { push, remove, form } = props
+                const { values } = form
+                const { phNumbers } = values
+                return (
+                  <div>
+                    {' '}
+                    {phNumbers.map((value, index) => {
+                      return (
+                        <div key={index} className='d-flex'>
+                          <Field
+                            name={`phNumbers[${index}]`}
+                            className='form-control'
+                          />
+                          {index > 0 && (
+                            <button
+                              type='button'
+                              className='btn btn-info'
+                              onClick={() => remove(index)}
+                            >
+                              -
+                            </button>
+                          )}
+                          <button
+                            type='button'
+                            className='btn btn-primary'
+                            onClick={() => push('')}
+                          >
+                            +
+                          </button>
+                        </div>
+                      )
+                    })}
+                  </div>
+                )
+              }}
+            </FieldArray>

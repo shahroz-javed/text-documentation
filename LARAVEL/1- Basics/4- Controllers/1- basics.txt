@@ -1,0 +1,1 @@
+Controllers are not required to extend a base class. you will not have access to middleware and authorize methods.

@@ -1,0 +1,12 @@
+async function createCourse() {
+  const course = new Course({
+    name: 'Laravel',
+    author: 'shahroz',
+    tags: ['1', '2'],
+    isPublished: true,
+  })
+  const result = await course.save()
+  console.log(result)
+}
+
+createCourse()

@@ -1,0 +1,68 @@
+question: '',
+
+watch: {
+    // whenever question changes, this function will run
+    question(newQuestion, oldQuestion) {
+	//do something
+    },
+    
+   'some.nested.key'(newValue) {
+      // ...
+    }
+  },
+
+
+
+//deep watchers
+someObject: {
+      handler(newValue, oldValue) {
+        // Note: `newValue` will be equal to `oldValue` here
+        // on nested mutations as long as the object itself
+        // hasn't been replaced.
+      },
+      deep: true
+    }
+
+
+
+
+//eager watcher
+watch is lazy by default
+question: {
+      handler(newQuestion) {
+        // this will be run immediately on component creation.
+      },
+      // force eager callback execution
+      immediate: true
+    }
+
+
+
+
+//Callback Flush Timing
+	-When mutate state, both Vue component updates and watcher callbacks triggerd
+	-to get updated DOM in watcher
+export default {
+  // ...
+  watch: {
+    key: {
+      handler() {},
+      flush: 'post'
+    }
+  }
+}
+
+
+
+
+//imperatively create watchers
+created() {
+    this.$watch('question', (newQuestion) => {    })
+}
+
+
+
+
+//stopping watcher
+const unwatch = this.$watch('foo', callback)
+unwatch()

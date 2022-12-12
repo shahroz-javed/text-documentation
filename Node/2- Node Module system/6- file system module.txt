@@ -1,0 +1,14 @@
+//always use async
+const fs = require('fs')
+
+
+//sync
+let files = fs.readdirSync('./')
+console.log(files)
+
+
+//async
+fs.readdir('./', (err, res) => {
+  if (err) console.log(err)
+  else console.log(res)
+})

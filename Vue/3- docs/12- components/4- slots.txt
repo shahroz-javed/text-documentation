@@ -1,0 +1,6 @@
+<AlertBox>
+  Something bad happened.
+</AlertBox>
+
+
+<slot />

@@ -1,0 +1,18 @@
+//retrive all rows
+DB::table('users')->get();
+
+
+
+//retrieve single row or single col
+DB::table('users')->where('name', 'John')->first();
+DB::table('users')->find(3);
+
+
+//value from single record
+DB::table('users')->where('name', 'John')->value('email');
+
+
+
+//retrieving list of cols
+DB::table('users')->pluck('title');
+DB::table('users')->pluck('title', 'name');	//name will be key

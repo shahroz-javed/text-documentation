@@ -1,0 +1,8 @@
+//in  actions.js
+export const toggleAmount = (id, toggle) => {
+  return { type: TOGGLE_AMOUNT, payload: { id, toggle } }
+}
+
+
+
+toggle: (toggle) => dispatch(toggleAmount(id, toggle)),

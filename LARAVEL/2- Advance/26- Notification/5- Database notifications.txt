@@ -1,0 +1,57 @@
+php artisan make:notification InvoicePaid
+php artisan notifications:table
+php artisan migrate
+
+
+use Notifiable;		//in model
+
+
+
+//sending
+$user->notify(new InvoicePaid($invoice));
+Notification::send($users, new InvoicePaid($invoice));
+
+
+
+
+
+
+function via(){
+	return['database']
+	}
+
+
+
+
+
+
+
+
+public function toArray($notifiable)
+{
+    return [
+        'invoice_id' => $this->invoice->id,
+        'amount' => $this->invoice->amount,
+    ];
+}
+public function toDatabase($notifiable)
+{
+    return [
+        'invoice_id' => $this->invoice->id,
+        'amount' => $this->invoice->amount,
+    ];
+}
+
+
+
+
+
+//accessing notification
+foreach ($user->notifications as $notification) {
+    echo $notification->type;
+}
+$notification->markAsRead();
+$user->unreadNotifications()->update(['read_at' => now()]);
+$user->notifications()->delete();
+$user->readNotifications();
+$user->unReadNotifications();

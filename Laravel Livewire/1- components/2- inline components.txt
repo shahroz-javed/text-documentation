@@ -1,0 +1,6 @@
+php artisan make:livewire ShowPosts --inline
+
+
+
+//file created
+app/Http/Livewire/ShowPosts.php

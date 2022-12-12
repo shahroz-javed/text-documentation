@@ -1,0 +1,13 @@
+use Illuminate\Support\Facades\RateLimiter;
+ 
+$executed = RateLimiter::attempt(
+    'send-message:'.$user->id,
+    $perMinute = 5,
+    function() {
+        // Send message...
+    }
+);
+ 
+if (! $executed) {
+  return 'Too many messages sent!';
+}

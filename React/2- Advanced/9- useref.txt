@@ -1,0 +1,22 @@
+//for uncontrolled inputs [can be added to any element]
+
+-preserve value
+-does not trigger re-render
+-target DOM nodes/elements
+
+const ref=useRef(null);
+
+
+
+//in input
+ref={ref}
+
+
+//onsubmit
+ref.current.value	//log
+
+
+
+//example [focus input on page load]
+in useEffect
+ref.current.focus()

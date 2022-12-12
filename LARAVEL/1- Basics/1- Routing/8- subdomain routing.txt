@@ -1,0 +1,5 @@
+Route::domain('{account}.example.com')->group(function () {
+    Route::get('user/{id}', function ($account, $id) {
+        //
+    });
+});

@@ -1,0 +1,22 @@
+//reducer always return state	or throw new Error('dcnkdx')
+//dispatched action will be handled in reducer
+
+
+const reducer=(state,action)=>{
+
+return state;
+}
+
+const [state , dispatch] =useReducer(reducer,initialState)	//reducer is a function
+
+
+dispatch({type:'Save'})
+dispatch({type:'Save',payload:person})
+
+
+
+
+//reducer in separate file
+export it
+import {reducer} from './reducer'
+

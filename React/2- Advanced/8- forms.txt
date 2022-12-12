@@ -1,0 +1,17 @@
+value={age}
+onChange={(e) => setAge(e.target.value)}
+onSubmit={submit}
+
+
+
+
+let newPerson = { name: name, email: email, age: age }		//both work same if key same as value
+let newPerson = { name, email, age }
+setPerson([...person, newPerson])	//person is an array 
+
+
+
+//dynamic object properties
+const name = e.target.name
+const value = e.target.value
+setPerson({ ...person, [name]: value })

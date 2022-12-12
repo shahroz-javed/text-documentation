@@ -1,0 +1,43 @@
+//delete model priodically
+
+use Prunable;
+
+
+
+public function prunable()
+    {
+        return static::where('created_at', '<=', now()->subMonth());
+    }
+
+
+
+protected function pruning()
+{
+    //delete associated resources
+}
+
+
+
+
+//automatically detect "Prunable" models within your application's app/Models directory
+$schedule->command('model:prune')->daily();
+
+//if model are other dir
+$schedule->command('model:prune', [
+    '--except' => [Address::class, Flight::class],
+])->daily();
+--model		//another option
+
+
+
+
+//for check prune query
+php artisan model:prune --pretend
+
+
+
+
+
+
+//mass pruning
+use MassPrunable;	//no pruning method

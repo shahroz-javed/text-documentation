@@ -1,0 +1,159 @@
+//flags
+--path
+--force
+--prune
+--step=5
+
+
+
+//properties
+protected $connection = 'pgsql';	//migrate to other db than app default
+
+
+//running migrations
+php artisan make:migration create_flights_table
+php artisan schema:dump --prune		//squashing migrations
+php artisan schema:dump
+php artisan migrate
+php artisan migrate:status
+php artisan migrate --force
+
+
+php artisan migrate:rollback
+
+php artisan migrate:reset
+
+php artisan migrate:refresh
+php artisan migrate:refresh --seed
+php artisan migrate:refresh --step=5
+
+php artisan migrate:fresh
+php artisan migrate:fresh --seed
+
+
+
+
+
+
+
+
+//tables
+
+//properties
+$table->engine = 'InnoDB';
+$table->charset = 'utf8mb4';
+$table->collation = 'utf8mb4_unicode_ci';
+
+
+
+
+//methods
+Schema::create()
+Schema::hasColumn('users', 'email')
+Schema::hasTable('users')
+$table->temporary();
+Schema::create()
+Schema::rename($from, $to);
+Schema::drop('users');
+Schema::dropIfExists('users');
+
+
+
+
+
+
+
+//column
+
+//column modifiers
+->after('column')	
+->autoIncrement()	
+->charset('utf8mb4')	
+->collation('utf8mb4_unicode_ci')	
+->comment('my comment')		Add a comment to a column (MySQL/PostgreSQL).
+->default($value)		Specify a "default" value for the column.
+->first()			Place the column "first" in the table (MySQL).
+->from($integer)		Set the starting value of an auto-incrementing field (MySQL / PostgreSQL).
+->invisible()			Make the column "invisible" to SELECT * queries (MySQL).
+->nullable($value = true)	Allow NULL values to be inserted into the column.
+->storedAs($expression)		Create a stored generated column (MySQL / PostgreSQL).
+->unsigned()			Set INTEGER columns as UNSIGNED (MySQL).
+->useCurrent()			Set TIMESTAMP columns to use CURRENT_TIMESTAMP as default value.
+->useCurrentOnUpdate()		Set TIMESTAMP columns to use CURRENT_TIMESTAMP when a record is updated.
+->virtualAs($expression)	Create a virtual generated column (MySQL).
+->generatedAs($expression)	Create an identity column with specified sequence options (PostgreSQL).
+->always()			Defines the precedence of sequence values over input for an identity column (PostgreSQL).
+->isGeometry()			Set spatial column type to geometry - the default type is geography (PostgreSQL).
+
+
+
+//modifying column
+composer require doctrine/dbal
+
+'dbal' => [
+    'types' => [
+        'timestamp' => TimestampType::class,
+    ],
+],							//database.php
+
+
+$table->string('name', 50)->nullable()->change();
+$table->renameColumn('from', 'to');
+$table->dropColumn(['votes', 'avatar', 'location']);
+
+
+
+
+
+
+
+
+
+
+
+//indexes
+//methods
+$table->string('email')->unique();
+$table->unique('email');
+$table->unique('email', 'unique_email');
+$table->fullText('body')->language('english');
+$table->index(['account_id', 'created_at']);
+
+
+//index length
+Schema::defaultStringLength(191);
+
+
+//rename index
+$table->renameIndex('from', 'to')
+
+
+//drop index
+$table->dropPrimary('users_id_primary');	
+$table->dropUnique('users_email_unique');	
+$table->dropIndex('geo_state_index');	
+$table->dropFullText('posts_body_fulltext');
+
+
+
+
+
+
+
+
+
+//foriegn constrints
+$table->foreignId('user_id')
+      ->constrained()
+      ->onUpdate('cascade')
+      ->onDelete('cascade');
+$table->dropForeign(['user_id']);
+Schema::enableForeignKeyConstraints();
+Schema::disableForeignKeyConstraints();
+
+
+
+php artisan migrate --path=
+php artisan migrate:rollback --path=
+php artisan migrate:refresh --path=
+php artisan db:seed --class=

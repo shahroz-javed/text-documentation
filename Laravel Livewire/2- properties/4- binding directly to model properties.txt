@@ -1,0 +1,23 @@
+public Post $post;
+ 
+    protected $rules = [
+        'post.title' => 'required|string|min:6',
+        'post.content' => 'required|string|max:500',
+    ];
+ 
+    public function save()
+    {
+        $this->validate();
+ 
+        $this->post->save();
+    }
+
+
+
+<form wire:submit.prevent="save">
+    <input type="text" wire:model="post.title">
+ 
+    <textarea wire:model="post.content"></textarea>
+ 
+    <button type="submit">Save</button>
+</form>

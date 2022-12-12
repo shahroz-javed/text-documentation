@@ -1,0 +1,57 @@
+//headers
+return Excel::download(new InvoicesExport, 'invoices.xlsx', true, ['X-Vapor-Base64-Encode' => 'True']);
+
+
+//store on s3
+return Excel::store(new InvoicesExport, 'invoices.xlsx', 's3');
+
+
+
+//custom collection	[in export collection method]
+  return new Collection([
+            [1, 2, 3],
+            [4, 5, 6]
+        ]);
+
+
+
+
+//using array
+public function array(): array
+    {
+        return [
+            [1, 2, 3],
+            [4, 5, 6]
+        ];
+    }
+
+
+
+//if want pass data from controller
+public function __construct(array $invoices)
+    {
+        $this->invoices = $invoices;
+    }
+
+
+
+
+//Dependency injection
+__construct(InvoicesRepository $invoices)
+
+
+
+
+
+//Strict null comparisons
+use Maatwebsite\Excel\Concerns\WithStrictNullComparison;	//implement it
+
+
+
+
+
+//custom excel start cell
+public function startCell(): string
+    {
+        return 'B2';
+    }

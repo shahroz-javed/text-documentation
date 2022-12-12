@@ -1,0 +1,16 @@
+npm install -g @vue/cli
+vue --version
+npm update -g @vue/cli
+
+vue create --help
+vue create project1
+vue ui   [graphically create projects]
+
+npm install -g @vue/cli-init		[to use old cli in vue3]
+# vue init now works exactly the same as vue-cli@2.x
+vue init webpack my-project
+
+vue add eslint   [for installing and invoking Vue CLI plugins]
+vue add cli-plugin-eslint
+
+npm run serve  [run the project]

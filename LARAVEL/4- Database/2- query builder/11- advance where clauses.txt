@@ -1,0 +1,28 @@
+//whereExist
+$users = DB::table('users')
+           ->whereExists(function ($query) {
+               $query->select(DB::raw(1))
+                     ->from('orders')
+                     ->whereColumn('orders.user_id', 'users.id');
+           })
+           ->get();
+
+
+
+
+//subquery clause
+$users = User::where(function ($query) {
+    $query->select('type')
+        ->from('membership')
+        ->whereColumn('membership.user_id', 'users.id')
+        ->orderByDesc('membership.start_date')
+        ->limit(1);
+}, 'Pro')->get();
+
+where('amount', '<', function ($query) { $query->selectRaw('avg(i.amount)')->from('incomes as i'); })
+
+
+
+//fulltext clause
+whereFullText('bio', 'web developer')
+orWhereFullText('bio', 'web developer')

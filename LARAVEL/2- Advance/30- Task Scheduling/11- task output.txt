@@ -1,0 +1,7 @@
+//command and exec
+
+
+->sendOutputTo($filePath); 
+->appendOutputTo($filePath); 
+->emailOutputTo('taylor@example.com'); 
+->emailOutputOnFailure('taylor@example.com');

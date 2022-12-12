@@ -1,0 +1,16 @@
+@{{ name }}	//will print {{ name }} in browser
+
+
+
+//@ will escape all directives
+@@json()
+
+
+
+
+//if many js vvariables use @verbatim directive so that you do not have to prefix each Blade echo statement with an @ symbol:
+@verbatim
+    <div class="container">
+        Hello, {{ name }}.
+    </div>
+@endverbatim

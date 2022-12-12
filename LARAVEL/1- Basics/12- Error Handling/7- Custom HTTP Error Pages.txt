@@ -1,0 +1,10 @@
+resources/views/errors/404.blade.php	//for 404 error
+
+
+
+<h2>{{ $exception->getMessage() }}</h2>
+
+
+
+//publish error views
+php artisan vendor:publish --tag=laravel-errors

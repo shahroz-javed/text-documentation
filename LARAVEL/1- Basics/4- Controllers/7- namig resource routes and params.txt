@@ -1,0 +1,9 @@
+Route::resource('photos', PhotoController::class)->names([
+    'create' => 'photos.build'
+]);
+
+
+
+Route::resource('users', AdminUserController::class)->parameters([
+    'users' => 'admin_user'
+]);

@@ -1,0 +1,20 @@
+By setup we will have access to state and dispatch method
+
+import { connect } from 'react-redux’
+
+
+
+
+const mapStateToProps = (state) => {
+  return { amount: state.userreducer }
+}
+
+Export default connect(mapStateToProps,{getPosts})(Navbar)
+
+
+
+
+
+
+//authreducer is reducer name we specify in combine reducer file
+import userreducer from './user'

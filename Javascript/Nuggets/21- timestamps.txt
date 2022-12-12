@@ -1,0 +1,11 @@
+new Date()
+Date.now()
+new Date().getTime()
+new Date().valueOf()
+
+new Date(23746374634)		//pass time stamp and get date
+new Date(Date.now() + 60000)	//future date
+
+
+new Date(2022,9,28).getTime()		//month[0-11]
+

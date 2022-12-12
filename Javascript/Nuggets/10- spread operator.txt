@@ -1,0 +1,32 @@
+//allow iterable to spread/expand individually inside reciever
+//split into single items and copy them	[i,e no nested array just copy eli]
+
+
+
+//strings
+const udemy='udemy';
+const letters=[...udemy]
+console.log(udemy)		//['u','d','e','m','y']
+
+
+
+//destructuring example
+const fruits1=['a','b','c','d'];
+const fruits2=['e','f'];
+const bestFruit='g'
+const allFruits=[...fruits1,...fruits2,bestFruit];	//without spread it will be nested array
+console.log(allFruits)		//['a','b','c','d','e','f','g']
+
+
+//reference
+const newFruits=allFruits	//in this case allFruits will also change and = to newFruits 
+const newFruits=[...allFruits]
+newFruits[0]='h'
+console.log(newFruits)		//['h','a','b','c','d','e','f','g']
+
+
+
+
+//object example
+const person={name:'john',age:30}
+const newPerson={...person,status:'single',name:'shahroz'}

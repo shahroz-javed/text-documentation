@@ -1,0 +1,21 @@
+$collection = collect([1, 2, 3, 4, 5, 6, 7]);	//call all method on this
+
+
+chunk(4)->all();
+chunkWhile(function ($value, $key, $chunk) { return $value === $chunk->last(); })->all();
+collapse()->all()	//like merge
+combine(['George', 29])->all()		//first arr key of second
+concat(['Jane Doe'])->all()
+
+contains(function ($value, $key) { return $value > 5; });
+contains('Desk')
+contains('product', 'Bookcase')		//key value 
+containsOneItem()
+
+
+count()
+countBy()->all()	//count repitition
+countBy(function ($email) { return substr(strrchr($email, "@"), 1); })->all();
+
+crossJoin(['a', 'b'],['c','d'])->all();
+

@@ -1,0 +1,45 @@
+unordered collection of unique items
+
+
+// types of set
+_CompactIterator<int>
+_CompactIterator<bool>
+_CompactIterator<String>
+_CompactIterator<double>
+_CompactIterator<object>
+_CompactLinkedHashSet<Set<Object>>
+_CompactLinkedHashSet<Set<int>>
+_CompactLinkedHashSet<Set<num>>
+_CompactLinkedHashSet<Set<String>>
+
+
+
+//specifying type
+var set = <String>{'shahroz','javed'};
+Set<int> set1 = {2,4};
+var set2 = <int>{};	//must specify type in this way otherwise type will map
+Set set = Set();
+Set set = {};
+
+
+
+
+//properties
+set.runtimeType
+set.length
+set.first
+set.last
+set.iterator
+set.isEmpty
+set.isNotEmpty
+set.hashCode
+set2.single
+
+
+
+//methods
+set.add('shahroz');
+set.addAll(set2);
+set.remove('two');
+set.removeAll(set2);
+set.contains('one');

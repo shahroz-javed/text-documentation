@@ -1,0 +1,18 @@
+//types of keys
+secret
+publishable
+restricted
+webhook signing secret
+
+//global key
+const stripe = new Stripe('sk_test_...');
+
+or
+
+//per request api key
+var charge = await stripe.charges.retrieve(
+  'ch_3Lxtn4HN7fcgs6Se0XlM1JrD',
+  {
+    apiKey: 'sk_test_51LxtgKHN7fcgs6SetIIAR3zWU2qslG5eHNWERHnZmWNLB7rba0Vpe5ubsI8bzzPE4xUnO8OCZ3bCjvBfu7zijtHu006BfjzhX9'
+  }
+);

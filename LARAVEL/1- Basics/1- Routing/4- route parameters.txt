@@ -1,0 +1,12 @@
+//required
+Route::get('/user/{id}', function ($id) {
+    return 'User '.$id;
+});
+
+
+
+
+//optional
+Route::get('/user/{name?}', function ($name = null) {
+    return $name;
+});

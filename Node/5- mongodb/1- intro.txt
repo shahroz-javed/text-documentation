@@ -1,0 +1,9 @@
+port:	[27017]
+
+nosql db
+store data in json format
+better search, efficient, east to manage
+
+table->collection
+col->field
+rows->documents

@@ -1,0 +1,16 @@
+//in app/console/kernel.php
+
+
+protected $commands = [
+    Commands\SendEmails::class
+];
+
+
+
+protected function commands()
+{
+    $this->load(__DIR__.'/Commands');
+    $this->load(__DIR__.'/../Domain/Orders/Commands');
+ 
+    // ...
+}

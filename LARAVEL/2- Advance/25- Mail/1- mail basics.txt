@@ -1,0 +1,30 @@
+SMTP, Mailgun, Postmark, Amazon SES, and sendmail	//drivers
+
+
+php artisan make:mail OrderShipped
+
+
+
+//sender
+return $this->from('example@example.com')
+                ->view('emails.orders.shipped');
+
+
+text('emails.orders.shipped_plain')
+attach('/path/to/file',[
+                    'as' => 'name.pdf',
+                    'mime' => 'application/pdf',
+                ])
+->attachFromStorage('/path/to/file', 'name.pdf', [
+                   'mime' => 'application/pdf'
+               ])
+attachFromStorageDisk('s3', '/path/to/file')
+
+
+
+//passing data to view
+First, any public property defined on your mailable class will automatically be made available to the view.
+->with([
+         'orderName' => $this->order->name,
+          'orderPrice' => $this->order->price,
+       ])

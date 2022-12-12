@@ -1,0 +1,2 @@
+$url = action([HomeController::class, 'index']);
+$url = action([UserController::class, 'profile'], ['id' => 1]);

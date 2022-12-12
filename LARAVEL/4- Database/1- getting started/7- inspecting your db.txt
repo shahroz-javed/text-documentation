@@ -1,0 +1,9 @@
+php artisan db:show
+php artisan db:show --database=pgsql
+
+
+//If you would like to include table row counts and database view details
+php artisan db:show --counts --views
+
+
+php artisan db:table users

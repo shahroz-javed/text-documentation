@@ -1,0 +1,17 @@
+we cannot develop ios app on windows
+
+flutter.dev
+
+1- install git
+2- download flutter[stable]
+3- extract and move in user/development/sdks
+4- Add flutter bin path to env vars
+
+
+//commands
+in cmd write flutter [to check successful install]
+flutter docter
+
+
+//Android Setup
+download android studio

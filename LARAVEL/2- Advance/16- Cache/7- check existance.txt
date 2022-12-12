@@ -1,0 +1,2 @@
+//checking existence
+Cache::has('key')

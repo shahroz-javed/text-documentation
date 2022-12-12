@@ -1,0 +1,31 @@
+composer require livewire/livewire
+
+@livewireStyles
+@livewireScripts
+
+
+<livewire:styles />
+<livewire:scripts />
+
+
+php artisan livewire:publish --config
+php artisan livewire:publish --assets
+
+
+
+keep assets upto-date
+{
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
+        ]
+    }
+}
+
+
+
+//asset base url
+<script src="/livewire/livewire.js"></script>
+you can configure the "asset_url" in config/livewire.php

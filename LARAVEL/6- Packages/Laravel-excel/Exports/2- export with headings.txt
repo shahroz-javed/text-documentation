@@ -1,0 +1,20 @@
+php artisan make:export UsersExport --model=User
+
+
+
+//in export class
+use Maatwebsite\Excel\Concerns\WithHeadings;		//implement concern
+function headings():array{ return['id','name','email','phone','salary','department']; }
+
+
+
+
+
+
+export work
+	make a route
+	use Maatwebsite\Excel\Facades\Excel;
+	return Excel::download(new UsersExport, 'users.xlsx');
+
+
+

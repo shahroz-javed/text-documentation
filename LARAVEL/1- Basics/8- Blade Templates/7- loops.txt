@@ -1,0 +1,38 @@
+@for ($i = 0; $i < 10; $i++)
+    The current value is {{ $i }}
+@endfor
+
+@foreach ($users as $user)
+    <p>This is user {{ $user->id }}</p>
+@endforeach
+
+@forelse ($users as $user)
+    <li>{{ $user->name }}</li>
+@empty
+    <p>No users</p>
+@endforelse
+
+@while (true)
+    <p>I'm looping forever.</p>
+@endwhile
+
+
+
+@continue
+@continue($user->type == 1)
+@break
+@break($user->number == 5)
+
+
+//loop variable
+$loop->parent->first	//in nested loop
+$loop->index
+$loop->iteration	current iteration
+$loop->remaining	The iterations remaining in the loop.
+$loop->count		The total number of items in the array being iterated.
+$loop->first		Whether this is the first iteration through the loop.
+$loop->last		Whether this is the last iteration through the loop.
+$loop->even		Whether this is an even iteration through the loop.
+$loop->odd		Whether this is an odd iteration through the loop.
+$loop->depth		The nesting level of the current loop.
+$loop->parent		When in a nested loop, the parent's loop variable.

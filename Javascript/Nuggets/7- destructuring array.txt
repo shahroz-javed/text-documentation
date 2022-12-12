@@ -1,0 +1,25 @@
+//faster and easier way to access and unpack vars from arr
+
+const friends=['ali','raza','mian']
+
+
+//destructuring
+const [ali,raza,mian]=friends;		
+console.log(ali,raza,mian);
+
+
+
+//any name we want to use will refer to same index of array in order they are declared
+const [enemy,raza,mian]=friends;	
+console.log(enemy,raza,mian);		//values will  ali raza mian
+
+
+//skiping value
+const [enemy,,mian]=friends;
+console.log(enemy,mian);		//values will  ali mian
+
+
+//example
+let f='bob';	let s='john'
+[s,f] = [f,s]
+console.log(f,s)	//john bob

@@ -1,0 +1,25 @@
+//write async code in sync way
+resolve data will be in then
+reject data will be in catch param err etc
+
+
+btn.addEventListener('click',()=>{
+            addColor(1000,'.second','red').
+            then(()=>addColor(3000,'.first','blue')).then(()=>addColor(4000,'.third','orange'))
+            .catch((err)=>console.log(err))
+        })
+
+function addColor(time,selector,color){
+       const element=document.querySelector(selector);
+ 	return new Promise((resolve,reject)=>{
+                if(element){
+                    setTimeout(()=>{
+                        element.style.color = color;
+                        resolve()
+                    },time)
+                    
+                }else{
+                    reject(`there is no such element: ${element}`);
+                }
+            })
+        }

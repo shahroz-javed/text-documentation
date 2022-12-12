@@ -1,0 +1,28 @@
+//client side
+ socket.on('connect', () => {
+        document.querySelector('input[name=room]').value = socket.id
+      })
+      socket.on('message', (data) => {
+        let container = (document.querySelector('h1').innerHTML = data)
+      })
+
+function sendMessage() {
+        let value = document.querySelector('input[name=message]').value
+
+        //if to want to send in room
+        let room = document.querySelector('input[name=room]').value
+        socket.emit('message', value, room)
+      }
+
+
+
+//server
+io.on('connection', (socket) => {
+  console.log(socket.id)
+  socket.on('message', (data, room) => {
+    if (room === '') {
+      socket.broadcast.emit('message', data)
+    } else {
+      socket.to(room).emit('message', data)
+    }
+  })

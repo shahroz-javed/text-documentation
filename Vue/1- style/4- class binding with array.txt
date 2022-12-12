@@ -1,0 +1,14 @@
+V-bind:class=“[arrayclass]”
+
+:class=“[activeClass,errorClass]”
+
+:class=“[active ? activeClass : '' ,errorClass]”	//apply activeClass if active, errorClass always apply
+<div :class="[{ active: isActive }, errorClass]"></div>
+
+:class="[show ? 'red' : 'green']
+
+
+
+Arrayclass:’ class1 class2’
+activeClass: 'active',
+errorClass: 'text-danger'

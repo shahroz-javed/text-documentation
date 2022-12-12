@@ -1,0 +1,7 @@
+App\Exceptions\Handler
+
+
+//register custom exception in register method of handler
+$this->reportable(function (InvalidOrderException $e) {
+        return false;
+    })->stop();

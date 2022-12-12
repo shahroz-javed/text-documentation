@@ -1,0 +1,3 @@
+every file in node is module
+
+console.log(module)

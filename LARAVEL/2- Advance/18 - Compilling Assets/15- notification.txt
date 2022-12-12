@@ -1,0 +1,4 @@
+mix.disableNotifications();
+
+
+//disable notification i.e compile complete

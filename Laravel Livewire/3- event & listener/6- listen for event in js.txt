@@ -1,0 +1,5 @@
+<script>
+Livewire.on('postAdded', postId => {
+    alert('A post was added with the id of: ' + postId);
+})
+</script>

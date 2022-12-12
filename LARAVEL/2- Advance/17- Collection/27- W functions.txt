@@ -1,0 +1,35 @@
+$collection = collect([1, 2, 3, 4, 5, 6, 7]);	//call all method on this
+$collection = collect([ 'color' => 'orange', 'type' => 'fruit', 'remain' => 6,]);
+all()		//after functions
+
+
+//callback arg [collection instance and the first argument]
+//second callback will be executed when the first argument evaluates to false
+$collection->when(true, 
+function ($collection, $value) {
+    return $collection->push(4);
+}, 
+function ($collection) {
+    return $collection->push(5);
+});
+
+
+//run when collection empty
+$collection->whenEmpty(function ($collection) {
+    return $collection->push('Adam');
+}, function ($collection) {
+    return $collection->push('Taylor');
+});
+
+
+whenNotEmpty()
+$collection->where('price', 100);
+whereStrict()
+whereBetween('price', [100, 200]);
+whereIn('price', [150, 200]);
+whereInstanceOf(User::class);
+whereNotBetween('price', [100, 200])
+whereNotIn('price', [150, 200]);
+whereNotInStrict()
+whereNotNull('name');
+whereNull('name');

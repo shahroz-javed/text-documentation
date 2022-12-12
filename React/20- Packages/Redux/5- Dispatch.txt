@@ -1,0 +1,3 @@
+Make separate file
+
+Store action in variable to avoid bugs

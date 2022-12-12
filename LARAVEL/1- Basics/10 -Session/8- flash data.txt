@@ -1,0 +1,8 @@
+$request->session()->flash('status', 'Task was successful!');
+
+$request->session()->reflash();
+
+$request->session()->keep(['username', 'email']);
+
+
+$request->session()->now('status', 'Task was successful!');

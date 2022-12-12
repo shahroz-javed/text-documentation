@@ -1,0 +1,18 @@
+App\Console\Kernel
+
+//in schedule method
+
+$schedule->call(function () {
+            DB::table('recent_users')->delete();
+        })->daily();
+
+
+
+
+
+// you may also schedule invokable objects. [classes with __invoke method]
+$schedule->call(new DeleteRecentUsers)->daily();
+
+
+
+php artisan schedule:list

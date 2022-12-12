@@ -1,0 +1,3 @@
+DB::table('users')->where('votes', '>', 100)->dd();
+ 
+DB::table('users')->where('votes', '>', 100)->dump();

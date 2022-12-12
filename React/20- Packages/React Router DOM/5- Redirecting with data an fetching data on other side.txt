@@ -1,0 +1,40 @@
+//redirection with data 1st way
+
+import { useNavigate } from 'react-router-dom'
+let navigate = useNavigate()
+  let data = {
+    status: 'Logged out Successfully',
+  }
+
+<button
+     onClick={() => {
+     navigate('/logout', { state: data })
+     // navigate(1) send forward
+     // navigate(-1) send back to prev
+        }}
+>logout</button>
+
+
+
+<Route
+       exact
+       path='/dashboard'
+              element={
+                isLogin ? (
+                  <Dashboard />
+                ) : (
+                  <Navigate to='/login' replace state={data}></Navigate>
+                )
+              }
+            ></Route>
+
+
+
+
+
+//fetching redirected data
+
+1- import { useLocation } from 'react-router-dom'
+2- let location = useLocation()
+	console.log(location)
+3- <h3>{location.state ? location.state.status : ''}</h3>

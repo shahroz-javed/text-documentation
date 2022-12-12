@@ -1,0 +1,22 @@
+
+import { Routes, BrowserRouter, Route, Navigate } from 'react-router-dom'
+
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Navbar />}>
+            <Route path='about' element={<About />}></Route>
+            <Route index element={<Home />}></Route>
+            <Route exact path='/post' element={<Post />}></Route>
+            <Route exact path='/post/:category' element={<Post />}></Route>
+            <Route exact path='/post/:category/:id' element={<Post />}></Route>
+           
+           
+            <Route path='*' element={<h1>404 Page Not Found</h1>}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+   
+
+//in navbar 
+<Outlet/>

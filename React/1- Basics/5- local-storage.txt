@@ -1,0 +1,5 @@
+LocalStorage.setItem('user','my name')
+LocalStorage.getItem('user')
+
+JSON.stringify()
+JSON.parse()

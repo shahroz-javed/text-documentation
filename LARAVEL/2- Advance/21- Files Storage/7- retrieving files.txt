@@ -1,0 +1,3 @@
+$contents = Storage::get('file.jpg');
+Storage::disk('s3')->exists('file.jpg'))
+Storage::disk('s3')->missing('file.jpg')

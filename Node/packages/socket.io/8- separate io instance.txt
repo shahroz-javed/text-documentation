@@ -1,0 +1,15 @@
+
+
+const userio = io.of('/user')
+userio.on('connection', (socket) => {
+  console.log('socket.id')
+})
+
+
+const usersocket = io('http://127.0.0.1:5000/user')
+
+
+
+usersocket.on('connect', () => {
+    console.log('user socket')
+})

@@ -1,0 +1,26 @@
+<template>
+  <div>
+    Component
+	<ul v-for="user in users" :key="user.id">
+           <li>{{ user.name }}</li>
+        </ul>
+
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'First',
+data(){
+	return{
+		users: [
+        { name: 'shahroz', id: 1 },
+        { name: 'shahroz', id: 1 },
+        { name: 'shahroz', id: 1 },
+     		 ],
+
+	}	
+},
+
+}
+</script>

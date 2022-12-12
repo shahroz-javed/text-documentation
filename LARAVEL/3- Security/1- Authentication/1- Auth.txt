@@ -1,0 +1,37 @@
+$user = Auth::user();
+$id = Auth::id();
+$request->user()
+Auth::check()
+Auth::attempt($credentials)
+$request->session()->regenerate();
+return redirect()->intended('dashboard');
+Auth::guard('admin')->attempt($credentials)      
+Auth::viaRemember()	//check if user login via remeber me
+Auth::login($user, $remember = true);
+Auth::guard('admin')->login($user);
+Auth::loginUsingId(1, $remember = true);
+Auth::once($credentials)
+
+
+Auth::logout();
+$request->session()->invalidate();
+$request->session()->regenerateToken();
+Auth::logoutOtherDevices($currentPassword);
+
+
+
+
+
+$remember
+
+
+
+
+middleware('auth')
+middleware('auth:admin')
+
+
+
+
+app/Http/Middleware/Authenticate.php
+RouteServiceProvider

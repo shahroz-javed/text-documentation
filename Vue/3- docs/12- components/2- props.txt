@@ -1,0 +1,89 @@
+<BlogPost title="Why Vue is so fun" />
+<BlogPost title="Why Vue is so fun" />
+<BlogPost fname="Why Vue is so fun" />
+<BlogPost :title="post.title" />
+
+
+
+<template>
+  <div>
+    <h1>welcome {{ fname }}{{ lname }}</h1>
+  </div>
+</template>
+
+
+//can be arr,obj,string,arrofobj
+<script>
+export default {
+  name: 'First',
+  props: {
+    fname: String,
+    lname: String,
+  },
+  props: ['title']
+}
+</script>
+
+
+
+
+
+//naming case
+camelCase
+
+
+
+
+
+//dynamic and static props
+<BlogPost fname="Why Vue is so fun" />
+<BlogPost :title="post.title" />
+
+
+
+
+
+
+//Binding Multiple Properties Using an Object
+<BlogPost v-bind="post" />
+Will be equivalent to:
+<BlogPost :id="post.id" :title="post.title" />
+
+
+
+
+
+
+//One-Way Data Flow [props are readonly]
+
+
+
+//validation
+String,Number,Boolean,Array,Object,Date,Function,Symbol
+title:[String, Number],
+required: true
+
+
+
+//custom validator
+message:{
+validator(value) {
+        // The value must match one of these strings
+        return ['success', 'warning', 'danger'].includes(value)
+      }
+}
+
+
+default(rawProps) {
+        return { message: 'hello' }
+      }
+default() {
+        return 'Default function'
+      }
+
+
+
+
+//bolean casing
+disabled  [pass to component] = to :disabled="true"
+

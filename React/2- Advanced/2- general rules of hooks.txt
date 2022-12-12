@@ -1,0 +1,6 @@
+
+
+//use
+//component must be uppercase to use hooks
+//must use hook in component function not outside
+//cannot call conditionally

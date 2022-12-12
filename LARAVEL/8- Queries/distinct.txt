@@ -1,0 +1,1 @@
+ DB::select('SELECT count(DISTINCT e_learning_quiz_id) as qu from e_learning_quiz_user where user_id=?', [$userID]);

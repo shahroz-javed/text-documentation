@@ -1,0 +1,18 @@
+//watch the state changes
+
+data() {
+        return {
+            search: null,
+            selectedDepartment: null,
+        };
+    },
+
+
+watch: {
+        search() {
+            this.getEmployees();
+        },
+        selectedDepartment() {
+            this.getEmployees();
+        },
+    },

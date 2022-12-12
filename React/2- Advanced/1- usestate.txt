@@ -1,0 +1,27 @@
+console.log(useState('shahroz'))
+console.log(useState('shahroz')[0])
+console.log(useState('shahroz')[1])
+
+
+//after array destructuring we get this
+const [title, setTitle] = useState('Title 1')
+const [showTitle, setShowTitle] = useState(true)
+
+
+
+
+
+//setting value
+<button onClick={() => setTitle('Title 2')}>Change Title</button>
+<button onClick={() => setShowTitle(!showTitle)}>Toggle Title</button>
+
+
+
+
+
+//object
+let obj = { id: 1, name: 'shahroz', age: 30 }
+const [data, setData] = useState(obj)
+function changeName() {
+    setData({ ...data, name: 'ali' })
+  }

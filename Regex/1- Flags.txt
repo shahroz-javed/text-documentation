@@ -1,0 +1,6 @@
+g	[global]
+m	[multi line]
+i	[case insensitive]
+u	[unicode]
+s	[single line]
+d	[indices]

@@ -1,0 +1,20 @@
+mounted() {
+    console.log(`the component is now mounted.`)
+  }
+
+
+
+beforeCreate		//Called when the instance is initialized.
+created			//Called after the instance has finished processing all state-related options.
+beforeMount
+mounted
+beforeUpdate		//Called right before the component is about to update its DOM tree due to a reactive state change.
+updated
+beforeUnmount
+unmounted
+errorCaptured
+renderTracked
+renderTriggered
+activated
+deactivated
+serverPrefetch

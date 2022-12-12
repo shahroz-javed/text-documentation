@@ -1,0 +1,8 @@
+//one listener handle multiple events
+
+
+
+//in boot of event service provider
+Event::listen('event.*', function ($eventName, array $data) {
+    //
+});

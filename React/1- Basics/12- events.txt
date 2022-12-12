@@ -1,0 +1,11 @@
+https://reactjs.org/docs/events.html
+
+
+
+onClick={() => alert('hello')}
+onClick={eventHandler}
+onClick={() => eventHandler(name)}		//if we must have to pass args
+
+
+
+onClick={eventHandler()}	//run when component created

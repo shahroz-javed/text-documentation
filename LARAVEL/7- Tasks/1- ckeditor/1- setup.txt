@@ -1,0 +1,6 @@
+copy ckeditor folder to public
+
+<script src="/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor');
+</script>

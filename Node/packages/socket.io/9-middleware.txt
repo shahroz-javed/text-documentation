@@ -1,0 +1,30 @@
+//client
+const usersocket = io('http://127.0.0.1:5000/user', {
+        auth: { token: 'test' },
+      })
+  
+usersocket.on('connect_error', (error) => {
+        console.log(error)
+      })
+
+
+//server
+//middleware
+userio.use((socket, next) => {
+  let token = socket.handshake.auth.token
+  if (token) {
+    socket.username = getNameFromToken(token)
+    next()
+  } else {
+    next(new Error('Please send token'))
+  }
+})
+function getNameFromToken(token) {
+  return token
+}
+
+
+//access user name
+userio.on('connection', (socket) => {
+  console.log('socket.id' + socket.username)
+})

@@ -1,0 +1,3 @@
+DB::table('users')
+              ->where('id', 1)
+              ->update(['options->enabled' => true]);

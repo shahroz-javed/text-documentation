@@ -1,0 +1,10 @@
+<Book name="shahroz" age={age} {...book}></Book>		//pasing object as prop using spread to avoid props.book.name
+
+const Book = (props) =>{ <h1>{props.age}</h1> }
+
+
+const Book = ({name,age})=>{ <h1>{age}</h1> }
+
+or
+
+const {name,age} =props;

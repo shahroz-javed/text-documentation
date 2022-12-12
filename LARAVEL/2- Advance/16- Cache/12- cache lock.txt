@@ -1,0 +1,19 @@
+//cache lock
+Schema::create('cache_locks', function ($table) {
+    $table->string('key')->primary();
+    $table->string('owner');
+    $table->integer('expiration');
+});
+
+
+$lock = Cache::lock('foo', 10);
+ if ($lock->get()) {
+    // Lock acquired for 10 seconds...
+ 
+    $lock->release();
+}
+Cache::lock('foo', 10)->block(5, function () {
+    // Lock acquired after waiting a maximum of 5 seconds...
+});
+optional($lock)->release();
+Cache::lock('processing')->forceRelease();

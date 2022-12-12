@@ -1,0 +1,35 @@
+//object that can have metadata param
+Account
+Charge
+Customer
+PaymentIntent
+Refund
+Subscription
+Transfer
+
+//metadata can have
+50 keys
+key names up to 40 characters long
+values up to 500 characters
+
+
+Note:if we want to store more store in external db and pass id in metadata
+
+
+//metadata
+not copied between objects
+except:
+when cloning a payment method for connect[one connected account to other]
+copied from paymentIntent to underlying charge
+
+
+
+//description
+Some of the objects listed above also support a description parameter
+do not store sensitive info in decription or metadata
+
+
+
+metadata: {'order_id': '6735'}				//add when create object
+metadata: {'order_id': '67343',animal:'lion'}		//add and can update whle editing object
+metadata: {'order_id': ''}				//delete by keeping value empty

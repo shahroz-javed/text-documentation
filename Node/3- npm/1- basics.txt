@@ -1,0 +1,32 @@
+npm init
+npm init -y
+
+//install a package
+npm i nodemon
+npm i nodemon@3.5.3
+
+//uninstall a package
+npm un nodemon
+npm uninstall nodemon
+
+
+//get list of packages installes
+npm list
+npm list --depth=0
+
+
+//check out dated
+npm outdated
+npm -g outdated
+npm i -g npm-check-updates
+npm update
+
+
+//install dev dependencies
+npm i jshint --save-dev
+
+
+//package info
+npm view mongoose
+npm view mongoose dependencies	[any property we see in above cmd]
+npm view mongoose versions

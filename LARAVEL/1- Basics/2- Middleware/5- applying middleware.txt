@@ -1,0 +1,9 @@
+->middleware('auth')
+->middleware(['first', 'second']);
+->middleware(EnsureTokenIsValid::class);
+
+
+
+
+//prevent a route middle to apply
+->withoutMiddleware([EnsureTokenIsValid::class])

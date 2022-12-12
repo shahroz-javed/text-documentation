@@ -1,0 +1,17 @@
+//store a collection of unique values of any type
+methods		--	add(value),delete(value),clear(),has(value)
+
+
+const unique=new Set();
+
+
+unique.add('first');
+unique.add('first');
+unique.add('second');
+
+console.log(unique)	//{'first','second'}
+
+
+
+console.log(unique.delete('five'))		//false
+console.log(unique.has('five'))		//false

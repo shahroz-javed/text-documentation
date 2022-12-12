@@ -1,0 +1,28 @@
+class EditUsersPosts extends Component
+{
+    public User $user;
+ 
+    protected $rules = [
+        'user.posts.*.title'
+    ];
+ 
+    public function save()
+    {
+        $this->validate();
+ 
+        $this->user->posts->each->save();
+    }
+}
+
+
+<div>
+    @foreach ($user->posts as $i => $post)
+        <input type="text" wire:model="user.posts.{{ $i }}.title" />
+ 
+        <span class="error">
+            @error('user.posts.'.$i.'.title') {{ $message }} @enderror
+        </span>
+    @endforeach
+ 
+    <button wire:click="save">Save</button>
+</div>

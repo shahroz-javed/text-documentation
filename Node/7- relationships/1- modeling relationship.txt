@@ -1,0 +1,27 @@
+1- using reference[normalization] ->consistancy
+
+
+//defining relationship
+author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Author',
+  },
+
+
+//fetchng relationship
+const result = await Post.find()
+    .populate('author', 'name -_id')
+    .select('name author')
+
+
+
+2- using embedded documet[de normalization] ->performance
+author:authorSchema	//in schema
+let course=new Course({name:req.body.name,author:new Author({name:'Shahroz'})})
+
+authors:[authorSchema]	//in schema
+let course=new Course({name:req.body.name,author:[new Author({name:'Shahroz'}),new Author({name:'Mian'})]})
+
+const author=course.authors.id('sdn87676zkjsc')
+author.remove()
+course.save()

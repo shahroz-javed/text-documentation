@@ -1,0 +1,3 @@
+debug option in your config/app.php
+
+APP_DEBUG=false		in production

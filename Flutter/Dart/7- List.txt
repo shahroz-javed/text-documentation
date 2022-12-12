@@ -1,0 +1,47 @@
+orgnized collection of items
+
+//list types
+List dynamic	var list = [];
+List<String>
+List<int>
+List<bool>
+List<double>
+List<Object>
+
+
+
+
+
+//specifying type of list
+List<String> list = ['shahroz','javed',343];
+var list = <int>[34,34,34];
+
+
+
+//spread operator
+var list = [365,34,34];
+var list2 = [34,34,34,...list];
+
+
+
+//Adding to array
+list.add('shharoz');
+list.clear();
+list.remove('1122');
+list.removeAt(2);
+list.removeLast();
+list.addAll(list2);
+
+
+
+// list properties
+ list.length
+ list.reversed
+ list.hashCode
+ list.runtimeType
+ list.first
+ list.isEmpty
+ list.isNotEmpty
+ list.last
+ list.single
+ list.iterator

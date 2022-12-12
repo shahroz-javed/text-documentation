@@ -1,0 +1,20 @@
+// Store on default disk
+Excel::store(new InvoicesExport(2018), 'invoices.xlsx');
+
+
+
+
+// Store on a different disk (e.g. s3)
+Excel::store(new InvoicesExport(2018), 'invoices.xlsx', 's3');
+    
+    
+
+// Store on a different disk with a defined writer type. 
+Excel::store(new InvoicesExport(2018), 'invoices.xlsx', 's3', Excel::XLSX);
+
+
+
+
+//disk options
+Excel::store(new InvoicesExport(2018), 'invoices.xlsx', 's3', null, [ 'visibility' => 'private', ]);
+Excel::store(new InvoicesExport(2018), 'invoices.xlsx', 's3', null, 'private');		//shortcut for private

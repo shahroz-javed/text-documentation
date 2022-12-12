@@ -1,0 +1,16 @@
+//The name and signature of the console command.
+protected $signature = 'mail:send {user}';
+
+// Optional argument...
+'mail:send {user?}'
+ 
+// Optional argument with default value...
+'mail:send {user=foo}'
+
+
+
+
+//input arrays
+'mail:send {user*}'
+php artisan mail:send 1 2
+'mail:send {user?*}'

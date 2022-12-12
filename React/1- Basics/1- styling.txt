@@ -1,0 +1,15 @@
+1-
+styleObj={color:"red"}
+style={styleObj}
+
+
+2-
+className="btn"
+
+
+3-
+style={{backgoundColor:"red"}}
+
+
+4-
+import './style.css'

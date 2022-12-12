@@ -1,0 +1,68 @@
+import { CLEAR_CART } from '../actions’
+{Dispatch} [in prop]
+
+onClick={() => dispatch({ type: CLEAR_CART })
+
+if (action.type === CLEAR_CART) {
+    return { ...state, cart: [] }
+  }
+
+
+
+
+
+onClick={() => remove()}
+
+{remove} [prop]
+
+function mapDispatchToProps(dispatch) {
+  return {
+    remove: () => dispatch({ type: REMOVE }),
+  }
+}
+export default connect(null, mapDispatchToProps)(CartItem)
+
+
+
+
+
+
+onClick={() => remove()}
+
+{remove} [prop]
+
+function mapDispatchToProps(dispatch, ownProps) {
+  const id = ownProps.id
+  return {
+    remove: () => dispatch({ type: REMOVE, payload: { id } }),
+  }
+}
+
+ownProps has access to props passed to this component
+
+
+
+
+
+
+
+
+//in i.e user action file
+export const getPosts = () => async (dispatch) => {
+  try {
+    const res = await axios.get('/api/posts')
+
+    dispatch({
+      type: GET_POSTS,
+      payload: res.data,
+    })
+  } catch (error) {
+    dispatch({
+      type: POST_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    })
+  }
+}

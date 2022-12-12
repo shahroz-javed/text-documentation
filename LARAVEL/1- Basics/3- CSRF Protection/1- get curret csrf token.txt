@@ -1,0 +1,3 @@
+$token = $request->session()->token();
+
+$token = csrf_token();

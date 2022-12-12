@@ -1,0 +1,3 @@
+vue add bootstrap-vue
+npm i axios
+npm i vue-axios

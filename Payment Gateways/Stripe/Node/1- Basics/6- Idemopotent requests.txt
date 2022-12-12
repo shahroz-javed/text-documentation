@@ -1,0 +1,39 @@
+//idempotency
+safely retry requests
+avoid duplicate charges
+improves reliablity
+
+
+
+//example flow
+request with idempotency key and payment charged but no response return
+again request with same idempotency key and payment will not charge
+
+
+//work
+if we send a request with ikey and due to some stripe side error we get 500 response
+if we resend request with same ikey same 500 response will return even issue resolved
+
+
+//http method supported
+POST
+
+
+//key will expire after 24 hours
+
+
+
+const Stripe = require('stripe');
+const stripe = Stripe('sk_test_51LxtgKHN7fcgs6SetIIAR3zWU2qslG5eHNWERHnZmWNLB7rba0Vpe5ubsI8bzzPE4xUnO8OCZ3bCjvBfu7zijtHu006BfjzhX9',
+{maxNetworkRetries:2});
+
+stripe.charges.create({
+  amount: 2000,
+  currency: "usd",
+  source: "tok_visa", // obtained with Stripe.js
+  description: "My First Test Charge (created for API docs at https://www.stripe.com/docs/api)"
+}, {
+  idempotencyKey: "eJ5qXFM0ksHydyoF"
+}, function(err, charge) {
+  // asynchronously called
+});

@@ -1,0 +1,38 @@
+git
+git branch --help
+git init
+git log		//show all commits
+git reset --hard 23j4hk23jend98w3ur98w3commit_id
+git config --global user.name "shahroz"
+
+git add .
+
+
+
+//branches
+git branch
+git branch shahroz
+git branch -d shahroz  //delete shahroz branch
+
+git checkout shahroz
+git checkout -b shahroz
+
+git merge shahroz
+
+
+
+
+
+git pull
+
+fork		//copy other repo to your git account
+clone
+new pull request
+
+
+
+
+ls
+ls -la
+rm -rf .git
+rm index.html

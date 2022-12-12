@@ -1,0 +1,18 @@
+$eq =
+$gt >
+$gte >=
+$in in
+$lt <
+$lte <=
+$ne !=
+$nin	not in specified array
+
+
+find({ price: {$gt:10,$lte:20} })
+find({ price: {$in:[10,20,30]} })
+
+
+or
+and
+
+.find().or({name:'Laravel'},{name:'React'})

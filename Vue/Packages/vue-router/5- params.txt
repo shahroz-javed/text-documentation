@@ -1,0 +1,14 @@
+{
+        path: "/:id",
+        name: "Post",
+        component: SinglePost,
+},
+
+<router-link
+      class="read-more-btn"
+      :to="{ name: 'Post', params: { id: post.id } }"
+      >read more <i class="fas fa-angle-right"></i
+      ></router-link>
+
+
+this.$route.params.id

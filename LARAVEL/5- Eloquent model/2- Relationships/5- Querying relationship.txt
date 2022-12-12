@@ -1,0 +1,53 @@
+$user->posts()->where('active', 1)->get();
+$user->posts()
+        ->where(function (Builder $query) {
+            return $query->where('active', 1)
+                         ->orWhere('votes', '>=', 100);
+        })
+        ->get();
+
+$user->posts
+
+
+
+
+
+
+//quering existance
+Post::has('comments', '>=', 3)->get();
+
+// Retrieve posts that have at least one comment with images...
+$posts = Post::has('comments.images')->get();
+
+// Retrieve posts with at least ten comments containing words like code%...
+$posts = Post::whereHas('comments', function (Builder $query) {
+    $query->where('content', 'like', 'code%');
+}, '>=', 10)->get()
+
+
+
+
+
+//inline relation existance query
+$posts = Post::whereRelation(
+    'comments', 'created_at', '>=', now()->subHour()
+)->get();
+
+
+
+
+
+
+//querying absence
+$posts = Post::whereDoesntHave('comments.author', function (Builder $query) {
+    $query->where('banned', 0);
+})->get();
+
+
+
+
+
+
+
+
+

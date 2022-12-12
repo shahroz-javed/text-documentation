@@ -1,0 +1,44 @@
+//passing slot to component
+<x-alert>
+    <strong>Whoops!</strong> Something went wrong!
+</x-alert>
+
+
+//render slot
+<div class="alert alert-danger">
+    {{ $slot }}
+</div>
+
+
+
+
+
+
+
+//passing multiple slots [named slots]
+<x-alert>
+    <x-slot name="title">
+        Server Error
+    </x-slot>
+
+    <strong>Whoops!</strong> Something went wrong!
+</x-alert>
+
+//render multiple slots
+<span class="alert-title">{{ $title }}</span>
+
+<div class="alert alert-danger">
+    {{ $slot }}
+</div>
+
+
+
+
+
+
+
+//scoped slot
+<x-slot name="title">
+        {{ $component->formatAlert('Server Error') }}
+    </x-slot>
+x-alert component has a public formatAlert method defined on its component class.

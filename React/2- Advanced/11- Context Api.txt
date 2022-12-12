@@ -1,0 +1,18 @@
+//useContext
+
+const PersonContext=React.creatContext();
+
+//give to components
+Provider
+Consumer
+
+
+
+//in Parent component return
+<PersonContext.Provider value="hello" value={{people,removePeople}}>
+</PersonContext.Provider>
+
+
+
+//in child to access value
+const value=useContext(PersonContext)

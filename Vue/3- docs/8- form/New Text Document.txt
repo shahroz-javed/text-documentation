@@ -1,0 +1,28 @@
+<input :value="text"  @input="event => text = event.target.value">
+<input v-model="text">
+
+
+//attributes
+value
+checked
+selected
+disabled
+
+
+
+
+checkedNames: []	//multiple checkbox can be attached to single arr or Set
+
+
+
+<input type="checkbox" v-model="toggle" :true-value="dynamicTrueValue" :false-value="dynamicFalseValue" />
+
+
+
+<option :value="{ number: 123 }">123</option>
+
+
+//modifiers
+v-model.lazy="msg"
+v-model.number="msg"
+v-model.trim="msg"

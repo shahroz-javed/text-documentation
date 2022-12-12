@@ -1,0 +1,15 @@
+//useParams hook
+
+<Route exact path='/post/:category/:id' element={<Post />}></Route>
+import { useParams, useSearchParams } from 'react-router-dom'
+let { category, id } = useParams();
+
+
+
+
+
+//useSearchParams hook
+
+http://localhost:3000/post?price=10
+let [searchParams, setSearchParams] = useSearchParams()
+console.log(searchParams.get('price'))

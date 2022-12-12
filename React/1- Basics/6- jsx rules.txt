@@ -1,0 +1,5 @@
+return single element [all tags in a parent]
+html attributes in camel case	[onClick]
+className
+clode all tags
+formatting

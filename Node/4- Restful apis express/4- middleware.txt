@@ -1,0 +1,21 @@
+use for logging auth and authorization
+
+//custom middleware
+function log(req, res, next) {
+  console.log('logging...')
+  next()
+}
+
+app.use(log)
+
+
+
+//built in middlewares
+app.use(express.json())		//parse body of req
+app.use(express.urlencoded())	//submit data in url
+app.use(express.static('public'))	//make file in public folder [access file localhost:3000/readme.txt]
+
+
+//third party module
+helmet
+morgan

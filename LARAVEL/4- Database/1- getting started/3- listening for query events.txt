@@ -1,0 +1,8 @@
+//in app service provider boot
+
+
+ DB::listen(function ($query) {
+            // $query->sql;
+            // $query->bindings;
+            // $query->time;
+        });

@@ -1,0 +1,49 @@
+wire:model.debounce.500ms="name"
+wire:model.lazy="message"
+wire:model.defer="query"
+
+
+
+
+//actions
+wire:submit.prevent="save"
+wire:click="save"
+wire:keydown
+wire:submit
+wire:keydown
+
+
+
+
+//event modifiers
+stop	event.stopPropagation()
+prevent	event.preventDefault()
+self	Only triggers an action if the event was triggered on itself
+debounce.150ms
+
+
+
+//keydown modifiers
+wire:keydown.enter
+backspace
+escape
+shift
+tab
+arrow-right
+page-down
+
+
+
+
+//magic actions
+$refresh			Will re-render the component without firing any action
+$set('property', value)		Shortcut to update the value of a property
+$toggle('property')		Shortcut to toggle boolean properties on or off
+$emit('event', ...params)	Will emit an event on the global event bus, with the provided params
+$event				A special variable that holds the value of the event fired that triggered the action. Example usage: wire:change="setSomeProperty($event.target.value)"
+
+wire:click="$set('message', 'Hello')"
+$this->emit('some-event');
+protected $listeners = ['some-event' => '$refresh'];
+
+

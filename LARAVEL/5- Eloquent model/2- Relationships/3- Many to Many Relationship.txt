@@ -1,0 +1,70 @@
+users
+    id - integer
+    name - string
+ 
+roles
+    id - integer
+    name - string
+ 
+role_user
+    user_id - integer
+    role_id - integer
+
+
+
+//many to many
+return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');		//in role model 3rd arg will be 'role_id'
+
+
+
+
+
+
+
+
+//intermediate table cols in many to many
+
+$role->pivot->created_at;
+->withPivot('active', 'created_by');
+->withTimestamps()
+->as('subscription')	//rename pivot property
+
+
+
+
+
+
+//filtering via intermediate table
+
+->wherePivot('approved', 1);
+->wherePivotIn('priority', [1, 2]);
+->wherePivotNotIn('priority', [1, 2]);
+->wherePivotBetween('created_at', ['2020-01-01 00:00:00', '2020-12-31 00:00:00']);
+->wherePivotNotBetween('created_at', ['2020-01-01 00:00:00', '2020-12-31 00:00:00']);
+->wherePivotNull('expired_at');
+->wherePivotNotNull('expired_at');
+
+
+
+
+
+
+
+//custom pivot model
+
+->using(RoleUser::class)	
+use Illuminate\Database\Eloquent\Relations\Pivot;
+class RoleUser extends Pivot{}
+
+
+
+
+//inverse of relationship
+return $this->belongsToMany(User::class);	//many to many inverse
+
+
+
+
+
+
+

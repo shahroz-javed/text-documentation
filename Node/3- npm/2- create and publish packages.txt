@@ -1,0 +1,15 @@
+npm init
+npm init -y
+
+
+npm adduser
+npm login
+npm publish
+
+
+
+//updating published package
+npm version major
+npm version minor
+npm version patch
+npm publish

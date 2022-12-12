@@ -1,0 +1,12 @@
+async function getCourse() {
+  const course = await Course.find({ name: 'Laravel' })
+  console.log(course)
+}
+
+
+find()
+find({ name: 'Laravel' })
+.limit(2)
+.sort({ name: -1 })	[1,-1]for asc and desc
+.select({ name: 1 })	1 for true
+.select('name author')

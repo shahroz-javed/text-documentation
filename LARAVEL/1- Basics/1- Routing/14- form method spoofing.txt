@@ -1,0 +1,7 @@
+PUT, PATCH, DELETE  not supported
+
+PUT, PATCH, or DELETE routes that are called from an HTML using
+
+
+<input type="hidden" name="_method" value="PUT">
+@method('PUT')

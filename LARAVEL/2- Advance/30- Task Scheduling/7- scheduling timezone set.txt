@@ -1,0 +1,7 @@
+//in kernal class
+
+
+protected function scheduleTimezone()
+{
+    return 'America/Chicago';
+}

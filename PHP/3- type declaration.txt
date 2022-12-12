@@ -1,0 +1,25 @@
+can be added in function declaration
+
+
+Class/interface name	 must be an instanceof the given class or interface.    
+self 			 must be an instanceof the same class.Can only be used in classes.
+parent 			 must be an instanceof the parent. Can only be used in classes.    
+array 			The value must be an array.    
+callable 		The value must be a valid callable.Cannot be used as a class property type declaration.    
+bool 			The value must be a boolean value.    
+float 			The value must be a floating point number.    
+int 			The value must be an integer.    
+string 			The value must be a string.    
+iterable 		The value must be either an array or an instanceof Traversable.  PHP 7.1.0 
+object 			The value must be an object.  PHP 7.2.0 
+mixed 			The value can be any value.  
+
+
+
+//nullable arg and return type
+function f(?int $c):?int;	value can be null or of specified type
+
+//return only types
+void
+never
+static 			return typr must instance of same class

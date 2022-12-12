@@ -1,0 +1,7 @@
+$request->session()->increment('count');
+
+$request->session()->increment('count', $incrementBy = 2);
+
+$request->session()->decrement('count');
+
+$request->session()->decrement('count', $decrementBy = 2);

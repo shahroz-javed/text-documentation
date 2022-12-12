@@ -1,0 +1,18 @@
+//check if a string contain another
+//it is case sensitive
+
+
+const name='ali';
+
+const isInclude=name.includes('al')		//true
+const isInclude=name.includes('A')		//false	[due to case sensitivity]
+
+
+const isInclude=name.includes('a',1)		//false as it search from index 1
+
+
+
+
+
+//in object etc
+const searched=products.filter((product)=> product.title.toLowerCase.includes('a'));

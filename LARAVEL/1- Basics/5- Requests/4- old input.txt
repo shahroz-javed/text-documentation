@@ -1,0 +1,19 @@
+$request->flash();
+$request->flashOnly(['username', 'email']);
+$request->flashExcept('password');
+
+
+
+
+return redirect('form')->withInput();
+return redirect()->route('user.create')->withInput();
+return redirect('form')->withInput(
+    $request->except('password')
+);
+
+
+
+
+$request->old('username')
+
+value="{{ old('username') }}"

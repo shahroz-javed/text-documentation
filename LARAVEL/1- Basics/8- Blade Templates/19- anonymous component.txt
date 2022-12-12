@@ -1,0 +1,20 @@
+place a Blade template within your resources/views/components directory
+
+//render it using
+<x-alert/>
+<x-inputs.button/>
+
+no php file
+
+
+
+//passing data
+<x-alert type="error" :message="$message" class="mb-4"/>
+
+
+//reder data
+@props(['type' => 'info', 'message'])
+
+<div {{ $attributes->merge(['class' => 'alert alert-'.$type]) }}>
+    {{ $message }}
+</div>

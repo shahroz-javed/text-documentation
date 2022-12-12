@@ -1,0 +1,9 @@
+//branches
+git branch
+git branch shahroz
+git branch -d shahroz  //delete shahroz branch
+
+git checkout shahroz
+git checkout -b shahroz		//make branch and checkout
+
+git merge shahroz

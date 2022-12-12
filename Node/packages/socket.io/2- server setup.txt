@@ -1,0 +1,26 @@
+https://github.com/socketio/socket.io-client
+https://socket.io/docs/v4/server-installation/
+
+npm install socket.io
+npm install socket.io@4.5.1
+
+
+import { createServer } from "http";
+import { Server } from "socket.io";
+
+const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, { /* options */ 
+cors: { origin: '*' },
+});
+
+
+io.on('connection', socket => {
+  socket.emit('request', /* … */); // emit an event to the socket
+  io.emit('broadcast', /* … */); // emit an event to all connected sockets
+  socket.on('reply', () => { /* … */ }); // listen to the event
+});
+
+
+
+httpServer.listen(3000);

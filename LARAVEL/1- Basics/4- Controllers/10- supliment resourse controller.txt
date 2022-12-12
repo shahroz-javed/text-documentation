@@ -1,0 +1,2 @@
+Route::get('/photos/popular', [PhotoController::class, 'popular']);
+Route::resource('photos', PhotoController::class);

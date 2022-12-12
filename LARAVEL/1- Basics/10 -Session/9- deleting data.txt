@@ -1,0 +1,10 @@
+// Forget a single key...
+$request->session()->forget('name');
+
+// Forget multiple keys...
+$request->session()->forget(['name', 'status']);
+
+$request->session()->flush();
+
+
+$value = $request->session()->pull('key', 'default');

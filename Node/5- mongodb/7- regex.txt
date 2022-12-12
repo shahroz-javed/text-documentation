@@ -1,0 +1,6 @@
+startwith:	find({ name: /^Laravel/ })
+endwith:	find({ name: /Laravel$/ })
+startand end:	find({ name: /^Laravel$/ })
+contains:	find({ name: /.*lara.*/i })
+
+

@@ -1,0 +1,6 @@
+when we have multiple level childs
+last deep child need a prop [function etc]
+we have to pass it to level1, level2, all the way down to components to make it availabel to last deep child.
+
+
+context api handle it.

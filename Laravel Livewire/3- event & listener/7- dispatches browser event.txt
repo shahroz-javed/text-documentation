@@ -1,0 +1,17 @@
+$this->dispatchBrowserEvent('name-updated', ['newName' => $value]);
+
+
+
+//listen above event
+<script>
+window.addEventListener('name-updated', event => {
+    alert('Name updated to: ' + event.detail.newName);
+})
+</script>
+
+
+
+//using alpine.js
+<div x-data="{ open: false }" @name-updated.window="open = false">
+    <!-- Modal with a Livewire name update form -->
+</div>

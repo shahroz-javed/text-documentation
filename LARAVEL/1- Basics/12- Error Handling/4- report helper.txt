@@ -1,0 +1,13 @@
+ try {
+        // Validate the value...
+    } catch (Throwable $e) {
+        report($e);
+
+        return false;
+    }
+
+
+//in exception class which you don't want to report
+protected $dontReport = [
+    InvalidOrderException::class,
+];

@@ -1,0 +1,73 @@
+<BlogPost @enlarge-text="postFontSize += 0.1" />
+<BlogPost @enlarge-text.once="postFontSize += 0.1" />		//.once is supported
+
+
+//in blog post component
+<button @click="$emit('enlarge-text')">Enlarge text</button>
+this.$emit('enlarge-text')
+
+
+
+
+
+//Event Arguments
+@click="$emit('increaseBy', 1)"
+
+
+
+
+//Declaring Emitted Events
+export default {
+  props: ['title'],
+  emits: ['enlarge-text'],
+  emits: {
+    submit(payload) {
+      // return `true` or `false` to indicate
+      // validation pass / fail
+    }
+  }
+}
+
+
+
+
+
+//events validation
+emits: {
+    // No validation
+    click: null,
+
+    // Validate submit event
+    submit: ({ email, password }) => {
+      if (email && password) {
+        return true
+      } else {
+        console.warn('Invalid submit event payload!')
+        return false
+      }
+    }
+  },
+
+
+
+
+
+
+
+//usage with v-model
+<input v-model="searchText" />
+<input :value="searchText"  @input="searchText = $event.target.value" /> 
+<CustomInput :modelValue="searchText"  @update:modelValue="newValue => searchText = newValue" />
+<CustomInput v-model="searchText" />
+
+//on component
+<input
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+  />
+
+props: ['modelValue'],
+emits: ['update:modelValue']
+
+
+

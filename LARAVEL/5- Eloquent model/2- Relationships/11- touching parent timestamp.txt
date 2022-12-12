@@ -1,0 +1,3 @@
+//it is sometimes helpful to update the parent's timestamp when the child model is updated.
+protected $touches = ['post'];
+use save method to update child to make this work.

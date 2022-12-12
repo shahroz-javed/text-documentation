@@ -1,0 +1,23 @@
+return response('Hello World')->cookie(
+    'name', 'value', $minutes, $path, $domain, $secure, $httpOnly
+);
+
+
+
+Cookie::queue('name', 'value', $minutes);
+$cookie = cookie('name', 'value', $minutes);
+return response('Hello World')->cookie($cookie);
+
+
+
+//expire cookie
+return response('Hello World')->withoutCookie('name');
+Cookie::expire('name');
+
+
+
+
+//EncryptCookies middleware to avoid from encryption
+protected $except = [
+    'cookie_name',
+];

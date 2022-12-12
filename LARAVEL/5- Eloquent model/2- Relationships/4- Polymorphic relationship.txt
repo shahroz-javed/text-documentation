@@ -1,0 +1,87 @@
+posts
+    id - integer
+    name - string
+ 
+users
+    id - integer
+    name - string
+ 
+images
+    id - integer
+    url - string
+    imageable_id - integer
+    imageable_type - string
+
+
+
+
+//defining relationship
+public function imageable()
+    {
+        return $this->morphTo();
+ 	return $this->morphTo(__FUNCTION__, 'imageable_type', 'imageable_id');
+    }
+public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+	return $this->morphMany(Comment::class, 'commentable');
+    }
+
+
+
+
+//retrive relationship
+$post = Post::find(1);
+$image = $post->image;
+
+$image = Image::find(1);
+$imageable = $image->imageable;
+
+
+
+//One Of Many (Polymorphic)
+->latestOfMany()
+->oldestOfMany()
+->ofMany([
+        'published_at' => 'max',
+        'id' => 'max',
+    ], function ($query) {
+        $query->where('published_at', '<', now());
+    })
+
+
+
+
+
+
+
+
+//many to many polymorphic
+posts
+    id - integer
+    name - string
+ 
+videos
+    id - integer
+    name - string
+ 
+tags
+    id - integer
+    name - string
+ 
+taggables
+    tag_id - integer
+    taggable_id - integer
+    taggable_type - string
+
+
+
+//in model
+public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
+public function videos()
+    {
+        return $this->morphedByMany(Video::class, 'taggable');
+    }

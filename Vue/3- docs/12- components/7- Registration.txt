@@ -1,0 +1,17 @@
+app
+  .component('ComponentA', ComponentA)
+  .component('ComponentB', ComponentB)
+  .component('ComponentC', ComponentC)
+
+
+
+<!-- this will work in any component inside the app -->
+<ComponentA/>
+<ComponentB/>
+<ComponentC/>
+
+
+
+
+//Component Name Casing
+PascalCase

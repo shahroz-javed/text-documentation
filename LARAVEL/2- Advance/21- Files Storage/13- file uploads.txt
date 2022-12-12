@@ -1,0 +1,24 @@
+$request->file('avatar')->store('avatars');
+Storage::putFile('avatars', $request->file('avatar'));
+
+
+
+//filename
+$path = $request->file('avatar')->storeAs(
+    'avatars', $request->user()->id
+);
+$path = Storage::putFileAs(
+    'avatars', $request->file('avatar'), $request->user()->id
+);
+
+
+//disk specify
+'s3'	[as third arg]
+
+
+
+//uploaded file info
+$name = $file->getClientOriginalName();
+$extension = $file->getClientOriginalExtension();
+$name = $file->hashName(); // Generate a unique, random name...
+$extension = $file->extension(); 

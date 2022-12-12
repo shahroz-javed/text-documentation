@@ -1,0 +1,3 @@
+"apc", "array", "database", "file", "memcached", "redis"
+
+configure multiple cache configuration for same driver?

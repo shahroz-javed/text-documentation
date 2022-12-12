@@ -1,0 +1,3 @@
+two scenarios:
+	validity of the form state
+	form submission in progress

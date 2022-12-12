@@ -1,0 +1,5 @@
+//executed when no other route matches
+
+Route::fallback(function () {
+    //
+});

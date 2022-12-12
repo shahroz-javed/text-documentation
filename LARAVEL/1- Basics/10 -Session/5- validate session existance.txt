@@ -1,0 +1,4 @@
+$request->session()->has('users')
+$request->session()->exists('users')	//return true even user = null
+$request->session()->missing('users')
+session('user')

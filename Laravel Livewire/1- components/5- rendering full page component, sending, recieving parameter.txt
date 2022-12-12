@@ -1,0 +1,39 @@
+Route::get('/post/{id}', ShowPost::class);
+
+public $post;
+ 
+    public function mount($id)
+    {
+        $this->post = Post::find($id);
+    }
+
+
+public Post $post;
+
+
+
+
+//rendering view
+public function render()
+    {
+        return view('livewire.show-posts', [
+            'posts' => Post::all(),
+        ]);
+    }
+//rendering blade string
+public function render()
+    {
+        return <<<'blade'
+            <div>
+                <button wire:click="delete">Delete Post</button>
+            </div>
+        blade;
+    }
+
+
+
+
+require layouts/app.blade.php file as parent
+{{$slot}}  to iclude component
+<livewire:show-posts />
+@livewire('show-posts')

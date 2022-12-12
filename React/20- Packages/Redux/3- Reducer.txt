@@ -1,0 +1,5 @@
+Function used to update store
+
+Two arguments:  state and action
+
+Return old or updated state

@@ -1,0 +1,27 @@
+php artisan make:import UsersImport --model=User
+
+
+
+//in import class
+use Maatwebsite\Excel\Concerns\WithHeadingRow;		[implement concern]
+
+
+'name'     => $row['name'],
+'email'    => $row['email'],
+'phone' => $row['phone'],
+'salary' => $row['salary'],
+'department' => $row['department'],
+
+
+
+
+//in model
+protected $fillable = ['name', 'email', 'phone', 'salary', 'department'];
+
+
+
+//import work
+	1- make route to show form
+	2- make post route to import
+		use Maatwebsite\Excel\Facades\Excel;
+		Excel::import(new EmployeeImport, $request->csv);

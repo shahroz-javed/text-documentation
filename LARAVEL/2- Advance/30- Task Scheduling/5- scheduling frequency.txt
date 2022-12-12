@@ -1,0 +1,29 @@
+->cron('* * * * *');		//Run the task on a custom cron schedule
+->everyMinute();	
+->everyTwoMinutes();	
+->everyThreeMinutes();	
+->everyFourMinutes();	
+->everyFiveMinutes();	
+->everyTenMinutes();	
+->everyFifteenMinutes();	
+->everyThirtyMinutes();	
+->hourly();	
+->hourlyAt(17);			//Run the task every hour at 17 minutes past the hour
+->everyTwoHours();	
+->everyThreeHours();	
+->everyFourHours();	
+->everySixHours();	
+->daily();	
+->dailyAt('13:00');		//Run the task every day at 13:00
+->twiceDaily(1, 13);		//Run the task daily at 1:00 & 13:00
+->weekly();			//Run the task every Sunday at 00:00
+->weeklyOn(1, '8:00');		//Run the task every week on Monday at 8:00
+->monthly();	
+->monthlyOn(4, '15:00');	//Run the task every month on the 4th at 15:00
+->twiceMonthly(1, 16, '13:00');	//Run the task monthly on the 1st and 16th at 13:00
+->lastDayOfMonth('15:00');	//Run the task on the last day of the month at 15:00
+->quarterly();	
+->yearly();	
+->yearlyOn(6, 1, '17:00');	//Run the task every year on June 1st at 17:00
+->timezone('America/New_York');	//Set the timezone for the task
+->at('2:00')

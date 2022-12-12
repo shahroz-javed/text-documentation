@@ -1,0 +1,17 @@
+public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('log')->only('index');
+        $this->middleware('subscribed')->except('store');
+    }
+
+
+
+on routes
+
+
+
+//inline middleware without middleware class
+$this->middleware(function ($request, $next) {
+    return $next($request);
+});

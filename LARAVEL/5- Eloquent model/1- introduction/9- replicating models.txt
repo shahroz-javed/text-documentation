@@ -1,0 +1,2 @@
+$shipping->replicate()->fill(['type' => 'billing']);
+$flight->replicate(['last_flown', 'last_pilot_id']);	//will be excluded in new model

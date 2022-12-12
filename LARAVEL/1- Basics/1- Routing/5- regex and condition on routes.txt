@@ -1,0 +1,11 @@
+Route::get('/user/{id}/{name}', function ($id, $name) {})->where(['id' => '[0-9]+', 'name' => '[a-z]+']);
+
+->whereNumber('id')
+->whereAlpha('name')
+->whereAlphaNumeric('name')
+->whereUuid('id')
+->where('search', '.*')		//to allow / in route param value
+
+
+//global constraints
+Route::pattern('id', '[0-9]+');		in boot of RouteServiceProvider

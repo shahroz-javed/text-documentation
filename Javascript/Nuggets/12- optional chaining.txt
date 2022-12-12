@@ -1,0 +1,11 @@
+const people=[
+{name:'bob',location:{street:2,timezone:{offset:'+7:00'},}}
+{name:'ali',location:{street:23}}
+{name:'khan',location:{street:6,timezone:{offset:'+7:00'},}}
+]
+
+
+//if we iterate and access offset will give error
+
+console.log(person.location && person.location.timezone && person.location.timezone.offset)
+console.log(person?.location?.timezone?.offset || 'default value where undefined')

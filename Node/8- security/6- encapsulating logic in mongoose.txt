@@ -1,0 +1,9 @@
+import jwt from 'jsonwebtoken'
+
+userSchema.methods.generateAuthToken = function () {
+  return jwt.sign({ _id: this._id, name: this.name }, process.env.JSON_SECRET)
+}
+
+
+
+let token = user.generateAuthToken()

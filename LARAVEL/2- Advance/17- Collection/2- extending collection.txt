@@ -1,0 +1,28 @@
+Collections are "macroable", which allows you to add additional methods to the Collection class at run time.
+
+
+Collection::macro('toUpper', function () {
+    return $this->map(function ($value) {
+        return Str::upper($value);
+    });
+});
+
+$collection = collect(['first', 'second']);
+
+$upper = $collection->toUpper();
+
+
+
+
+
+
+//macro args
+Collection::macro('toLocale', function ($locale) {
+    return $this->map(function ($value) use ($locale) {
+        return Lang::get($value, [], $locale);
+    });
+});
+
+$collection = collect(['first', 'second']);
+
+$translated = $collection->toLocale('es');

@@ -1,0 +1,45 @@
+composer require laravel/ui
+php artisan ui bootstrap --auth	[vue,react,tailwindcss]
+npm install
+npm run dev
+laravel new blog --auth
+
+
+
+//middleware
+auth
+auth:admin
+
+
+
+//properties
+$remember=true
+
+
+
+//methods
+Auth::user()
+check()
+id()
+once($credential)
+loginUsinId(1)
+guard('admin')->login($credential)
+logout()
+$req->session()->regenrate()
+$req->session()->invalidate()
+$req->session()->regenerateToken()
+
+
+
+//configuration
+Authenticate.php    //middleware
+Home='/home'	//RouteServiceProvider.php
+
+
+
+
+
+//customization
+password_timeout=10080		//config/auth.php
+function guard(){return Auth::guard('admin');}		//in auth controllers
+function authenticated(){}		//login controller

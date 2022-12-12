@@ -1,0 +1,24 @@
+<button
+       v-for="tab in tabs"
+       :key="tab"
+       :class="['tab-button', { active: currentTab === tab }]"
+       @click="currentTab = tab"
+     >
+      {{ tab }}
+</button>
+<component :is="currentTab" class="tab"></component>
+
+
+
+
+components: {
+    Home,
+    Posts,
+    Archive
+  },
+  data() {
+    return {
+      currentTab: 'Home',
+      tabs: ['Home', 'Posts', 'Archive']
+    }
+}

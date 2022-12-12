@@ -1,0 +1,21 @@
+//retrieve and delete
+$value = Cache::pull('key');
+Cache::forget('key');
+Cache::put('key', 'value', 0);
+Cache::put('key', 'value', -5);
+Cache::flush();
+
+
+//store
+Cache::put('key', 'value', $seconds = 10);
+Cache::put('key', 'value');
+Cache::put('key', 'value', now()->addMinutes(10));
+
+
+//store only if not exist
+Cache::add('key', 'value', $seconds);
+
+
+
+//store forever
+Cache::forever('key', 'value');

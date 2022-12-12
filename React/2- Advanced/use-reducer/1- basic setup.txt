@@ -1,0 +1,17 @@
+//setup
+index.js is main entry in every folder if we have
+
+const initialState={
+people:[],
+openModel:false,
+content:'hello'
+}
+
+const reducer=(state,action)=>{}
+
+const [state , dispatch] =useReducer(reducer,initialState)	//reducer is a function
+
+//access
+{state.openModel}
+
+

@@ -1,0 +1,2 @@
+$schedule->command('emails:send')->withoutOverlapping();
+$schedule->command('emails:send')->withoutOverlapping(10);	//time in material

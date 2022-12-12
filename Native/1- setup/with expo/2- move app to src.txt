@@ -1,0 +1,12 @@
+//package.json
+"main": "./index.js",
+
+
+//copy code from
+node_modules/expo/AppEntry
+
+
+//index.js at root
+import registerRootComponent from 'expo/build/launch/registerRootComponent'
+import App from './src/App'
+registerRootComponent(App)

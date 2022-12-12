@@ -1,0 +1,27 @@
+<Field as='textarea' name='comments' className='form-control' />
+<Field component='textarea' name='comments' className='form-control' />
+
+
+
+
+//passing children prop to field
+<Field name='address' className='form-control'>
+              {(props) => {
+                // console.log(props)
+                const { field, form, meta } = props
+                return (
+                  <div>
+                    {' '}
+                    <input
+                      type='text'
+                      id='address'
+                      className='form-control'
+                      {...field}
+                    ></input>
+                    {meta.touched && meta.error ? (
+                      <div>{meta.error}</div>
+                    ) : null}
+                  </div>
+                )
+              }}
+            </Field>

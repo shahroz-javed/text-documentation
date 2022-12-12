@@ -1,0 +1,23 @@
+ $this->renderable(function (InvalidOrderException $e, $request) {
+        return response()->view('errors.invalid-order', [], 500);
+    });
+
+
+
+
+
+
+//in custom exception class
+public function report()
+    {
+        //
+	// Determine if the exception needs custom reporting...
+	return false;
+    }
+
+
+
+public function render($request)
+    {
+        return response(...);
+    }

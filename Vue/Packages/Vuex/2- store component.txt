@@ -1,0 +1,16 @@
+export default createStore({
+  state: {
+  },
+  getters: {
+    //get data from state
+  },
+  mutations: {
+    //no async code in it like api calling
+  },
+  actions: {
+	//call api here
+  },
+  modules: {
+    // break our store in modules
+  },
+})

@@ -1,0 +1,45 @@
+composer require laravel/passport
+php artisan migrate
+php artisan passport:install
+
+
+
+use Laravel\Passport\HasApiTokens;		//in user modal
+use HasApiTokens
+
+
+use Laravel\Passport\Passport;
+Passport::routes();	//boot() AuthServieceProvider
+
+
+
+
+//middleware
+auth:api
+
+
+
+
+//guard		[auth.php]
+'api'=>[
+'driver'=>'passport',
+'provider'=>'users',
+'hash'=>false
+]
+
+
+
+
+//.env
+PASSPORT_PERSONAL_ACCESS_CLIENT_ID=
+PASSPORT_PERSONAL_ACCESS_CLIENT_SECRET=
+
+
+
+//create token
+$token=$user->createToken('token',['place_order'])->accessToken;
+
+
+
+//logout
+auth()->user()->token()->revoke;

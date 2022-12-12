@@ -1,0 +1,45 @@
+model name singular
+table name plural,snake case
+
+
+protected $table = 'my_flights';
+
+
+//primary key
+protected $primaryKey = 'flight_id';
+
+//if your primary key is not increamenting
+public $incrementing = false;
+
+
+//primary key type if not integer
+protected $keyType = 'string';
+
+
+
+//"Composite" Primary Keys
+not supported
+
+
+//uuid col instead of primary key
+$table->uuid('id');
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use HasUuids;
+
+//timestamps
+public $timestamps = false;
+protected $dateFormat = 'U';
+const CREATED_AT = 'creation_date';
+const UPDATED_AT = 'updated_date';
+
+
+
+//connections
+protected $connection = 'sqlite';
+
+
+
+//default attributes values
+protected $attributes = [
+        'name' => null,
+    ];

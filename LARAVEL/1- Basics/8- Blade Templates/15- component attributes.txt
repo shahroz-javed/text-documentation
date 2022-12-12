@@ -1,0 +1,13 @@
+<x-alert type="error" :message="$message" class="mt-4"/>
+
+
+<div {{ $attributes }}>
+    <!-- Component content -->
+</div>
+
+
+
+//default or merge attr
+<div {{ $attributes->merge(['class' => 'alert alert-'.$type]) }}>
+    {{ $message }}
+</div>

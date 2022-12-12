@@ -1,0 +1,68 @@
+//v-on:click="handler" or with the shortcut, @click="handler"
+
+
+//inline handler
+@click="count++"
+@click="foo()"
+
+//Method Handlers [valid js identifier] [i.e. foo, foo.bar and foo['bar'] ]
+@click="increamentNumber"
+
+
+
+
+//Calling Methods in Inline Handlers
+@click="say('hello')"
+
+
+
+
+//Accessing Event Argument in Inline Handlers
+@click="warn('Form cannot be submitted yet.', $event)"		//using $event special variable
+@click="(event) => warn('Form cannot be submitted yet.', event)"	//using inline arrow function
+
+
+//Event Modifiers
+@click.stop
+@submit.prevent
+@click.self
+@click.capture	//an event targeting an inner element is handled here before being handled by that element
+.once
+@scroll.passive
+v-model.lazy="msg"
+v-model.number="msg"
+v-model.trim="msg"
+
+<form @submit.prevent="onSubmit"></form>
+<a @click.stop.prevent="doThat"></a>	//modifiers can be chained [order metter]
+<form @submit.prevent></form>
+
+
+
+//key modifiers
+@keyup.enter
+	//key alises
+		.enter
+		.tab
+		.delete (captures both "Delete" and "Backspace" keys)
+		.esc
+		.space
+		.up
+		.down
+		.left
+		.right
+
+//System Modifier Keys
+.ctrl
+.alt
+.shift
+.meta
+
+@keyup.alt.enter="clear"	//alt + enter
+@click.ctrl="doSomething"	//click + enter
+
+
+//Mouse Button Modifiers#
+.left
+.right
+.middle

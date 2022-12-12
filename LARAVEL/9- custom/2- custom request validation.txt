@@ -1,0 +1,5 @@
+php artisan make:request FormValidation
+
+authorize true;
+
+function messages(){ return [name.required => 'must enter name']; }

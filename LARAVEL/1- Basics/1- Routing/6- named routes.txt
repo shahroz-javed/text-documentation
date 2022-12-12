@@ -1,0 +1,14 @@
+Route::get('/user/{id}/profile', function ($id) {
+    //
+})->name('profile');
+
+
+//url of profile route
+$url = route('profile', ['id' => 1]);
+
+
+
+
+
+//inspecting named route
+if ($request->route()->named('profile')) {}

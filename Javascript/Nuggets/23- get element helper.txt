@@ -1,0 +1,23 @@
+//for large project selecting elements
+
+
+
+
+const getElement = (selector,isList) =>{
+if(isList){
+const el= [...document.querySelectorAll(selector)];
+if(el.length < 1){
+throw new Error(`please check selector:${selector}`)
+}
+return el;
+}
+
+
+const el= document.querySelector(selector);
+if(el) return el;
+throw new Error(`please check selector:${selector}`)
+
+}
+
+
+console.log('.heading')

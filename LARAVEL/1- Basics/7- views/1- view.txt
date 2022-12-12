@@ -1,0 +1,19 @@
+return view('greeting', ['name' => 'James']);
+
+
+
+
+return View::make('greeting', ['name' => 'James']);
+return View::first(['custom.admin', 'admin'], $data)
+View::exists('emails.customer')
+
+
+
+
+return view('admin.profile', $data);
+return view('greetings', ['name' => 'Victoria']);
+
+
+
+//in boot of app service provider
+View::share('key', 'value');

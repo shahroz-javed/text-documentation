@@ -1,0 +1,15 @@
+//validate
+//check user exist
+//const check = await bcrypt.compare(req.body.password, user.password)
+
+
+
+//jwt  [like licence]
+
+token represent an object like {"name":"shahroz"}
+
+
+npm install jsonwebtoken
+
+import jwt from 'jsonwebtoken'
+let token = jwt.sign({ _id: user._id, name: user.name }, 'privatekey')

@@ -1,0 +1,24 @@
+SQL keyword not case sensitive
+; at end of statement
+
+
+
+//vip
+SELECT
+UPDATE
+DELETE
+INSERT INTO
+CREATE DATABASE
+ALTER DATABASE
+CREATE TABLE
+ALTER TABLE
+DROP TABLE
+CREATE INDEX
+DROP INDEX
+
+
+//elements
+keywords
+clauses
+operators
+wildcards

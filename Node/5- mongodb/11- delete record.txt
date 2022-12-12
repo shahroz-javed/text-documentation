@@ -1,0 +1,7 @@
+const course = await Course.findByIdAndDelete({
+    _id: '636a070c16ccacf5d4d106f9',
+  })
+
+const course = await Course.deleteOne({
+    _id: '636a070c16ccacf5d4d106f9',
+  })

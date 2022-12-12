@@ -1,0 +1,12 @@
+use SoftDelete		//in model
+$table->softDelete()	//in migration
+$table->dropSoftDeletes();
+
+
+belongsTo->withTrashed()	//relationship
+
+
+forceDelete()
+onlyTrashed()
+restore()
+trashed()

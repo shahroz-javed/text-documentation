@@ -1,0 +1,30 @@
+npm install -D tailwindcss
+npx tailwindcss init
+
+
+init command will generate a tailwind.config.js
+//configure the paths to all of your application's templates 
+
+purge: [
+    './storage/framework/views/*.php',
+    './resources/**/*.blade.php',
+    './resources/**/*.js',
+    './resources/**/*.vue',
+],
+
+
+
+
+
+//in resources/css/app.css	['tailwind layers']
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css', [
+        require('tailwindcss'),
+    ]);
+

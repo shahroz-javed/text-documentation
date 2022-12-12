@@ -1,0 +1,11 @@
+composer require guzzlehttp/guzzle
+
+
+
+
+->pingBefore($url)
+->thenPing($url);
+->pingBeforeIf($condition, $url)
+->thenPingIf($condition, $url);
+->pingOnSuccess($successUrl)
+->pingOnFailure($failureUrl);

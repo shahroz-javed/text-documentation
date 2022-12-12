@@ -1,0 +1,27 @@
+php artisan make:seeder UserSeeder
+
+
+DB::table('users')->insert([
+            'name' => Str::random(10),
+            'email' => Str::random(10).'@gmail.com',
+            'password' => Hash::make('password'),
+        ]);
+
+
+
+//call additional seeders in database seeder
+$this->call([
+        UserSeeder::class,
+        PostSeeder::class,
+        CommentSeeder::class,
+    ]);
+
+
+
+
+
+//running seeder
+php artisan db:seed
+php artisan db:seed --class=UserSeeder
+php artisan migrate:fresh --seed
+php artisan db:seed --force

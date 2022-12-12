@@ -1,0 +1,10 @@
+//delete all
+$deleted = DB::table('users')->delete();
+
+
+//delete selective
+$deleted = DB::table('users')->where('votes', '>', 100)->delete();
+
+
+//truncate table
+DB::table('users')->truncate();

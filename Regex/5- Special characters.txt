@@ -1,0 +1,9 @@
++	//one ore more [a]+
+\	//escape char
+[]	//char set
+[^]	//not include or negate
+?	//0 or more
+*	//0 or more
+.	//match any char except new line car.
+?=n	//match string end with n
+?!n	//match string not end with n

@@ -1,0 +1,14 @@
+
+
+DB::table('users')->increment('votes');
+DB::table('users')->increment('votes', 5);		increment by 5
+
+
+
+DB::table('users')->decrement('votes');
+DB::table('users')->decrement('votes', 5);		//decrement by 5
+
+
+
+//additional columns to update during the operation
+DB::table('users')->increment('votes', 1, ['name' => 'John']);

@@ -1,0 +1,23 @@
+import Twilio from 'twilio'
+
+var accountSid = process.env.TWILIO_ACCOUNT_SID
+var authToken = process.env.TWILIO_AUTH_TOKEN
+
+//third arg optional
+const twilio = new Twilio(accountSid, authToken,{
+    lazyLoading: true,
+    region: 'au1',
+    edge: 'sydney',
+    logLevel: 'debug'
+})
+
+
+//from number is from dashboard
+twilio.messages
+      .create({
+        body: 'Hi there',
+        from: '+13088563477',
+        to: '+923177252385',
+      })
+      .then((message) => console.log(message.sid))
+      .catch((err) => console.log(err))

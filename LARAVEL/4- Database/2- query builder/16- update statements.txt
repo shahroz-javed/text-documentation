@@ -1,0 +1,12 @@
+DB::table('users')->where('id', 1)->update(['votes' => 1]);
+
+
+
+//args
+1- to match
+2- to updates
+DB::table('users')
+    ->updateOrInsert(
+        ['email' => 'john@example.com', 'name' => 'John'],
+        ['votes' => '2']
+    );

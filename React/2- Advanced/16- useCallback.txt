@@ -1,0 +1,3 @@
+const addtocart=useCallback(()=>{
+	setCart(cart+1)
+},[cart]);	//2nd arg dependency array

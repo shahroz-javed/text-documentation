@@ -1,0 +1,24 @@
+php artisan make:model Flight
+
+
+php artisan make:model Flight --migration
+
+
+
+php artisan make:model Flight --factory
+php artisan make:model Flight -f
+
+php artisan make:model Flight --seed
+php artisan make:model Flight -s
+
+
+php artisan make:model Flight --controller
+php artisan make:model Flight -c
+
+php artisan make:model Flight -mfsc
+
+
+php artisan make:model Flight --all
+
+# Generate a pivot model...
+php artisan make:model Member --pivot

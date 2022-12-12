@@ -1,0 +1,16 @@
+import { createStore } from 'redux'
+
+
+//reducer function
+function reducer() {
+  console.log('shake and bake')
+}
+
+
+
+//store
+const store = createStore(reducer,initialState)
+
+
+
+store.getState()

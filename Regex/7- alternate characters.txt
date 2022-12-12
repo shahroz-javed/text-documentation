@@ -1,0 +1,3 @@
+(p|t)yre	//wil math both pyre and tyre
+
+shahroz|ali	//match both

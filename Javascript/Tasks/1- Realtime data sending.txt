@@ -1,0 +1,12 @@
+const bc = new BroadcastChannel('test_channel');
+bc.postMessage('my name is shahroz');
+
+
+const bc = new BroadcastChannel('test_channel');
+bc.onmessage = function(ev) {
+        let targetdiv = document.querySelectorAll(`[data-block='${localStorage.getItem('block')}']`);
+        targetdiv[0].innerHTML = '';
+        targetdiv[0].innerHTML = `<h1>${ev.data}</h1>`;
+    }
+
+bc.close()

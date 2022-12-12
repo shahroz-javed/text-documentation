@@ -1,0 +1,11 @@
+//convert object to arrays
+
+const person={
+name:"john",age:43,status:"student"
+}
+
+
+
+//Object.keys(person)		convert properties names to array
+//Object.keys(person)		convert properties values to array
+//Object.keys()		convert both to array of arrays

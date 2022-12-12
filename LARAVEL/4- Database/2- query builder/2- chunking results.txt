@@ -1,0 +1,20 @@
+retrieves a small chunk of results at a time and feeds each chunk into a closure for processing
+must use orderBy
+
+
+//chunking results
+DB::table('users')->orderBy('id')->chunk(5, function ($users) {
+        foreach ($users as $user) {
+            //perform an action against $user
+            DB::table('users')
+                ->where('id', $user->id)
+                ->update(['email_verified_at' => Carbon::now()]);
+        }
+    });
+
+
+//stop further chunks from being processed
+return false;
+
+//if you want to update
+chunkById()

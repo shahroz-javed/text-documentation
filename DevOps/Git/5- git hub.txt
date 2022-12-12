@@ -1,0 +1,16 @@
+git remote add origin urlrepo
+
+git remote
+git remote -v
+
+
+
+git push
+git push origin master
+git -u push origin master
+
+
+git clone url foldername
+git clone url
+git pull
+git pull origin azher

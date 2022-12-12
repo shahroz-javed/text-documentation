@@ -1,0 +1,26 @@
+$user = User::factory()
+            ->has(Post::factory()->count(3)
+		->state(function (array $attributes, User $user) {
+                            return ['user_type' => $user->type];
+                        }))
+            ->create();
+
+
+//require by convention
+User,Post model
+posts relationship method in User model
+
+
+
+//if not follow convention
+has(Post::factory()->count(3), 'posts')
+
+
+
+//magic method
+$user = User::factory()->hasPosts(3, ['published' => false,])->create();
+
+
+look for posts relationship in User model
+sec arg to overide attributes
+

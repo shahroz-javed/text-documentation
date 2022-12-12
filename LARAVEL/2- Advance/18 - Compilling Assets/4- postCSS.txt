@@ -1,0 +1,11 @@
+transform css and apply all vendor prefix
+
+
+//if install desired pluging\
+mix.postCss('resources/css/app.css', 'public/css', [
+    require('postcss-custom-properties')
+]);
+
+
+//without plugin
+mix.postCss('resources/css/app.css', 'public/css');

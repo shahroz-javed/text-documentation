@@ -1,0 +1,75 @@
+<Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
+      {(formik) => {
+        console.log('alsmdkasmx', formik)
+        return (
+          <div className='w-50 mx-auto mt-5 card'>
+            <h1>Form using Formik and Yup1</h1>
+            <Form className='w-75 mx-auto'>
+              <div className='form-group mt-2 mb-2'>
+                <label htmlFor='name'>Name</label>
+                <Field type='text' name='name' className='form-control' />
+                <ErrorMessage name='name' component={TextError} />
+              </div>
+              <div className='form-group mt-2 mb-2'>
+                <label htmlFor='email'>Email</label>
+                <Field type='email' name='email' className='form-control' />
+                <ErrorMessage name='email' component={TextError} />
+              </div>
+              <div className='form-group mt-2 mb-2'>
+                <label htmlFor='channel'>Channel</label>
+                <Field type='text' name='channel' className='form-control' />
+                <ErrorMessage name='channel'>
+                  {(err) => <div className='text-danger'>{err}</div>}
+                </ErrorMessage>
+              </div>
+              <div className='form-group mt-2 mb-2'>
+                <label htmlFor='comments'>Comment</label>
+                <Field
+                  as='textarea'
+                  name='comments'
+                  className='form-control'
+                  validate={validateComments}
+                />
+                <ErrorMessage name='comments' />
+              </div>
+
+              <button
+                type='button'
+                onClick={() => formik.validateField('comments')}
+              >
+                validate comments
+              </button>
+              <button type='button' onClick={() => formik.validateForm()}>
+                validate all
+              </button>
+              <button
+                type='button'
+                onClick={() => formik.setFieldTouched('comments')}
+              >
+                visit comments
+              </button>
+              <button
+                type='button'
+                onClick={() =>
+                  formik.setTouched({
+                    name: true,
+                    email: true,
+                    channel: true,
+                    comments: true,
+                  })
+                }
+              >
+                visit all
+              </button>
+              <div className='form-group mt-2 mb-2'>
+                <input type='submit' className='btn btn-primary' />
+              </div>
+            </Form>
+          </div>
+        )
+      }}
+    </Formik>

@@ -1,0 +1,8 @@
+var x= ;
+
+x.runtimeType	//to check type of var
+
+int 
+double
+bool
+String

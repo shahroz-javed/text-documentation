@@ -1,0 +1,2 @@
+$this->emitSelf('postAdded');
+<button wire:click="$emitSelf('postAdded')">

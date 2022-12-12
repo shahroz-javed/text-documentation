@@ -1,0 +1,10 @@
+<button wire:click="$emit('postAdded', $post->id)">
+
+protected $listeners = ['postAdded' => 'incrementPostCount'];
+ 
+public function incrementPostCount(Post $post)
+    {
+        $this->postCount = Post::count();
+    }
+
+

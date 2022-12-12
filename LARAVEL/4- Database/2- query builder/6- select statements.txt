@@ -1,0 +1,11 @@
+//select statements
+DB::table('users')
+            ->select('name', 'email as user_email')
+            ->get();
+
+
+DB::table('users')->distinct()->get();
+
+
+$user = DB::table('users')->select('name');
+     $add = $user->addSelect('email')->get();

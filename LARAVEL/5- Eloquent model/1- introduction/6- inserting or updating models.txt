@@ -1,0 +1,42 @@
+save()
+create(['name'=>'shahroz'])
+update(['name'=>'ali'])		//find and update
+
+
+
+
+//determine how its attributes have changed from when the model was originally retrieved.
+$user->isDirty(['first_name', 'title']);	//return true if one of col is changed
+$user->isClean(['first_name', 'title']);	//return true if col not changed
+$user->wasChanged(['first_name', 'title']);	//model was last saved within the current request cycle
+$user->getOriginal('name');			//get name the was first setup or befor change
+
+
+
+
+
+
+//mass assignment
+protected $fillable = ['name', 'options->enabled'];
+protected $guarded = [];				//make all attr assignable
+
+fill(['name' => 'Amsterdam to Frankfurt'])
+create()
+update()
+
+
+
+
+
+//Upserts	[1 to insert, 2 to unique identify, 3 to update]
+Flight::upsert([
+    ['departure' => 'Oakland', 'destination' => 'San Diego', 'price' => 99],
+    ['departure' => 'Chicago', 'destination' => 'New York', 'price' => 150]
+], ['departure', 'destination'], ['price']);
+
+
+//update where 1st args match
+Flight::updateOrCreate(
+    ['departure' => 'Oakland', 'destination' => 'San Diego'],
+    ['price' => 99, 'discounted' => 1]
+);

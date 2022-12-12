@@ -1,0 +1,14 @@
+Class=“btn”
+
+
+//binding style to obj
+:style=“{color:’red’}”
+:style=“{styleObject}”
+
+
+//binding to array
+:style="[baseStyles, overridingStyles]"
+
+
+//multiple values
+:style=“{color:['-webkit-red','-ms-green','yellow']}”

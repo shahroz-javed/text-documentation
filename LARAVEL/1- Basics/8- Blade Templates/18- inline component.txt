@@ -1,0 +1,10 @@
+php artisan make:component Alert --inline
+
+public function render()
+{
+    return <<<'blade'
+        <div class="alert alert-danger">
+            {{ $slot }}
+        </div>
+    blade;
+}

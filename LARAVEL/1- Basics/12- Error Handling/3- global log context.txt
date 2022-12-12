@@ -1,0 +1,18 @@
+//in Handler
+//Laravel automatically adds the current user's ID to every exception's log message as contextual data
+
+protected function context()
+{
+    return array_merge(parent::context(), [
+        'foo' => 'bar',
+    ]);
+}
+
+
+
+
+or in custom exception class to return relevent data
+public function context()
+    {
+        return ['order_id' => $this->orderId];
+    }

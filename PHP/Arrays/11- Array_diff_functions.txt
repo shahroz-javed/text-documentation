@@ -1,0 +1,27 @@
+array_diff($array1,$array2),array_diff($array1,$array2,$array3)
+array_diff_key($array1,$array2)
+array_diff_assoc($array1,$array2)		//check key val both
+array_diff_uassoc($array1,$array2,'comparefunc')
+array_udiff_assoc($array1,$array2,'comparefunc');
+array_diff_ukey($array1,$array2,'comparefunc')
+array_udiff($array1,$array2,'comparefunc')
+array_udiff_uassoc($array1,$array2,'comparekey','compareval')		//one func for key one for val
+
+
+
+
+
+//functions:
+function comparefunc($a,$b){
+    if($a===$b){
+        return 0;
+    }
+    return ($a>$b)? 1:-1;
+}
+
+function comparekey($a,$b){
+    if($a===$b){
+        return 0;
+    }
+    return ($a>$b)? 1:-1;
+}

@@ -1,0 +1,5 @@
+npm install
+npm run dev
+npm run prod
+npm run watch
+npm run watch-poll

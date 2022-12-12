@@ -1,0 +1,2 @@
+php artisan db
+php artisan db mysql

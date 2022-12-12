@@ -1,0 +1,25 @@
+//gather or collect the item
+//we use when we are [destucturing,functions]
+//careful about rest operator name [unique]
+//rest when declare function, spread when invoke function
+
+
+
+//destructuring example
+const fruits=['a','b','c','d'];
+const [first,...rest]=fruits;
+console.log(first,rest)		//a ['b','c','d']
+
+const {name,...rest}=person;
+
+
+
+
+//function example
+function hello(name,...rest){
+console.log(rest);
+}
+
+let marks=[232,43,34,3,45,45,34]
+hello('nia',1,2,3,4,5,6);
+hello('ali',...marks);

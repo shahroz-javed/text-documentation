@@ -1,0 +1,5 @@
+onclick={myFunc}
+
+onclick={()=>myFunc(id)}
+
+onclick={myFunc(id)}		//will call automatically when component renders

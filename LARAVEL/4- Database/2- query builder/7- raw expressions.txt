@@ -1,0 +1,22 @@
+//to insert an arbitrary string into a query
+
+
+
+//raw expression
+ DB::table('users')
+        ->select(DB::raw('(count(id)*5)+8 as user_count, email'))
+        ->where('id', '>', 7)
+        ->groupBy('email')
+        ->get();
+
+
+//raw methods
+selectRaw('price * ? as price_with_tax', [1.0825])
+orderByRaw('updated_at - created_at DESC')
+groupByRaw('city, state')
+
+whereRaw('price > IF(state = "TX", ?, 100)', [200])
+orWhereRaw('price > IF(state = "TX", ?, 100)', [200])
+
+havingRaw('SUM(price) > ?', [2500])
+orHavingRaw('SUM(price) > ?', [2500])

@@ -1,0 +1,19 @@
+--HTML tags and attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase.
+--PascalCase component names and camelCased prop names or v-on event names all need to use their kebab-cased
+
+
+
+
+//use like this
+<my-component></my-component>
+
+
+
+//will give error
+<table>
+  <blog-post-row></blog-post-row>
+</table>
+//use
+<table>
+  <tr is="vue:blog-post-row"></tr>
+</table>

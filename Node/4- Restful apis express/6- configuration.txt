@@ -1,0 +1,24 @@
+packages: rc, config
+
+npm i config
+
+const config = require('config')
+
+//in config folder
+default.json
+production.json
+development.json
+custom-environment.json
+
+
+
+config.get('mail.password')
+config.get('name')
+
+
+
+//custom env vars
+set app_password=12345678
+"mail": {
+    "password": "app_password"
+  }

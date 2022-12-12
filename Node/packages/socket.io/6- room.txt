@@ -1,0 +1,15 @@
+//client
+function joinRoom() {
+        let room = document.querySelector('input[name=room]').value
+        socket.emit('join-room', room, (message) => {
+          console.log(message)
+        })
+      }
+
+
+
+//server
+  socket.on('join-room', (data, cb) => {
+    socket.join(data)
+    cb('room joined')
+  })

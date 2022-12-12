@@ -1,0 +1,13 @@
+public function handle($request, Closure $next, $role)
+    {
+        if (! $request->user()->hasRole($role)) {
+            // Redirect...
+        }
+
+        return $next($request);
+    }
+
+
+
+
+->middleware('role:editor');

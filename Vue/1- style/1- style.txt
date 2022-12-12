@@ -1,0 +1,7 @@
+style="color: yellow“
+
+<style scoped>
+button {
+  background-color: red;
+}
+</style>

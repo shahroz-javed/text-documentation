@@ -1,0 +1,671 @@
+//remove duplicates
+    function removeDuplicates(Request $req)
+    {
+        $primary = Person::where('id', $req->primary)->first();
+        $secondary = Person::whereIn('id', $req->secondary)->get();
+
+        //properties
+        // $userId = null;
+        // $registration_number = null;
+        // $federation_id = null;
+        // $firstname = null;
+        // $lastname = null;
+        // $short_firstname = null;
+        // $short_firstname = null;
+        // $email = null;
+        // $gender = null;
+        // $gender_identity = null;
+        $birth = [];
+        // $nationality = null;
+        $spoken_languages = [];
+        $jobs = [];
+        // $headshot = null;
+        $address = [];
+        $contacts = [];
+        $info = [];
+        $materials = [];
+        $docs = [];
+        $__documents = [];
+        $financial = [];
+        // $federation_refund_locality_id = null;
+        $internal_notes = [];
+        $notes = [];
+        $multi_matricola = [];
+        // $tesserable = null;
+
+        //finding and assign values to properties
+        // user_id
+        foreach ($secondary as $key => $val) {
+
+            if ($val->user_id != 3473984738294) {
+                $userId =    $val->user_id;
+                break;
+            } else {
+                $userId =    null;
+            }
+        }
+        // registration
+        foreach ($secondary as $key => $val) {
+            if ($val->registration_number != null) {
+                $registration_number =    $val->registration_number;
+                break;
+            } else {
+                $registration_number =    null;
+            }
+        }
+        //fedration
+        foreach ($secondary as $key => $val) {
+            if ($val->federation_id != null) {
+                $federation_id =    $val->federation_id;
+                break;
+            } else {
+                $federation_id =    null;
+            }
+        }
+        //firstname
+        foreach ($secondary as $key => $val) {
+            if ($val->firstname != null) {
+                $firstname =    $val->firstname;
+                break;
+            } else {
+                $firstname =    null;
+            }
+        }
+        //lastname
+        foreach ($secondary as $key => $val) {
+            if ($val->lastname != null) {
+                $lastname =    $val->lastname;
+                break;
+            } else {
+                $lastname =    null;
+            }
+        }
+        //short_firstname
+        foreach ($secondary as $key => $val) {
+            if ($val->short_firstname != null) {
+                $short_firstname =    $val->short_firstname;
+                break;
+            } else {
+                $short_firstname =    null;
+            }
+        }
+        //short_lastname
+        foreach ($secondary as $key => $val) {
+            if ($val->short_lastname != null) {
+                $short_lastname =    $val->short_lastname;
+                break;
+            } else {
+                $short_lastname =    null;
+            }
+        }
+        //email
+        foreach ($secondary as $key => $val) {
+            if ($val->email != null) {
+                $email =    $val->email;
+                break;
+            } else {
+                $email =    null;
+            }
+        }
+        //gender
+        foreach ($secondary as $key => $val) {
+            if ($val->gender != null) {
+                $gender =    $val->gender;
+                break;
+            } else {
+                $gender =    null;
+            }
+        }
+        //gender_identity
+        foreach ($secondary as $key => $val) {
+            if ($val->gender_identity != null) {
+                $gender_identity =    $val->gender_identity;
+                break;
+            } else {
+                $gender_identity =    null;
+            }
+        }
+        //birthdate
+        foreach ($secondary as $key => $val) {
+
+            if ($val->birth != null) {
+                if ($primary->birth != null) {
+                    $birth =    array_merge($secondary[$key]->birth, $birth, $primary->birth);
+                } else {
+                    $birth =    array_merge($secondary[$key]->birth, $birth);
+                }
+            } else {
+                $birth =    $birth;
+            }
+        }
+        if ($birth == []) {
+            $birth = null;
+        }
+
+        //nationality
+        foreach ($secondary as $key => $val) {
+            if ($val->nationality != null) {
+                $nationality =    $val->nationality;
+                break;
+            } else {
+                $nationality =    null;
+            }
+        }
+
+        //spoken_languages
+        foreach ($secondary as $key => $val) {
+            if ($val->spoken_languages != null) {
+                if ($primary->spoken_languages != null) {
+                    $spoken_languages =    array_merge($secondary[$key]->spoken_languages, $spoken_languages, $primary->spoken_languages);
+                } else {
+                    $spoken_languages =    array_merge($secondary[$key]->spoken_languages, $spoken_languages);
+                }
+            } else {
+                $spoken_languages =    $spoken_languages;
+            }
+        }
+        $spoken_languagesu = array_unique($spoken_languages);
+        $spoken_languagess = [];
+        foreach ($spoken_languagesu as $key => $value) {
+            $spoken_languagess[] = $value;
+        }
+        if (count($spoken_languagess) == 0) {
+            $spoken_languagess = null;
+        }
+
+        //jobs
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->jobs != null) {
+                if ($primary->jobs != null) {
+                    $jobs =    array_merge($secondary[$key]->jobs, $jobs, $primary->jobs);
+                } else {
+                    $jobs =    array_merge($secondary[$key]->jobs, $jobs);
+                }
+
+                // break;
+            } else {
+                $jobs =    $jobs;
+            }
+        }
+        $jobsu = array_unique($jobs);
+        $jobss = [];
+        foreach ($jobsu as $key => $value) {
+            $jobss[] = $value;
+        }
+        if (count($jobss) == 0) {
+            $jobss = null;
+        }
+
+        //headshot
+        foreach ($secondary as $key => $val) {
+            if ($val->headshot != null) {
+                $headshot =    $val->headshot;
+                break;
+            } else {
+                $headshot =    null;
+            }
+        }
+
+        // address
+        // primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->address != null) {
+                if ($primary->address != null) {
+                    $address =    array_merge($secondary[$key]->address, $address, $primary->address);
+                } else {
+                    $address =    array_merge($secondary[$key]->address, $address);
+                }
+
+                // break;
+            } else {
+                $address =    $address;
+            }
+        }
+        if ($address == []) {
+            $address = null;
+        }
+        $addresses = [];
+        if ($address != null) {
+
+            foreach ($address as $key => $value) {
+                if (in_array($value, $addresses)) {
+                    continue;
+                } else {
+                    $addresses[] = $value;
+                }
+            }
+        }
+
+
+
+        //contacts
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->contacts != null) {
+                if ($primary->contacts != null) {
+                    $contacts =    array_merge($secondary[$key]->contacts, $contacts, $primary->contacts);
+                } else {
+                    $contacts =    array_merge($secondary[$key]->contacts, $contacts);
+                }
+
+                // break;
+            } else {
+                $contacts =    $contacts;
+            }
+        }
+        if ($contacts == []) {
+            $contacts = null;
+        }
+
+        //info
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->info != null) {
+                if ($primary->info != null) {
+                    $info =    array_merge($secondary[$key]->info, $info, $primary->info);
+                } else {
+                    $info =    array_merge($secondary[$key]->info, $info);
+                }
+
+                // break;
+            } else {
+                $info =    $info;
+            }
+        }
+        if ($info == []) {
+            $info = null;
+        }
+
+
+        //materials
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->materials != null) {
+                if ($primary->materials != null) {
+                    $materials =    array_merge($secondary[$key]->materials, $materials, $primary->materials);
+                } else {
+                    $materials =    array_merge($secondary[$key]->materials, $materials);
+                }
+
+                // break;
+            } else {
+                $materials =    $materials;
+            }
+        }
+        if ($materials == []) {
+            $materials = null;
+        }
+
+        //docs
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->docs != null) {
+                if ($primary->docs != null) {
+                    $docs =    array_merge($secondary[$key]->docs, $docs, $primary->docs);
+                } else {
+                    $docs =    array_merge($secondary[$key]->docs, $docs);
+                }
+
+                // break;
+            } else {
+                $docs =    $docs;
+            }
+        }
+        if ($docs == []) {
+            $docs = null;
+        }
+
+
+        //financial
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->financial != null) {
+                if ($primary->financial != null) {
+                    $financial =    array_merge($secondary[$key]->financial, $financial, $primary->financial);
+                } else {
+                    $financial =    array_merge($secondary[$key]->financial, $financial);
+                }
+
+                // break;
+            } else {
+                $financial =    $financial;
+            }
+        }
+        if ($financial == []) {
+            $financial = null;
+        }
+
+        //federation_refund_locality_id
+        foreach ($secondary as $key => $val) {
+            if ($val->federation_refund_locality_id != null) {
+                $federation_refund_locality_id =    $val->federation_refund_locality_id;
+                break;
+            } else {
+                $federation_refund_locality_id =    null;
+            }
+        }
+
+        //internal_notes
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->internal_notes != null) {
+                if ($primary->internal_notes != null) {
+                    $internal_notes =    array_merge($secondary[$key]->internal_notes, $internal_notes, $primary->internal_notes);
+                } else {
+                    $internal_notes =    array_merge($secondary[$key]->internal_notes, $internal_notes);
+                }
+
+                // break;
+            } else {
+                $internal_notes =    $internal_notes;
+            }
+        }
+        if ($internal_notes == []) {
+            $internal_notes = null;
+        }
+
+        //notes
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->notes != null) {
+                if ($primary->notes != null) {
+                    $notes =    array_merge($secondary[$key]->notes, $notes, $primary->notes);
+                } else {
+                    $notes =    array_merge($secondary[$key]->notes, $notes);
+                }
+
+                // break;
+            } else {
+                $notes =    $notes;
+            }
+        }
+        if ($notes == []) {
+            $notes = null;
+        }
+
+        //tesserable
+        foreach ($secondary as $key => $val) {
+            if ($primary->tesserable == 0 || $primary->tesserable == 1) {
+                $tesserable =    $primary->tesserable;
+                break;
+            } else {
+                $tesserable =    $val->tesserable;
+            }
+        }
+
+        // membership_renewal
+        foreach ($secondary as $key => $val) {
+
+            if ($val->membership_renewal != null) {
+                $membership_renewal =    $val->membership_renewal;
+                break;
+            } else {
+                $membership_renewal =    null;
+            }
+        }
+        // dead_date
+        foreach ($secondary as $key => $val) {
+
+            if ($val->dead_date != null) {
+                $dead_date =    $val->dead_date;
+                break;
+            } else {
+                $dead_date =    null;
+            }
+        }
+        // is_dead
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->is_dead == 0 || $primary->is_dead == 1) {
+                $is_dead =    $primary->is_dead;
+                break;
+            } else {
+                $is_dead =    $val->is_dead;
+            }
+        }
+        // disbarment
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->disbarment == 0 || $primary->disbarment == 1 || $primary->disbarment == -1) {
+                $disbarment =    $primary->disbarment;
+                break;
+            } else {
+                $disbarment =    $val->disbarment;
+            }
+        }
+        // status
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->status == 0 || $primary->status == 1) {
+                $status =    $primary->status;
+                break;
+            } else {
+                $status =    $val->status;
+            }
+        }
+        // disable
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->disable == 0 || $primary->disable == 1) {
+                $disable =    $primary->disable;
+                break;
+            } else {
+                $disable =    $val->disable;
+            }
+        }
+        // foreigner
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->foreigner == 0 || $primary->foreigner == 1) {
+                $foreigner =    $primary->foreigner;
+                break;
+            } else {
+                $foreigner =    $val->foreigner;
+            }
+        }
+        // homegrown_athlete
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->homegrown_athlete == 0 || $primary->homegrown_athlete == 1) {
+                $homegrown_athlete =    $primary->homegrown_athlete;
+                break;
+            } else {
+                $homegrown_athlete =    $val->homegrown_athlete;
+            }
+        }
+        // tax_id
+        foreach ($secondary as $key => $val) {
+
+            if ($val->tax_id != null) {
+                $tax_id =    $val->tax_id;
+                break;
+            } else {
+                $tax_id =    null;
+            }
+        }
+        // myballclubid
+        foreach ($secondary as $key => $val) {
+
+            if ($val->myballclubid != null) {
+                $myballclubid =    $val->myballclubid;
+                break;
+            } else {
+                $myballclubid =    0;
+            }
+        }
+
+
+        // 	confirmed
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->confirmed == 0 || $primary->confirmed == 1) {
+                $confirmed =    $primary->confirmed;
+                break;
+            } else {
+                $confirmed =    $val->confirmed;
+            }
+        }
+
+
+
+
+        // return $birth;
+        // saving in db
+        $primary->user_id < 0 ? $primary->user_id = $userId : 'null';
+        $primary->registration_number == null ? $primary->registration_number = $registration_number : 'null';
+        $primary->federation_id == null ? $primary->federation_id = $federation_id : 'null';
+        $primary->firstname == null ? $primary->firstname = $firstname : 'null';
+        $primary->lastname == null ? $primary->lastname = $lastname : 'null';
+        $primary->short_firstname == null ? $primary->short_firstname = $short_firstname : 'null';
+        $primary->short_lastname == null ? $primary->short_lastname = $short_lastname : 'null';
+        $primary->email == null ? $primary->email = $email : 'null';
+        $primary->gender == null ? $primary->gender = $gender : 'null';
+        $primary->gender_identity == null ? $primary->gender_identity = $gender_identity : 'null';
+        $primary->birth = $birth;
+        $primary->nationality == null ? $primary->nationality = $nationality : 'null';
+        $primary->spoken_languages = $spoken_languagess;
+        $primary->jobs = $jobss;
+        $primary->headshot == null ? $primary->headshot = $headshot : 'null';
+        $primary->address = $addresses;
+        $primary->contacts = $contacts;
+        $primary->info = $info;
+        $primary->materials = $materials;
+        $primary->docs = $docs;
+        $primary->financial = $financial;
+        $primary->federation_refund_locality_id == null ? $primary->federation_refund_locality_id = $federation_refund_locality_id : 'null';
+        $primary->tesserable == null ? $primary->tesserable = $tesserable : 'null';
+        $primary->membership_renewal == null ? $primary->membership_renewal = $membership_renewal : 'null';
+        $primary->dead_date == null ? $primary->dead_date = $dead_date : 'null';
+        $primary->is_dead == null ? $primary->is_dead = $is_dead : 'null';
+        $primary->disbarment == null ? $primary->disbarment = $disbarment : 'null';
+        $primary->status == null ? $primary->status = $status : 'null';
+        $primary->disable == null ? $primary->disable = $disable : 'null';
+        $primary->foreigner == null ? $primary->foreigner = $foreigner : 'null';
+        $primary->homegrown_athlete == null ? $primary->homegrown_athlete = $homegrown_athlete : 'null';
+        $primary->tax_id == null ? $primary->tax_id = $tax_id : 'null';
+        $primary->myballclubid == null ? $primary->myballclubid = $myballclubid : 'null';
+        $primary->confirmed == null ? $primary->confirmed = $confirmed : 'null';
+
+        $primary->save();
+
+
+        //replacing secondary profile ids
+        $accreditations = Accreditation::whereIn('person_id', $req->secondary)->get();
+        foreach ($accreditations as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_board = FederationBoard::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_board as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_contracts = FederationContract::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_contracts as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_custom_events = FederationCustomEvent::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_custom_events as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_custom_events_item = FederationCustomEventItem::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_custom_events_item as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_markets = FederationMarket::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_markets as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_movement = FederationMovements::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_movement as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_refund = FederationRefund::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_refund as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_sanction = FederationSanction::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_sanction as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $group_person = Person::whereIn('id', $req->secondary)->get();
+        foreach ($group_person as $key => $value) {
+            foreach ($value->groups as $key => $g) {
+                if ($g && $g->pivot) {
+                    $g->pivot->person_id = $req->primary;
+                    $g->pivot->save();
+                }
+            }
+        }
+
+        $person_memberships = PersonMemberships::whereIn('person_id', $req->secondary)->get();
+        foreach ($person_memberships as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $person_registries = PersonRegistry::whereIn('person_id', $req->secondary)->get();
+        foreach ($person_registries as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $person_unavailabilities = PersonUnavailability::whereIn('person_id', $req->secondary)->get();
+        foreach ($person_unavailabilities as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $users = User::whereIn('person_id', $req->secondary)->get();
+        foreach ($users as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $wbsc_tournament_assignment = EventAssignment::whereIn('personid', $req->secondary)->get();
+        foreach ($wbsc_tournament_assignment as $key => $value) {
+            $value->personid = $req->primary;
+            $value->save();
+        }
+
+        $wbsc_tournament_assignment_invitation = EventAssignmentInvitation::whereIn('person_id', $req->secondary)->get();
+        foreach ($wbsc_tournament_assignment_invitation as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $wbsc_tournament_player = EventPlayer::whereIn('person_id', $req->secondary)->get();
+        foreach ($wbsc_tournament_player as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $documents = Document::where('target_type', 'Person')->whereIn('target_id', $req->secondary)->get();
+        foreach ($documents as $key => $value) {
+            $value->target_id = $req->primary;
+            $value->save();
+        }
+
+        foreach ($secondary as $key => $value) {
+            $value->delete();
+        }
+
+        return back();
+    }

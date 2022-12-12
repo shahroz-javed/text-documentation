@@ -1,0 +1,17 @@
+ Route::get('/persontest', function () {
+
+            $duplicates = DB::select("SELECT firstname,lastname,nationality,gender,JSON_EXTRACT(birth, '$.date') as date from persons group by firstname,lastname,nationality,gender,JSON_EXTRACT(birth, '$.date') having Count(*)>1");
+            $arr = [];
+            // return Person::select('birth->date')->get();
+            foreach ($duplicates as $key => $d) {
+                $date = str_replace('"', '', $d->date);
+                $arr[] = Person::where('firstname', $d->firstname)->whereJsonContains('birth->date', $date)->where('lastname', $d->lastname)->where("nationality", $d->nationality)->where("gender", $d->gender)->pluck('id')->toArray();
+            }
+            $idsu = [];
+            foreach ($arr as $key => $value) {
+                foreach ($value as $key => $value) {
+                    $idsu[] = $value;
+                }
+            }
+            return $idsu;
+        });

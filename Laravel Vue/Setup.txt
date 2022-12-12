@@ -1,0 +1,19 @@
+php artisan ui vue
+npm install 
+npm update vue-loader
+npm run dev
+
+
+mix.js("resources/js/app.js", "public/js")
+    .vue()
+    .sass("resources/sass/app.scss", "public/css")
+    .sourceMaps();
+
+
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
+<script src="{{mix('js/app.js')}}"></script>
+
+
+<div id="app">
+        <example-component></example-component>
+</div>

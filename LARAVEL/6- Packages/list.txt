@@ -1,0 +1,2 @@
+okipa laravel table
+mcamara/laravel-localization

@@ -1,0 +1,54 @@
+//only load a component from the server when it's needed
+
+
+const AsyncComp = defineAsyncComponent(() => {
+  return new Promise((resolve, reject) => {
+    // ...load component from server
+    resolve(/* loaded component */)
+  })
+})
+
+
+
+
+
+
+
+import { defineAsyncComponent } from 'vue'
+
+const AsyncComp = defineAsyncComponent(() =>
+  import('./components/MyComponent.vue')
+)
+
+
+
+
+//regidter globally
+app.component('MyComponent', defineAsyncComponent(() =>
+  import('./components/MyComponent.vue')
+))
+
+
+//register locally
+components: {
+    AdminPage: defineAsyncComponent(() =>
+      import('./components/AdminPageComponent.vue')
+    )
+  }
+
+
+
+
+//loading and error state	[in defineAsyncComponent]
+loader: () => import('./Foo.vue'),
+
+  // A component to use while the async component is loading
+  loadingComponent: LoadingComponent,
+  // Delay before showing the loading component. Default: 200ms.
+  delay: 200,
+
+  // A component to use if the load fails
+  errorComponent: ErrorComponent,
+  // The error component will be displayed if a timeout is
+  // provided and exceeded. Default: Infinity.
+  timeout: 3000

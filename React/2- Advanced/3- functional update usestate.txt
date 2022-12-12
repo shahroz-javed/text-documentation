@@ -1,0 +1,10 @@
+//if we click three time without functional update it will assume value equal to intial [0 i.e] not previous.
+
+
+function slowly() {
+    setTimeout(() => {
+      setCounter((count) => {
+        return count + 1
+      })
+    }, 2000)
+  }

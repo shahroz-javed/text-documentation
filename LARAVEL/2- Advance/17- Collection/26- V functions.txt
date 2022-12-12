@@ -1,0 +1,7 @@
+$collection = collect([1, 2, 3, 4, 5, 6, 7]);	//call all method on this
+$collection = collect([ 'color' => 'orange', 'type' => 'fruit', 'remain' => 6,]);
+all()		//after functions
+
+//price is key
+value('price');
+values();

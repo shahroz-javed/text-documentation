@@ -1,0 +1,40 @@
+import { createApp } from 'vue'
+
+const app = createApp({
+  data() {
+    return {
+      count: 0
+    }
+  }
+})
+
+app.mount('#app')
+createApp(App).mount(#app)
+
+
+
+//multiple application
+const app1 = createApp({
+  data() {
+    return {
+      count: 0
+    }
+  }
+})
+app1.mount('#container-1')
+
+const app2 = createApp({
+  /* ... */
+})
+app2.mount('#container-2')
+
+
+
+
+
+
+
+
+//app config
+app.config.errorHandler = (err) => { /* handle error */ }
+app.component('TodoDeleteButton', TodoDeleteButton)

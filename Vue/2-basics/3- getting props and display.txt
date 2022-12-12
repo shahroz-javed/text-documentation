@@ -1,0 +1,15 @@
+<template>
+  <div>
+    <h1>welcome {{ fname }}{{ lname }}</h1>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'First',
+  props: {
+    fname: String,
+    lname: String,
+  },
+}
+</script>

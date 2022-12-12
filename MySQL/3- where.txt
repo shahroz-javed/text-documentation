@@ -1,0 +1,8 @@
+single quotes for text values
+no quotes for num values
+
+SELECT * FROM Customers
+WHERE CustomerID = 1;
+
+
+=,>,<,>=,<=,<>,BETWEEN,LIKE,IN

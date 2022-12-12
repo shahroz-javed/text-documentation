@@ -1,0 +1,49 @@
+Route::get('test', function () {
+        
+        $persons = Person::with('user')
+            ->with('user.roles')
+            ->select(
+                DB::raw('MAX(id) AS id'),
+                'firstname',
+                'lastname',
+                'nationality',
+                'gender',
+                'birth->date',
+                DB::raw('MAX(CONINET_ID) AS CONINET_ID'),
+                DB::raw('MAX(old_id_CONINET) AS old_id_CONINET'),
+                DB::raw('MAX(federation_id) AS federation_id'),
+
+            )->groupBy(
+                'firstname',
+                'lastname',
+                'nationality',
+                'gender',
+                'birth->date'
+            )->havingRaw('count(*) > 1')
+            ->get();
+        $cid = [];
+        $id = [];
+        $coninet_ids = [];
+        foreach ($persons as $key => $record) {
+            $cid[] = $record->CONINET_ID;
+            $id[] = $record->id;
+        }
+
+        foreach ($cid as $key => $value) {
+            if ($value) {
+                $decoded = json_decode($value);
+                foreach ($decoded as $key => $v) {
+                    $coninet_ids[] = $v;
+                }
+            }
+        }
+        $q = Person::query();
+
+        return $q->with('user')
+            ->with('user.roles')
+            ->select(
+                'firstname',
+                'birth->date as birthdate'
+            )->whereIn('id', $id)->orWhereIn('old_id_CONINET', $coninet_ids)
+            ->selectRaw("REPLACE(REPLACE(REPLACE(CONINET_ID,'\"',''),']',''), '[', '') as CONINET_ID")->get();
+    });

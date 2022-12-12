@@ -1,0 +1,12 @@
+$collection = collect([1, 2, 3, 4, 5, 6, 7]);	//call all method on this
+$collection = collect([ 'color' => 'orange', 'type' => 'fruit', 'remain' => 6,]);
+all()		//after functions
+
+
+get('age');
+get('age', 34);		//2nd arg for default value
+get('age', closure);
+
+
+groupBy('account_id')
+groupBy(['skill', function ($item) { return $item['roles']; }], preserveKeys: true)	//multi keys group

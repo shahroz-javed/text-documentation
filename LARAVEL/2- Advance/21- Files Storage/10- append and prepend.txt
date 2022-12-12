@@ -1,0 +1,2 @@
+Storage::prepend('file.log', 'Prepended Text');
+Storage::append('file.log', 'Appended Text');

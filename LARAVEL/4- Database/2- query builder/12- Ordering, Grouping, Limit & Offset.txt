@@ -1,0 +1,28 @@
+//ordering
+
+->orderBy('name', 'desc')
+->orderBy('email', 'asc')
+->latest()
+->oldest()
+->inRandomOrder()
+->reorder()
+->reorder('email', 'desc');
+
+DB::table('users')->latest()->first();
+DB::table('users')->inRandomOrder()->first();
+
+$query->reorder('email', 'desc')->get();
+
+
+//grouping
+->groupBy('account_id')
+->having('account_id', '>', 100)
+->havingBetween('number_of_orders', [5, 15])
+
+
+//limit offset
+->skip(10)
+->take(5)
+or
+->offset(10)
+->limit(5)

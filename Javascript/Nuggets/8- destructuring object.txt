@@ -1,0 +1,14 @@
+//faster and easier way to access and unpack vars from arr
+
+const friend={name:'ali',age:30,class:'9th'}
+
+
+//destructuring
+const {name,age,class}=friend;	
+console.log(name,age,class);
+
+
+
+//aliases	
+const {name:firstname,age,class}=friend;
+console.log(firstname,age,class);

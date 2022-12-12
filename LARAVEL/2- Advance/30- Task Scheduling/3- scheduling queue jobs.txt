@@ -1,0 +1,8 @@
+use App\Jobs\Heartbeat;
+
+
+
+
+$schedule->job(new Heartbeat)->everyFiveMinutes();
+// Dispatch the job to the "heartbeats" queue on the "sqs" connection...
+$schedule->job(new Heartbeat, 'heartbeats', 'sqs')->everyFiveMinutes();

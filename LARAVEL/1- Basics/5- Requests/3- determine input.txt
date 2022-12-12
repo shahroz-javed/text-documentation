@@ -1,0 +1,21 @@
+$request->has(['name', 'email'])
+
+
+$request->whenHas('name', function ($input) {
+    //
+});
+
+
+
+$request->hasAny(['name', 'email'])
+$request->filled('name')
+
+
+
+$request->whenFilled('name', function ($input) {
+    //
+});
+
+
+
+$request->missing('name')

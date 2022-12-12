@@ -1,0 +1,14 @@
+npm install socket.io-client
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+
+
+const socket = io();		//client and server on same domain
+
+const socket = io("http://127.0.0.1:5000");
+const socket = io("wss://server-domain.com");
+const socket = io("server-domain.com"); 
+
+
+
+socket.on('connection')

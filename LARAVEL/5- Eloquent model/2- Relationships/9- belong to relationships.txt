@@ -1,0 +1,5 @@
+//Belongs To Relationships [--assign a child model to a new parent model]
+$user->account()->associate($account);
+$user->save();
+$user->account()->dissociate();
+$user->save();

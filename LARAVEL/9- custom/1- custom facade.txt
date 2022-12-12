@@ -1,0 +1,14 @@
+->new folder in app
+
+->two files
+1- Custom.php	[namespace,same name as file]
+2- CustomeFacade.php	[namespace, extends facade]
+	function static getFacadeAccessor(){ return 'custom'; }
+
+->make service provider
+	$this->app->bind('custom',function(){ return new Custom(); });
+
+->register provider in app.php
+
+->register facade in app.php aliases
+	'custom'=>App\Facade\CustomFacade::class

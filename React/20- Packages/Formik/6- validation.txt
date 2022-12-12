@@ -1,0 +1,17 @@
+const validate = (values) => {
+    //values.name values.email values.channel
+    //errors.name errors.email errors.channel
+
+    let errors = {}
+    if (!values.name) {
+      errors.name = 'Name is Required'
+    }
+    if (!values.email) {
+      errors.email = 'E-mail is Required'
+    }
+    if (!values.channel) {
+      errors.channel = 'Channel is Required'
+    }
+
+    return errors
+  }

@@ -1,0 +1,2 @@
+Storage::copy('old/file.jpg', 'new/file.jpg');
+Storage::move('old/file.jpg', 'new/file.jpg');

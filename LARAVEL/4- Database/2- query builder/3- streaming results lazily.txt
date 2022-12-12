@@ -1,0 +1,9 @@
+//streaming result lazily
+DB::table('users')->where('active', false)
+    ->lazyById()->each(function ($user) {
+        DB::table('users')
+            ->where('id', $user->id)
+            ->update(['active' => true]);
+    });
+lazyByIdDesc
+lazyById

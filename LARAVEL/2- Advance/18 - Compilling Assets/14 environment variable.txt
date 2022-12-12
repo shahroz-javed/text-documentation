@@ -1,0 +1,6 @@
+//in env with MIX_ prefix
+MIX_SENTRY_DSN_PUBLIC=http://example.com
+
+
+//in webpack.min.js
+process.env.MIX_SENTRY_DSN_PUBLIC

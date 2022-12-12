@@ -1,0 +1,3 @@
+//separate array values
+
+reults.join('')

@@ -1,0 +1,6 @@
+return response($content)
+            ->withHeaders([
+                'Content-Type' => $type,
+                'X-Header-One' => 'Header Value',
+                'X-Header-Two' => 'Header Value',
+            ]);

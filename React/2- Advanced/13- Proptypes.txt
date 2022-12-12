@@ -1,0 +1,12 @@
+//used to validate props
+
+import PropTypes from 'prop-types'
+
+
+Item.PropTypes={
+image:PropTypes.object.isRequires,
+}
+
+Item.defaultProps={
+image:'default image',
+}

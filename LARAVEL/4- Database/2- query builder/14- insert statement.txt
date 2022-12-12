@@ -1,0 +1,31 @@
+DB::table('users')->insert(['id' => 1, 'email' => 'sisko@example.com']);
+
+
+//insert multiple
+DB::table('users')->insert([
+    ['id' => 1, 'email' => 'sisko@example.com'],
+    ['id' => 2, 'email' => 'archer@example.com'],
+]);
+
+
+
+//insert by ignoring errors [like duplicates]
+DB::table('users')->insertOrIgnore([
+    ['id' => 1, 'email' => 'sisko@example.com'],
+    ['id' => 2, 'email' => 'archer@example.com'],
+]);
+
+
+
+
+//insert and get id if id auto incrementing
+$id = DB::table('users')->insertGetId(['email' => 'john@example.com', 'votes' => 0]);
+
+
+
+//insert into table by getting data from other table
+DB::table('pruned_users')->insertUsing([
+    'id', 'name', 'email', 'email_verified_at'
+], DB::table('users')->select(
+    'id', 'name', 'email', 'email_verified_at'
+)->where('updated_at', '<=', now()->subMonth()));

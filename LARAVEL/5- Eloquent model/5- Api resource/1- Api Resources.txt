@@ -1,0 +1,98 @@
+php artisan make:resource UserResource
+
+php artisan make:resource User --collection
+php artisan make:resource UserCollection
+
+return new UserResource(User::findOrFail($id));
+return UserResource::collection(User::all());
+
+
+public $preserveKeys = true;  //in resource
+
+
+
+//relationships
+ return [
+        'id' => $this->id,
+        'name' => $this->name,
+        'email' => $this->email,
+        'posts' => PostResource::collection($this->posts),
+        'created_at' => $this->created_at,
+        'updated_at' => $this->updated_at,
+    ];
+
+
+public static $wrap = 'user';	//by default response is in data
+
+
+JsonResource::withoutWrapping();	//in boot app service provider
+
+
+
+return ['data' => $this->collection];		//wrapping nested resources
+
+
+
+
+
+//pagination
+	return new UserCollection(User::paginate());
+
+
+
+
+
+//connditional attr
+	'secret' => $this->when(Auth::user()->isAdmin(), 'secret-value'),
+	$this->mergeWhen(Auth::user()->isAdmin(), [
+            'first-secret' => 'value',
+            'second-secret' => 'value',
+        ]),
+
+
+
+
+//conditional relationship
+	'posts' => PostResource::collection($this->whenLoaded('posts')),
+	'expires_at' => $this->whenPivotLoaded('role_user', function () {
+            return $this->pivot->expires_at;
+        }),
+	'expires_at' => $this->whenPivotLoaded(new Membership, function () {
+    		return $this->pivot->expires_at;
+	}),
+	'expires_at' => $this->whenPivotLoadedAs('subscription', 'role_user', function () {
+            return $this->subscription->expires_at;
+        }),
+
+
+
+//meta data
+	'links' => [
+            'self' => 'link-value',
+        ],
+
+	public function with($request)
+    	{
+        	return [
+            	'meta' => [
+                'key' => 'value',
+            		],
+        	];
+   	 }
+
+	return (new UserCollection(User::all()->load('roles')))
+                ->additional(['meta' => [
+                    'key' => 'value',
+                ]]);
+
+
+
+//resource response
+	return (new UserResource(User::find(1)))
+                ->response()
+                ->header('X-Value', 'True');
+
+	 public function withResponse($request, $response)
+    	{
+        	$response->header('X-Value', 'True');
+    	}

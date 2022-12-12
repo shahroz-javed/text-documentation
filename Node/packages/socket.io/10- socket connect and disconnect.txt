@@ -1,0 +1,5 @@
+socket.connect()
+socket.disconnect()
+
+
+socket.volatile.emit('event','message')

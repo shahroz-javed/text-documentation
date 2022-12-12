@@ -1,0 +1,17 @@
+{
+if (x=0) {
+   console.log('hello');
+  }
+}				
+
+
+//not valid in jsx only expression that return a value.
+//Like ternary operator
+
+
+//short circut operator
+const first = state || 'shahroz'		
+	//if state false|null then first = shahroz else first = state
+
+const second = state && 'shahroz'		
+	//if state true|not_null then first = shahroz else second = state

@@ -1,0 +1,6 @@
+in config/app.php
+
+
+//if assets are deployed to a CDN separate from your application,
+
+'mix_url' => env('MIX_ASSET_URL', null)

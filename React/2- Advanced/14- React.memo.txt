@@ -1,0 +1,7 @@
+//re-render component if prop value change
+
+const List = React.memo(({products})=>{
+
+retrun <></>
+
+});

@@ -1,0 +1,11 @@
+const dynamic = 'loading';
+const dynamic1 = 'isAuth';
+
+
+//loading will be key
+const obj = {
+	[dynamic]:true
+};
+
+
+obj[dynamic1]=true;

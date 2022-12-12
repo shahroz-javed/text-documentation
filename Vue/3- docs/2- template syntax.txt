@@ -1,0 +1,66 @@
+//Text Interpolation
+<span>Message: {{ msg }}</span>
+
+
+
+//Raw HTML
+<span v-html="rawHtml"></span>
+
+
+
+//Attribute binding
+<div v-bind:id="dynamicId"></div>	OR
+<div :id="dynamicId"></div>
+
+//multiple attribute binding
+<div v-bind="objectOfAttrs"></div>
+objectOfAttrs: {
+      id: 'container',
+      class: 'wrapper'
+    }
+
+
+
+//using js
+{{ number + 1 }}
+{{ ok ? 'YES' : 'NO' }}
+{{ message.split('').reverse().join('') }}
+<div :id="`list-${id}`"></div>
+{{ formatDate(date) }}
+
+//use one expresion that give value only
+<!-- this is a statement, not an expression: -->
+{{ var a = 1 }}
+<!-- flow control won't work either, use ternary expressions -->
+{{ if (ok) { return message } }}
+
+
+
+
+
+
+//restricted global access
+app.config.globalProperties.msg = 'hello'
+
+
+
+
+
+//directives
+v-for, v-on and v-slot etc
+	//argument
+		v-on:click
+		v-bind:href
+	//shorthand
+		:href	//if attr
+		@click	//event
+	
+	//dynamic argument
+		v-on:[eventName]
+		v-bind:[attrName]
+	//shorthand
+		:[attrName]	//if attr
+		@[eventName]	//event
+
+	//modifiers
+		@submit.prevent="onSubmit"

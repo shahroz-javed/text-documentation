@@ -1,0 +1,6 @@
+//in blade
+{!! $privacy->privacy !!}
+
+
+//in vue
+<div v-html="privacy.privacy"></div>

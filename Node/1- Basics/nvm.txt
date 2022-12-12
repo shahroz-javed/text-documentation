@@ -1,0 +1,22 @@
+https://github.com/coreybutler/nvm-windows/releases
+nvm -v
+nvm list available
+
+//list of installed node versions
+nvm ls
+nvm current
+
+//install latest node version
+nvm install latest
+
+//install specific node version
+nvm install 18.12.1
+
+//use specific node version
+nvm use 18.12.1
+
+//uninstall a specific version
+nvm uninstall 10.13.0
+
+
+note:	when we switch node version the global package will not come along. we will have install separate package for other node.

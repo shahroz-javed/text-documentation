@@ -1,0 +1,5 @@
+function getImageAttribute($value){
+return $this->directory.$value;
+}
+
+{{$post->image}}

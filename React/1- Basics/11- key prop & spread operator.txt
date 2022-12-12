@@ -1,0 +1,10 @@
+key={name}		//in map
+
+
+<Book {...book}></Book>		//book will not pass as obj
+
+
+
+
+
+{ ...data, name: 'ali' }

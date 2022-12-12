@@ -1,0 +1,42 @@
+daynamic collection of items [key[unique] pairs]
+
+
+// types of set
+_InternalLinkedHashMap<String, String>
+_InternalLinkedHashMap<int, String>
+_InternalLinkedHashMap<String, int>
+
+
+
+
+//specifying type
+var map = {'name': 'Shahroz', 'email': 'Shahroz@gmail.com'};
+Map<String,String> map2 = {'name': 'Ali', 'email': 'Ali@gmail.com'};
+Map map2 = <String,String>{'name': 'Ali', 'email': 'Ali@gmail.com'};
+var map3 = Map();
+var map4 = {};
+
+
+
+//adding values
+map['name'] = 'shahroz';
+
+
+
+
+
+//properties
+map.runtimeType
+map.length
+map.keys
+map.values
+map.entries
+map.isEmpty
+map.isNotEmpty
+map.hashCode
+
+
+
+//methods
+map.containsKey('name')
+map.containsValue('shahroz')

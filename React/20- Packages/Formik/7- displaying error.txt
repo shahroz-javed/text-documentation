@@ -1,0 +1,5 @@
+{formik.errors.email ? (
+            <div className='text-danger'>{formik.errors.email}</div>
+          ) : (
+            ''
+          )}

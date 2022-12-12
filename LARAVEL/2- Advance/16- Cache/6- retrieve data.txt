@@ -1,0 +1,11 @@
+//interacting with different stores
+$value = Cache::store('file')->get('foo');
+Cache::store('redis')->put('bar', 'baz', 600); // 10 Minutes
+
+
+//retrieve cache value
+$value = Cache::get('key');  	//retrive cache
+$value = Cache::get('key', 'default');
+$value = Cache::get('key', function () {
+    return DB::table(/* ... */)->get();
+});

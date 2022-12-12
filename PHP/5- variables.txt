@@ -1,0 +1,19 @@
+not start with number,no space
+
+$foo = 25;
+$bar = &$foo;      // This is a valid assignment.
+
+
+
+//scope
+$GLOBALS['b']
+global $a=10;
+
+
+//static
+static $a=9;
+
+
+//variable variable
+$a = 'hello';
+$$a = 'world';		//var name will $hello

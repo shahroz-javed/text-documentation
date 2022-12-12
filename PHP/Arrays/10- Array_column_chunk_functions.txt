@@ -1,0 +1,2 @@
+1- array_column($arr,'col','key')
+2- array_chunk($arr,3,true)

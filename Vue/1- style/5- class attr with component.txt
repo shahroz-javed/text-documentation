@@ -1,0 +1,15 @@
+<MyComponent class="baz boo" />
+<MyComponent :class="{ active: isActive }" />
+
+//component html root element only will recieve
+<p class="foo bar">Hi!</p>
+
+//result
+<p class="foo bar baz boo active">Hi</p>
+
+
+
+//if multiple root component
+<!-- MyComponent template using $attrs -->
+<p :class="$attrs.class">Hi!</p>
+<span>This is a child component</span>

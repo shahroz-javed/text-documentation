@@ -1,0 +1,48 @@
+type
+required:true or () { return this.name }
+minlength:2
+maxlength:255
+lowercase:true
+uppercase:true
+trim:true
+match: /pattern/
+enum: ['Shahroz', 'Mian'],
+min:20
+max:100
+get:v=>Math.round(v)
+set:v=>Math.round(v)
+
+
+//custom validation
+validate: {
+      validator: function (v) {
+        return v.length > 0
+      },
+      message: 'course should have at least on tag',
+    },
+
+//async validation
+validate: {
+      validator: function (v) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve(v && v.length > 0)
+          }, 2000)
+        })
+      },
+      message: 'xjzchkx',
+    },
+
+//getting validation errors
+ try {
+    const result = await post.save()
+    res.send(result)
+  } catch (ex) {
+    for (field in ex.errors) {
+      console.log(ex.errors[field].message)
+    }
+    res.send('done')
+  }
+
+await course.validate()
+course.validate(()=>{})

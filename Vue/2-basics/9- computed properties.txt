@@ -1,0 +1,14 @@
+v-model="colorCode"
+
+
+
+computed: {
+    colorCode: {
+      get() {
+        return this.$store.state.colorCode;
+      },
+      set(color) {
+        return this.$store.commit("setColorCode", color);
+      },
+    },
+  },

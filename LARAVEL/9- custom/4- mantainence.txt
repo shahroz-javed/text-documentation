@@ -1,0 +1,19 @@
+Symfony\Component\HttpKernel\Exception\HttpException
+
+php artisan down
+php artisan down --refresh=15
+php artisan down --retry=60
+
+
+//bypass mantainence
+php artisan down --secret="1630542a-246b-4b66-afa1-dd72a4c43515"
+https://example.com/1630542a-246b-4b66-afa1-dd72a4c43515
+
+
+
+php artisan down --render="errors::503"
+php artisan down --redirect=/
+
+
+
+php artisan up

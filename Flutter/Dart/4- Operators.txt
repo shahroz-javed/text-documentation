@@ -1,0 +1,51 @@
+//arthmatic
+
+x+y
+x-y
+x*y
+x/y
+x~/y	//give result in int
+x%y
+
+
+
+//prefix postfix
+x++
+++x
+x--
+--x
+
+
+
+//equality and relational operators
+==
+!=
+===
+<
+>
+<=
+>=
+
+
+//logical operator
+&&
+||
+
+
+
+
+//type test operators
+x is String
+x is int
+x is bool
+x is double
+
+
+
+
+//assignment operator
+=
++=
+-=
+*=
+/=

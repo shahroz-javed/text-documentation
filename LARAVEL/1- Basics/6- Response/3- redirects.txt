@@ -1,0 +1,25 @@
+return redirect('home/dashboard');
+
+return back()->withInput();
+
+return redirect()->route('profile', ['id' => 1]);
+return redirect()->route('profile', [$user]);
+
+
+
+
+
+return redirect()->action([UserController::class, 'index']);
+return redirect()->action(
+    [UserController::class, 'profile'], ['id' => 1]
+);
+
+
+
+
+
+return redirect()->away('https://www.google.com');
+
+
+
+return redirect('dashboard')->with('status', 'Profile updated!');

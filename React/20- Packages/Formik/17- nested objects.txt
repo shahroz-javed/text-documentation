@@ -1,0 +1,23 @@
+ const initialValues = {
+    name: '',
+    email: '',
+    channel: '',
+    comments: '',
+    address: '',
+    social: {
+      facebook: '',
+      twitter: '',
+    },
+    phone: ['', ''],
+  }
+
+
+
+<Field
+      type='text'
+      name='social.facebook'
+      className='form-control'
+      />
+
+
+<ErrorMessage name='social.twitter' component={TextError} />

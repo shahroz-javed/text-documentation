@@ -1,0 +1,41 @@
+npm i pusher
+
+//server side
+import Pusher from 'pusher'
+
+const pusher = new Pusher({
+  appId: process.env.PUSHER_APP_ID,
+  key: process.env.PUSHER_KEY,
+  secret: process.env.PUSHER_SECRET,
+  cluster: process.env.PUSHER_CLUSTER,
+  useTLS: true,
+})
+
+
+pusher.trigger('pool-channel', 'pool-event', {
+      point: 1,
+      os: req.body.os,
+    })
+
+
+
+//client side
+<script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+// Pusher.logToConsole = true
+
+var pusher = new Pusher('80290998ba5c9f608382', {
+  cluster: 'ap2',
+})
+
+var channel = pusher.subscribe('pool-channel')
+channel.bind('pool-event', function (data) {
+  dataPoints = dataPoints.map((x) => {
+    if (x.label == data.os) {
+      x.y += data.point
+      return x
+    } else {
+      return x
+    }
+  })
+  chart.render()
+})

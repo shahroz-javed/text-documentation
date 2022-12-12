@@ -1,0 +1,13 @@
+getters: {
+    //get data from state
+    counterSquare(state) {
+      return state.counter * state.counter
+    },
+  },
+
+
+
+
+//access
+{{ $store.getters.counterSquare }}
+this.$store.getters.counterSquare 

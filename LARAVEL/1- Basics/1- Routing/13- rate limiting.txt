@@ -1,0 +1,47 @@
+RateLimiter::for('global', function (Request $request) {
+    return Limit::perMinute(1000)->response(function () {
+        return response('Custom response...', 429);
+    });
+});
+
+
+
+
+
+RateLimiter::for('uploads', function (Request $request) {
+    return $request->user()->vipCustomer()
+                ? Limit::none()
+                : Limit::perMinute(100);
+});
+
+
+
+
+
+//Segmenting Rate Limits
+RateLimiter::for('uploads', function (Request $request) {
+    return $request->user()->vipCustomer()
+                ? Limit::none()
+                : Limit::perMinute(100)->by($request->ip());
+});
+
+
+
+
+//multiple rate limits
+RateLimiter::for('login', function (Request $request) {
+    return [
+        Limit::perMinute(500),
+        Limit::perMinute(3)->by($request->input('email')),
+    ];
+})
+
+
+
+
+
+
+
+
+//attaching to routes
+middleware(['throttle:uploads'])

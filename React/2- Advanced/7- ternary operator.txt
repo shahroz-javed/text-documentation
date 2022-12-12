@@ -1,0 +1,4 @@
+//ternary operator
+
+state ? first : second
+state ? first : !state ? 'not state' : second

@@ -1,0 +1,22 @@
+const EventEmitter = require('events')
+
+class Logger extends EventEmitter {
+  hello(name) {
+    console.log('hello mian' + name)
+    this.emit('emited', { id: 1, url: 'https://' })
+  }
+}
+
+module.exports = Logger
+
+
+
+
+const Logger = require('./logger')
+var logger = new Logger()
+
+logger.on('emited', function (arg) {
+  console.log('emited ', arg.id)
+})
+
+logger.hello('shahroz')

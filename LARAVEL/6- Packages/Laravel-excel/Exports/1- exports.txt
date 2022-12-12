@@ -1,0 +1,10 @@
+php artisan make:export UsersExport --model=User
+
+
+
+export work
+	use Maatwebsite\Excel\Facades\Excel;
+	make a route
+	return Excel::download(new UsersExport, 'users.xlsx');
+
+

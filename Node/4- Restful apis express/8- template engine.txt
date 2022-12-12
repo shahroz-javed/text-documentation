@@ -1,0 +1,19 @@
+popular: 
+pug	1,379,741
+mustache 3,063,408
+ejs	   11,493,963
+handlebars 11,102,907
+
+npm i pug
+app.set('view engine','pug)
+app.set('views', './views')
+
+//in views/index.pug
+html 
+ head 
+  title=title 
+  body 
+  h1=heading  
+
+
+res.render('index', { title: 'MY APP', heading: 'Welcome' })

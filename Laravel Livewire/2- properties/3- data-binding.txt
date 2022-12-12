@@ -1,0 +1,10 @@
+public $message;
+
+<input wire:model="message" type="text">
+
+//nested data binding inside array
+<input type="text" wire:model="parent.message">
+
+wire:model.debounce.500ms="name"
+wire:model.lazy="message"
+wire:model.defer="query"	//send data to property when request send.

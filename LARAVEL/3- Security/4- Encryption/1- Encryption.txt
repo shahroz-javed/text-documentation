@@ -1,0 +1,11 @@
+//using Crypt Facade
+
+Crypt::encryptString($request->token)
+Crypt::decryptString($encryptedValue)
+
+
+
+
+//we can use helper
+encrypt()
+decrypt()

@@ -1,0 +1,7 @@
+//cache helper
+$value = cache('key');
+cache(['key' => 'value'], $seconds);
+cache(['key' => 'value'], now()->addMinutes(10));
+cache()->remember('users', $seconds, function () {
+    return DB::table('users')->get();
+});

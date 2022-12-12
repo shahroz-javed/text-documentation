@@ -1,0 +1,17 @@
+key can either be an intor a string
+The value can beof any type. 
+
+
+Additionally the following key casts will occur: 
+◦ Strings containing valid decimal ints will be cast to the int type.
+◦ Floats are also cast to ints.  
+◦ Bools are cast to ints, too.
+◦ Null will be cast to the empty string.  
+◦ Arrays and objects can not be used as keys.Doing so will result in a warning: Illegal offset type. 
+
+
+
+If multiple elements in the array declaration use the same key, only the last onewill be used.
+key is optional. If it is not specified, PHP willuse the increment of the largest previously used int key.
+
+

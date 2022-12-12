@@ -1,0 +1,20 @@
+<h1 v-if="type === 'A'">A</h1>
+<div v-else-if="type === 'B'">B</div>
+<h1 v-else>Oh no 😢</h1>
+
+
+//v-if is a directive, it has to be attached to a single element
+//v-if on <template>
+<template v-if="ok">
+
+
+
+
+
+//v-show
+<h1 v-show="ok">Hello!</h1>
+
+
+
+
+// not recommended to use v-if and v-for on the same element due to implicit precedence

@@ -1,0 +1,85 @@
+transform Eloquent attribute values when you retrieve or set them on model instances
+
+
+//accessor
+Attribute:first_name
+use Illuminate\Database\Eloquent\Casts\Attribute;
+protected function firstName(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => ucfirst($value),
+        );
+    }
+
+
+
+
+//Building Value Objects From Multiple Attributes
+return Attribute::make(
+get: fn ($value, $attributes) => new Address(
+            $attributes['address_line_one'],
+            $attributes['address_line_two'],
+        ),
+    )->withoutObjectCaching();
+->shouldCache();
+
+
+
+
+
+//mutator
+protected function firstName(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => ucfirst($value),
+            set: fn ($value) => strtolower($value),
+        );
+    }
+
+
+
+
+
+
+//casts
+array
+AsStringable::class
+AsArrayObject::class
+AsCollection::class
+boolean
+collection
+date
+datetime:Y-m-d
+immutable_date
+immutable_datetime
+decimal:<digits>
+double
+encrypted
+encrypted:array
+encrypted:collection
+encrypted:object
+AsEncryptedArrayObject
+AsEncryptedCollection
+float
+integer
+object
+real
+string
+timestamp
+
+
+ protected $casts = [
+        'is_admin' => 'boolean',
+    ];
+
+protected $dateFormat = 'U';
+
+
+
+
+
+
+//query casting
+->withCasts([
+    'last_posted_at' => 'datetime'
+])

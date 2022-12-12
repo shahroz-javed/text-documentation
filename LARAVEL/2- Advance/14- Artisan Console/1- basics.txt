@@ -1,0 +1,29 @@
+php artisan list
+php artisan help migrate
+./vendor/bin/sail artisan list
+
+php artisan make:command SendEmails
+
+
+protected $signature = 'mail:send {user} {--F|Flag=Pakistan}';
+protected $description = 'Send a marketing email to a user';
+
+
+$this->argument('user')
+
+
+//methods
+$this->info($this->argument('name'));
+$this->info($this-option('flag'));
+$this->ask('what is your name');
+$this->secret('pwd');
+$this->confirm('Are you sure');
+$this->table($header,$user);
+
+
+
+
+//second way
+Artisan::command('mail:send {user}', function ($user) {
+    $this->info("Sending email to: {$user}!");
+})->purpose('Send a marketing email to a user');

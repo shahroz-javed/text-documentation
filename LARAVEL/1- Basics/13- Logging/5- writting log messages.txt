@@ -1,0 +1,15 @@
+Log::debug('An informational message.');
+Log::emergency('The system is down!');
+Log::alert($message);
+Log::critical($message);
+Log::error($message);
+Log::warning($message);
+Log::notice($message);
+Log::info($message);
+Log::debug($message);
+
+
+
+
+
+we can use these methods in any where like controller

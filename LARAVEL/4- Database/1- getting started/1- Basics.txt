@@ -1,0 +1,8 @@
+//config
+database.php
+
+//multiple connections
+DB::connection('sqlite')->select(...);
+
+
+

@@ -1,0 +1,6 @@
+<Route exact path='/post/:category/:id' element={<Post />}></Route>
+
+
+
+<Link to='/'>Home</Link>
+<Link to={`/post/${catid}/${postid}`}>Home</Link>

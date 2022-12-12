@@ -1,0 +1,3 @@
+let token = jwt.sign({ _id: user._id, name: user.name }, 'privatekey')
+
+res.header('x-auth-token',token).send(user)

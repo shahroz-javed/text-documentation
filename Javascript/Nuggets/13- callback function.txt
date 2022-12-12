@@ -1,0 +1,16 @@
+//passed as argument
+//array methods, setTimeout, event listeners ets
+
+
+
+function makeUppercase(value){
+	console.log(value.toUppercase())
+}
+
+function myf(name,callback){
+callback(name)
+}
+
+
+myf('john',makeUppercase)
+myf('john',(value)=> console.log(value.toUppercase()))

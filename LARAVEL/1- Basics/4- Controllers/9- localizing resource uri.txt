@@ -1,0 +1,6 @@
+//in begining of boot route service provider
+
+Route::resourceVerbs([
+        'create' => 'crear',
+        'edit' => 'editar',
+    ]);

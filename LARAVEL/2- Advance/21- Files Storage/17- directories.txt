@@ -1,0 +1,15 @@
+use Illuminate\Support\Facades\Storage;
+
+
+//git files in a dir 
+$files = Storage::files($directory);
+$files = Storage::allFiles($directory);
+
+
+
+//get dirs in dir
+$directories = Storage::directories($directory);
+$directories = Storage::allDirectories($directory);
+
+Storage::makeDirectory($directory);
+Storage::deleteDirectory($directory);

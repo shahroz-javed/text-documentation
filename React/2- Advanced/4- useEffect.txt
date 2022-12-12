@@ -1,0 +1,25 @@
+//by defualt run on every rerender
+//cleanup function
+//second param
+//cannot use async with useEffect callback but inside
+
+
+-can use if else in useeffect
+
+
+
+//second arg
+if not run on every render
+if []  run on only initial render
+if [value] run on every updation of value	[can pass multiple dependencies]
+
+
+
+
+//cleanup function
+ useEffect(() => {
+    window.addEventListener('resize', () => setSize(window.innerWidth))
+    return () => {
+      window.removeEventListener('resize', () => setSize(window.innerWidth))
+    }
+  })

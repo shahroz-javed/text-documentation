@@ -1,0 +1,9 @@
+create a project with custom features
+
+choose 
+vuex
+router
+
+
+
+everything will be setup automatically.

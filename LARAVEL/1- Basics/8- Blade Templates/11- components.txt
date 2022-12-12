@@ -1,0 +1,31 @@
+php artisan make:component Forms/Input
+
+
+
+//passing data
+<x-alert type="error" :message="$message"/>
+
+//in component class
+public function __construct($type, $message)
+    {
+        $this->type = $type;
+        $this->message = $message;
+    }
+
+
+
+
+
+//if making package register component in package service provider
+Blade::component('package-alert', Alert::class);
+
+
+//rendering
+<x-package-alert/>
+<x-forms.input/>
+
+or
+
+Blade::componentNamespace('Nightshade\\Views\\Components', 'nightshade');	//nightshade is package
+<x-nightshade::calendar />
+<x-nightshade::color-picker />

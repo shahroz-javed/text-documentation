@@ -1,0 +1,7 @@
+const age= new Set(arr.map((person)=> person.age ));		////for unique ages
+
+const age= [...new Set(arr.map((person)=> person.age ))];		////for unique ages array
+
+
+////for unique ages array with a fix value attached to array
+const age=[60 ,...new Set(arr.map((person)=> person.age ))];		

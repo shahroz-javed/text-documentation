@@ -1,0 +1,20 @@
+$collection = collect([1, 2, 3, 4, 5, 6, 7]);	//call all method on this
+$collection = collect([ 'color' => 'orange', 'type' => 'fruit', 'remain' => 6,]);
+all()		//after functions
+
+
+
+dd()
+diff([2, 4, 6, 8]);		//alse can called on plain array
+diffAssoc([ 'color' => 'yellow',  'type' => 'fruit', 'remain' => 3, 'used' => 6,]);
+diffKeys(['two' => 2, 'four' => 4,])
+
+doesntContain(function ($value, $key) { return $value < 5; });
+doesntContain('Table')
+doesntContain('key','value')
+
+dump()
+duplicates()
+duplicates('position')		//give count were position key has duplicate values
+duplicatesStrict()
+

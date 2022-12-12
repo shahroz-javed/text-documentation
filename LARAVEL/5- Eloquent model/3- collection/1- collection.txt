@@ -1,0 +1,30 @@
+1- contains($key, $operator = null, $value = null)
+	$users->contains(1);
+	$users->contains(User::find(1));
+
+2- $users->diff(User::whereIn('id', [1, 2, 3])->get());
+
+3- $users->except([1, 2, 3]);
+
+4- $users = $users->fresh();
+   $users = $users->fresh('comments');
+
+5- $users->intersect(User::whereIn('id', [1, 2, 3])->get());	//returns all of the models that are also present in the given collection
+
+6- $users->load(['comments', 'posts']);
+    $users->load('comments.author');
+
+7- $users->modelKeys();		//return primary keys of records
+
+8- $users->makeVisible(['address', 'phone_number']);
+
+9- $users->makeHidden(['address', 'phone_number']);
+
+10- $users->only([1, 2, 3]);
+
+11- $users = User::where('status', 'VIP')->get();
+	$users->toQuery()->update([
+    		'status' => 'Administrator',
+		]);
+
+12- $users->unique();

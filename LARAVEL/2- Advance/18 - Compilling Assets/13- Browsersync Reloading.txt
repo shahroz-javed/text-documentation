@@ -1,0 +1,10 @@
+no need to refresh in browser after compiling
+
+mix.browserSync('laravel.test');
+
+
+
+//BrowserSync options may be specified by passing a JavaScript object to the browserSync method:
+mix.browserSync({
+    proxy: 'laravel.test'
+});

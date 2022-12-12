@@ -1,0 +1,18 @@
+//in routes/courses.js
+const express = require('express')
+const router = express.Router()
+
+
+router.get('/', (req, res) => {
+  res.send(courses)
+})
+
+module.exports = router
+
+
+
+
+//in app.js
+const courses = require('./routes/courses')
+
+app.use('/api/courses', courses)

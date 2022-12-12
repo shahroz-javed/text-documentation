@@ -1,0 +1,6 @@
+pageNumber=2;
+pageSize=10;
+
+//page and pagesize come in query string
+skip((page-1)*pageSize)
+limit(pageSize)

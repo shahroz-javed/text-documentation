@@ -1,0 +1,13 @@
+SELECT * FROM Customers
+WHERE Country = 'Germany' AND City = 'Berlin';
+
+
+//group and,or
+SELECT * FROM Customers
+WHERE Country = 'Germany' AND (City = 'Berlin' OR City = 'Stuttgart');
+
+
+
+//not
+SELECT * FROM Customers
+WHERE NOT Country = 'Germany' AND NOT Country = 'USA';

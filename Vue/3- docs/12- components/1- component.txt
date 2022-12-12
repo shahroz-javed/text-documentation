@@ -1,0 +1,20 @@
+
+
+
+
+//using component
+import ButtonCounter from './ButtonCounter.vue'
+import HelloWorld from './HelloWorld'
+import Counter from "../components/Counter.vue";
+export default {
+  name: 'First',
+  components: {
+    HelloWorld,
+    counter: Counter,
+    colorcode: require("../components/ColorCode.vue").default,
+ButtonCounter
+  },
+}
+
+<ButtonCounter />
+<button-counter></button-counter>

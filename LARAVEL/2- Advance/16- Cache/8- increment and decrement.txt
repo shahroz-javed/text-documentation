@@ -1,0 +1,5 @@
+//increment descrement values [integer]
+Cache::increment('key');
+Cache::increment('key', $amount);
+Cache::decrement('key');
+Cache::decrement('key', $amount);

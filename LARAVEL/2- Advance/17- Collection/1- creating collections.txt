@@ -1,0 +1,6 @@
+collect([1,1,2,3,4])
+->mapfunction($int){
+	return $int;
+})->reject(function ($int) {
+    return empty($int);
+});

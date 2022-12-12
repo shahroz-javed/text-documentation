@@ -1,0 +1,13 @@
+$collection = collect([1, 2, 3, 4, 5, 6, 7]);	//call all method on this
+$collection = collect([ 'color' => 'orange', 'type' => 'fruit', 'remain' => 6,]);
+all()		//after functions
+
+
+
+each(function($item,$key){})
+eachSpread(function($item,$key){})	//also iterate through nested array
+every(function($item,$key){ return $item>0; })		//used to verify elements pass a given truth test:
+
+except(['price', 'discount'])		//both are keys
+
+

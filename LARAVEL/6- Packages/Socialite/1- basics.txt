@@ -1,0 +1,48 @@
+'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => 'https://127.0.0.1/social/public/login/facebook/callback',
+]
+
+
+
+Route::get('/login/facebook', [LoginController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('/login/facebook/callback', [LoginController::class, 'handleFacebookCallback']);
+
+
+
+ // facebook
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+    public function handleFacebookCallback()
+    {
+        $user = Socialite::driver('facebook')->stateless()->user();
+        $this->_registerOrLoginUser($user);
+        return redirect()->route('home');
+    }
+
+
+ //login or create
+    protected function _registerOrLoginUser($data)
+    {
+        $user = User::where('email', $data->email)->first();
+        if (!$user) {
+            $user = new User();
+            $user->name = $data->name;
+            $user->email = $data->email;
+            $user->password = Hash::make('now');
+            $user->social_id = $data->id;
+            $user->avatar = $data->avatar;
+            // print_r($user);die;
+            $user->save();
+        }
+
+        Auth::login($user);
+        return redirect()->route('home');
+        // if (Auth::attempt(['email' => $user->email, 'password' => $user->password])) {
+        //     return session()->put('user', $user);
+        // }
+
+    }

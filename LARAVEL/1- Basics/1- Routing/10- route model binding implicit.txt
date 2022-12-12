@@ -1,0 +1,33 @@
+Route::get('/users/{user}', function (User $user) {
+    return $user->email;
+});
+
+
+
+//customizing key instead of id
+Route::get('/posts/{post:slug}', function (Post $post) {
+    return $post;
+});
+
+or	//set for always
+
+
+public function getRouteKeyName()
+{
+    return 'slug';
+}
+
+
+
+
+
+//custom keys and scoping
+Route::get('/users/{user}/posts/{post:slug}', function (User $user, Post $post) {
+    return $post;
+})->missing(function (Request $request) {
+            return Redirect::route('posts.index');
+        });;			//will return the post of user,		second [i.e post] will child of first [i.e user]
+
+
+
+

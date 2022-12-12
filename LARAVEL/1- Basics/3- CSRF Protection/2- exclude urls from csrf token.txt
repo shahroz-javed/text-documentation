@@ -1,0 +1,7 @@
+in VerifyCsrfToken middleware
+
+protected $except = [
+        'stripe/*',
+        'http://example.com/foo/bar',
+        'http://example.com/foo/*',
+    ];

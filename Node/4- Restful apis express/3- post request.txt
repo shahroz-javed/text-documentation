@@ -1,0 +1,13 @@
+app.use(express.json())
+
+
+app.post('/store', (req, res) => {
+  let course = { id: courses.length + 1, name: req.body.name }
+  courses.push(course)
+  res.send(course)
+})
+
+
+req.body
+
+body->raw->application/json

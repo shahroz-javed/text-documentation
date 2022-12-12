@@ -1,0 +1,6 @@
+git config --global user.name shahroz
+git config --global user.email shahrozmaher198r@gmail.com
+
+
+git init
+

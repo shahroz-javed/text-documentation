@@ -1,0 +1,13 @@
+definition:	managing class dependencies and performing dependency injection
+
+//Zero Configuration Resolution
+Route::get('/', function (Service $service) {
+    die(get_class($service));
+});
+
+
+
+service is a class
+when a service class is bind to class it can be type hinted in class constructor
+
+

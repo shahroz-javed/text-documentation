@@ -1,0 +1,2 @@
+//for named routes
+echo route('post.show', ['post' => 1]);

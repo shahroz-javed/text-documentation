@@ -1,0 +1,5 @@
+const books=['math','english']
+
+books.map((book)=>{
+	console.log(book);
+})

@@ -1,0 +1,12 @@
+app.get('/courseBYID/:id', (req, res) => {
+   let course = courses.find((item) => item.id === parseInt(req.params.id))
+   res.send(course)
+})
+
+
+
+
+req.query
+req.params
+
+return string use parseInt

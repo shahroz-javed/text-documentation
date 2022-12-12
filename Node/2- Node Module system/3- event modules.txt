@@ -1,0 +1,14 @@
+event is core concept in node
+
+//basic event listner
+const EventEmitter = require('events')
+var emiter = new EventEmitter()
+
+emiter.on('emited', function (arg) {
+  console.log('emited ', arg.id)
+})
+
+emiter.emit('emited', { id: 1, url: 'https://' })
+
+
+

@@ -1,0 +1,3 @@
+<ErrorMessage name='channel'>
+         {(err) => <div className='text-danger'>{err}</div>}
+</ErrorMessage>

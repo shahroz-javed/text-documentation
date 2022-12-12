@@ -1,0 +1,34 @@
+https://webhookrelay.com/blog/2017/11/23/github-jenkins-guide/
+Step 1: Create GitHub repository
+Step 2: Jenkins Installation (if you already have it - ignore this step)
+Step 3: Setting up Jenkins with Github-Plugin
+Step 4: Configuring Jenkins Job
+	Source Code Management	[git]
+	Build Triggers		[GitHub hook trigger for GITScm polling]
+Step 5: Configuring Webhook Relay
+	https://webhookrelay.com/v1/installation/cli
+	https://my.webhookrelay.com/register
+	https://my.webhookrelay.com/buckets	[get input output url]
+	https://my.webhookrelay.com/tokens
+Step 6: Setting up Webhook Relay agent
+Step 7: Create sample application
+	Environment Injector
+	On the Webhook Relay logs page https://my.webhookrelay.com/logs you should be a able to see sent logs.
+
+
+//free webhook proxy service called SocketXP. 
+	register
+	https://portal.socketxp.com/
+	https://www.socketxp.com/download/
+	socketxp login eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjI2MTMwNTk5MzgsImtleSI6IjU4NWUwZjUyLWM4ZDktNDIwYS1hZTI0LThiZDRiYTEyNTdhMiJ9.LRakNaaVIV2U99yLDq8Vad5ro8xDSIxxmK8D6aQ0lYI
+	$ socketxp relay https://localhost:8080/github-webhook/
+	Public URL ->  https://webhook.socketxp.com/adfasdfae4123-webhook-relay
+
+
+
+
+https://www.blazemeter.com/blog/how-to-integrate-your-github-repository-to-your-jenkins-project
+Step 1: Create GitHub repository
+Step 2: create webhook in repo
+	add payload url
+	add event

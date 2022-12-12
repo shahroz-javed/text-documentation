@@ -1,0 +1,12 @@
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+
+
+
+remove useFormik object
+
+
+<Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+></Formik>

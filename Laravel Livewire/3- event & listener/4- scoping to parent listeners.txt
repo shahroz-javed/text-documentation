@@ -1,0 +1,2 @@
+$this->emitUp('postAdded');
+<button wire:click="$emitUp('postAdded')">

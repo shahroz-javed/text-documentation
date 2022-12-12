@@ -1,0 +1,6 @@
+@livewireStyles()
+@livewireScripts()
+
+
+<livewire:styles />
+<livewire:scripts />

@@ -1,0 +1,22 @@
+npm i yup
+
+import * as Yup from 'yup'
+
+
+
+//yup validation schema
+  const validationSchema = Yup.object({
+    name: Yup.string().min(3).max(20).required('Name is Required'),
+    email: Yup.string()
+      .email('Enter valid E-mail')
+      .required('E-mail is Required'),
+    channel: Yup.string().required('Channel Name is Required'),
+  })
+
+
+
+const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validationSchema,
+  })

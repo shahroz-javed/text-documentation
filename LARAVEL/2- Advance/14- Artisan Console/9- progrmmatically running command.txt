@@ -1,0 +1,23 @@
+Artisan::call('mail:send', ['user' => $user, '--queue' => 'default']);
+Artisan::call('mail:send 1 --queue=default');
+
+//pass array vals
+Artisan::call('mail:send', [ '--id' => [5, 13] ]);
+
+
+//pass bool val
+Artisan::call('migrate:refresh', ['--force' => true,]);
+
+
+
+//queue commands
+Artisan::queue('mail:send', ['user' => 1, '--queue' => 'default'
+])->onConnection('redis')->onQueue('commands');
+
+
+
+//Calling Commands From Other Commands
+$this->call('mail:send', [ 'user' => 1, '--queue' => 'default' ]);
+$this->callSilently('mail:send', ['user' => 1, '--queue' => 'default']);
+
+

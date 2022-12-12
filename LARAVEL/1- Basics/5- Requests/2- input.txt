@@ -1,0 +1,36 @@
+$request->all()
+$request->input('name', 'Sally default')
+
+//array input
+$request->input('products.0.name');
+$request->input('products.*.name');
+
+
+
+
+//retrieve input from query string
+$request->query('name', 'Helen');
+$request->query()
+
+
+
+
+//retrieve json
+$request->input('user.name')
+
+
+$request->boolean('archived')
+
+
+
+//retrieve via property
+$request->name
+
+
+
+
+//retrieving portion of input
+$request->only(['username', 'password']);
+$request->only('username', 'password');
+$request->except(['credit_card']);
+$request->except('credit_card');

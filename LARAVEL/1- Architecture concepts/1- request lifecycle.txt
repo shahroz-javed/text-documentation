@@ -1,0 +1,17 @@
+1- index.php
+	loads the Composer generated autoloader definition	'/../vendor/autoload.php'
+	then retrieves an instance of the Laravel application from   bootstrap/app.php.
+	first action create an instance of the application / service container.
+2- kernal.php
+3- middleware
+4- provider
+	bootstrapping all framework's various components,the database, queue,validation,routing
+	All of the service providers for the application are configured in the config/app.php
+	register	[first call .i.e register all bindings]
+	boot		[called second ]
+router
+controller
+response
+middleware
+	modify or examine the outgoing response
+index.php

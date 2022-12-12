@@ -1,0 +1,25 @@
+<livewire:show-posts />
+@livewire('show-posts')
+<livewire:nav.show-posts />
+
+
+
+//sending parameter
+<livewire:show-post :post="$post">			//send the param to php file of component
+@livewire('show-post', ['post' => $post])
+
+
+
+
+
+//recieving parameter
+public $post;
+
+public $title;
+    public $content;
+ 
+    public function mount($post)
+    {
+        $this->title = $post->title;
+        $this->content = $post->content;
+    }

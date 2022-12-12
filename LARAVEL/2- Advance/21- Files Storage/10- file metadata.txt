@@ -1,0 +1,3 @@
+Storage::size('file.jpg');
+Storage::path('file.jpg');
+Storage::lastModified('file.jpg');

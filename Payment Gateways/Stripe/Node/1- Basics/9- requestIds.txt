@@ -1,0 +1,8 @@
+//every request has id
+
+var customer = await stripe.customers.create();
+console.log(customer.lastResponse.requestId);
+
+
+https://dashboard.stripe.com/logs
+req_amsY2PrJ6zxyfL

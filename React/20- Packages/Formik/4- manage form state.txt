@@ -1,0 +1,12 @@
+const initialValues = { name: '', email: '', channel: '' }	//same as field names
+
+
+onChange={formik.handleChange}
+value={formik.values.name}
+onBlur={formik.handleBlur}
+
+
+
+console.log(formik.errors)
+console.log(formik.values)
+console.log(formik.touched)

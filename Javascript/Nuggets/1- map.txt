@@ -1,0 +1,4 @@
+const age=arr.map((person)=> person.age );
+
+
+//can also return obj,array etc

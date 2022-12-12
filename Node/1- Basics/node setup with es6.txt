@@ -1,0 +1,11 @@
+npm init -y
+npm i @babel/core @babel/cli @babel/node @babel/runtime @babel/polyfill @babel/preset-env @babel/plugin-transform-runtime
+
+make file .babelrc
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [["@babel/plugin-transform-runtime"]]
+}
+
+//package json add script
+"serve": "nodemon --exec babel-node index.js"

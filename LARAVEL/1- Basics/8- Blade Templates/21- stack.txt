@@ -1,0 +1,19 @@
+@push('scripts')
+    <script src="/example.js"></script>
+@endpush
+
+//render stack
+@stack('scripts')
+
+
+If you would like to prepend content onto the beginning of a stack, you should use the @prepend directive:
+
+@push('scripts')
+    This will be second...
+@endpush
+
+// Later...
+
+@prepend('scripts')
+    This will be first...
+@endprepend

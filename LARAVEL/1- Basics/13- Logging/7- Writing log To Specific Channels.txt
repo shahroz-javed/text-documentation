@@ -1,0 +1,6 @@
+Log::channel('slack')->info('Something happened!');
+
+
+
+//If you would like to create an on-demand logging stack consisting of multiple channels
+Log::stack(['single', 'slack'])->info('Something happened!');

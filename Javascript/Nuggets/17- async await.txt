@@ -1,0 +1,17 @@
+async must be present, async function always return a promise
+await waits till promise setteled
+error handling, try/catch block
+
+
+
+const example = async () => {
+        return 'hello';
+      };
+console.log(async)	//will give promise
+
+
+async function call() {
+        const result = await example();
+        console.log(result);
+      }
+call();

@@ -1,0 +1,12 @@
+//tables must have same number of rows
+
+
+
+//union two show data of two or more queries
+$users = DB::table('users')
+        ->where('id', '<', 5);
+
+    return  $products = DB::table('users')
+        ->where('id', '>', 10)
+        ->union($users)->orderBy('id')
+        ->get();

@@ -1,0 +1,27 @@
+delete()
+truncate()		//del all records
+destroy([1,2])
+
+
+
+
+
+//soft deleting
+use SoftDeletes;
+
+$table->softDeletes();
+ $table->dropSoftDeletes();
+
+
+trashed()
+$flight->restore()
+withTrashed()
+$flight->history()->restore();			//usage with relationship
+$flight->history()->forceDelete();
+forceDelete()
+
+
+
+//querying softdeletes
+withTrashed()
+onlyTrashed()

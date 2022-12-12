@@ -1,0 +1,20 @@
+//default values
+
+SetDefaultLocaleForUrls [middleware]
+
+URL::defaults(['locale' => $request->user()->locale]);
+
+
+
+
+
+
+
+
+//URL Defaults & Middleware Priority [URL default values can interfere with Laravel's handling of implicit model bindings]
+protected $middlewarePriority = [
+    // ...
+     \App\Http\Middleware\SetDefaultLocaleForUrls::class,
+     \Illuminate\Routing\Middleware\SubstituteBindings::class,
+     // ...
+];

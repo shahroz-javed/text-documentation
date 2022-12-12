@@ -1,0 +1,17 @@
+//execute after request response is send
+public function terminate($request, $response)
+    {
+        // ...
+    }
+
+
+
+
+//in app service provider
+public function register()
+{
+    $this->app->singleton(TerminatingMiddleware::class);
+}
+
+
+

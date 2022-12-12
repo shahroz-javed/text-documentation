@@ -1,0 +1,17 @@
+html
+css	[sass,bootstrap,tailwind]
+js	[jquery,react,alpine,vue,angular]
+
+php [laravel]
+node [express]
+
+database [mongo,mysql,DBMS]
+
+
+
+
+aws
+docker
+realtime [web sockets, pusher,HTTP]
+payments
+social logins

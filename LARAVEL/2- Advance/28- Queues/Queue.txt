@@ -1,0 +1,12 @@
+php artisan queue:table
+php artisan migrate
+
+
+php artisan make:job SendMail
+implements ShouldQueue
+php artisan queue:work
+
+
+
+//.env
+QUEUE_CONNECTION=database

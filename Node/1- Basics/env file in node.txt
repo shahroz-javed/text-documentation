@@ -1,0 +1,7 @@
+npm install dotenv
+import dotenv from 'dotenv'
+dotenv.config()
+
+
+-read values from .env
+	console.log(process.env.ABC)

@@ -1,0 +1,17 @@
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+
+
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;
+
+
+
+//text values
+SELECT * FROM Products
+WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;
+
+
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20 or Price BETWEEN 30 AND 40;

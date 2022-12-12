@@ -1,0 +1,30 @@
+//Binding	[bind class into container]
+
+//access container
+$this->app
+App		[facase]
+
+
+use App\Services\Transistor;
+use App\Services\PodcastParser;
+//simple binding
+$this->app->bind(Transistor::class, function ($app) {
+    return new Transistor($app->make(PodcastParser::class));
+});
+App::bind();
+
+
+//methods
+bind()
+singleton()	//resolved one,same obj return on all calls
+scoped()	//resolved one,flushed with new lifecucle
+
+
+
+//binding instance
+$service = new Transistor(new PodcastParser);
+$this->app->instance(Transistor::class, $service);
+
+
+//Binding Interfaces To Implementations	[i arg is interface]
+$this->app->bind(EventPusher::class, RedisEventPusher::class);

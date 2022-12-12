@@ -1,0 +1,18 @@
+ const validateComments = (value) => {
+    let error
+    if (!value) {
+      error = 'Address is required'
+    }
+    return error
+  }
+
+
+
+
+<Field
+        as='textarea'
+        name='comments'
+        className='form-control'
+        validate={validateComments}
+/>
+ <ErrorMessage name='comments' />

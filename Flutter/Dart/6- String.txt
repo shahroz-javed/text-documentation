@@ -1,0 +1,45 @@
+var x ='this\'s a string';
+var x1 ="this's a string";
+var x3 ="""this\'s a string
+  		and this is 
+  		multi line""";
+
+
+
+
+//expression in strings
+print('$x')
+print('Welcome ${name.toUpperCase}')	//use{} when want to apply function
+
+
+
+
+//concatenation
++
+
+
+
+//raw string
+var name2 = r'javed \n ksdcklszmx';	//printed as written [no escape sequence executed,no var]
+
+
+//properties
+str.length
+str.isEmpty
+str.isNotEmpty
+str.runes
+str.codeUnits
+str.hashCode
+
+
+
+//methods
+str.toUpperCase()
+str.toLowerCase()
+str.contains('e')
+str.padLeft(10)
+str.padRight(10)
+str.trim()
+str.trimLeft()
+str.trimRight()
+str.split(' ')

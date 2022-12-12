@@ -1,0 +1,8 @@
+//check if an item is in array
+
+
+
+const names=['ali','raza','jmalo'];
+
+const isInclude=names.includes('ali')		//true
+const isInclude=names.includes('ali',1)		//false as it search from index 1

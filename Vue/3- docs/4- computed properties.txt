@@ -1,0 +1,32 @@
+-only for reactive properties
+-Computed properties are by default getter-only [we can write to state]
+-computed return value should be treated as read-only and never be mutated
+-no async request
+
+
+
+<p>{{ calculateBooksMessage }}</p>
+
+computed: {
+publishedBooksMessage() {
+      return this.author.books.length > 0 ? 'Yes' : 'No'
+    }
+}
+
+
+
+
+
+//Writable Computed
+computed: {
+    fullName: {
+      // getter
+      get() {
+        return this.firstName + ' ' + this.lastName
+      },
+      // setter
+      set(newValue) {
+        // Note: we are using destructuring assignment syntax here.
+        [this.firstName, this.lastName] = newValue.split(' ')
+      }
+   }

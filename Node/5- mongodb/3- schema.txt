@@ -1,0 +1,13 @@
+String,Number,Array,Date,Buffer,Boolean,ObjectID
+
+
+const courseSchema = mongoose.Schema({
+  name: String,
+  auther: String,
+  tags: [String],
+  date: { type: Date, default: Date.now },
+  isPublished: Boolean,
+})
+
+//model
+const Course = mongoose.model('Course', courseSchema)

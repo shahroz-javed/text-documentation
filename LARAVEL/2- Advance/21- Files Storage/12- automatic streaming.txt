@@ -1,0 +1,11 @@
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+ 
+// Automatically generate a unique ID for filename...
+$path = Storage::putFile('photos', new File('/path/to/photo'));
+ 
+// Manually specify a filename...
+$path = Storage::putFileAs('photos', new File('/path/to/photo'), 'photo.jpg');
+
+//specify visibility
+Storage::putFile('photos', new File('/path/to/photo'), 'public');

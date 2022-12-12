@@ -1,0 +1,6 @@
+use App\Console\Commands\SendEmailsCommand;
+
+
+
+$schedule->command('emails:send Taylor --force')->daily();
+$schedule->command(SendEmailsCommand::class, ['Taylor', '--force'])->daily();

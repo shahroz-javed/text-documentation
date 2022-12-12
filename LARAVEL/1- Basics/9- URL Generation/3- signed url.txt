@@ -1,0 +1,20 @@
+//signed url
+return URL::signedRoute('unsubscribe', ['user' => 1]);
+return URL::temporarySignedRoute(
+    'unsubscribe', now()->addMinutes(30), ['user' => 1]
+);
+
+//validate signed route request
+if (! $request->hasValidSignature()) {
+        abort(401);
+    }
+
+or use 
+middleware('signed')
+
+
+
+//response to invalid request
+$this->renderable(function (InvalidSignatureException $e) {
+        return response()->view('error.link-expired', [], 403);
+    });

@@ -1,0 +1,30 @@
+use Illuminate\Http\Request;
+
+
+$request->path()
+$request->is('admin/*')
+$request->routeIs('admin.*')
+$request->url()
+$request->fullUrl()
+
+
+
+//request method
+$request->isMethod('post')
+
+
+//request headers
+$request->header('X-Header-Name');
+$request->header('X-Header-Name', 'default');
+
+
+//get ip
+$request->ip()
+
+
+
+//content negotiation
+$request->getAcceptableContentTypes()
+$request->accepts(['text/html', 'application/json'])
+$request->prefers(['text/html', 'application/json'])
+$request->expectsJson()

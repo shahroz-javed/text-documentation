@@ -1,0 +1,27 @@
+1- App\Models\User model implements the Illuminate\Contracts\Auth\MustVerifyEmail
+2- email_verified_at column
+3- middleware(['auth','verified'])
+
+
+
+
+
+
+
+
+
+
+
+//if manually registering
+event(new Registered($user));
+
+
+
+
+
+
+
+//routes
+Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
+Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');

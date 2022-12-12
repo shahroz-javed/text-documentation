@@ -1,0 +1,20 @@
+git checkout index.html		//recover a file
+git checkout -F
+
+
+git log
+git log -P -3
+q			//quit
+
+
+git diff
+git diff --staged
+
+
+
+touch index.html
+ls -lart
+ls
+git rm waste.html
+git rm --cached waste.html		//delete from staged area
+git status -s

@@ -1,0 +1,4 @@
+$request->session()->put('key', 'value');
+
+
+$request->session()->push('user.teams', 'developers');	//in array session

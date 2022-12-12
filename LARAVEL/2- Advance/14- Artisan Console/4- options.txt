@@ -1,0 +1,26 @@
+//option without value
+protected $signature = 'mail:send {user} {--queue}';
+php artisan mail:send 1 --queue
+ 
+
+
+
+
+//option with value
+protected $signature = 'mail:send {user} {--queue=default}'
+protected $signature = 'mail:send {user} {--queue=}';
+php artisan mail:send 1 --queue=default
+
+
+
+
+
+//Option Shortcuts
+'mail:send {user} {--Q|queue}'
+php artisan mail:send 1 -Q
+
+
+
+//options arrays
+'mail:send {--id=*}'
+php artisan mail:send --id=1 --id=2

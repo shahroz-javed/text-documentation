@@ -1,0 +1,9 @@
+//make and config disk at runtime
+
+
+$disk = Storage::build([
+    'driver' => 'local',
+    'root' => '/path/to/root',
+]);
+ 
+$disk->put('image.jpg', $content);

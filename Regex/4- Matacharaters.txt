@@ -1,0 +1,10 @@
+\d	//match digit
+\w	//match a char
+\s	//match whitspace , tabs
+\t	//match tab
+\b	//find match at begining or end of word like \bhi or hi\b
+\W	//find non word
+\D	//find non digit
+\S	//find non space
+\n	//find new line char
+\v	//find a char before it sch\vool

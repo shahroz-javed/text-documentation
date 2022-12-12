@@ -1,0 +1,39 @@
+//steps
+create customer
+create token
+create card [customer & token]
+charge customer
+
+
+//charge customer
+by customerId [customer default card will be used
+by token
+by cardId
+
+
+
+
+//stripe billing [recuring payments]
+invoice type:	
+	manual [for one time]	->create customer , One-off invoice
+	automatic [for multipmple time, monthly,yearly] ->product,plan,licensed and metered usage
+
+for goods [use order api]
+for services [use subscription api]
+
+tiered billing: like electiricity bills after 200 unit charge diffrently
+
+
+
+
+//steps
+create products
+create plan
+create customer
+subscribe the customer to plan
+invoices
+payment intents
+
+//flow
+create customer base on email
+get detail from custome[name,card number]

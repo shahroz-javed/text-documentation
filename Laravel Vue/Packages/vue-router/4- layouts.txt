@@ -1,0 +1,23 @@
+<div class="sm:flex container p-5 mx-auto content justify-betweenflex-wrap">
+    <RouterView class="view main-content w-full order-2"></RouterView>
+    <RouterView name="LeftSidebar" class="view order-1 w-full"></RouterView>
+    <RouterView name="RightSidebar" class="view order-3 w-full"></RouterView>
+</div>
+
+{
+  path: '/about',
+  components: {
+    default: () => import('@/pages/AboutShow.vue'),
+    LeftSidebar: () => import('@/components/SidebarOne.vue'),
+    RightSidebar: () => import('@/components/SidebarTwo.vue'),
+  },
+},
+
+
+
+
+
+
+<div>
+<router-view/>
+</div>

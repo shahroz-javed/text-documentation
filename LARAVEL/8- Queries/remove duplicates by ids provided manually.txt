@@ -1,0 +1,920 @@
+//remove duplicates
+    function removeDuplicates(Request $req)
+    {
+        $primary = Person::where('id', $req->primary)->first();
+        $secondary = Person::whereIn('id', $req->secondary)->get();
+
+        //properties
+
+        $birth = [];
+        $spoken_languages = [];
+        $jobs = [];
+        $address = [];
+        $contacts = [];
+        $info = [];
+        $materials = [];
+        $financial = [];
+        $internal_notes = [];
+        $notes = [];
+
+        //finding and assign values to properties
+        // user_id
+        foreach ($secondary as $key => $val) {
+
+            if ($val->user_id != 3473984738294) {
+                $userId =    $val->user_id;
+                break;
+            } else {
+                $userId =    null;
+            }
+        }
+
+
+        //firstname
+        foreach ($secondary as $key => $val) {
+            if ($val->firstname != null) {
+                $firstname =    $val->firstname;
+                break;
+            } else {
+                $firstname =    null;
+            }
+        }
+        //lastname
+        foreach ($secondary as $key => $val) {
+            if ($val->lastname != null) {
+                $lastname =    $val->lastname;
+                break;
+            } else {
+                $lastname =    null;
+            }
+        }
+        //short_firstname
+        foreach ($secondary as $key => $val) {
+            if ($val->short_firstname != null) {
+                $short_firstname =    $val->short_firstname;
+                break;
+            } else {
+                $short_firstname =    null;
+            }
+        }
+        //short_lastname
+        foreach ($secondary as $key => $val) {
+            if ($val->short_lastname != null) {
+                $short_lastname =    $val->short_lastname;
+                break;
+            } else {
+                $short_lastname =    null;
+            }
+        }
+        //email
+        foreach ($secondary as $key => $val) {
+            if ($val->email != null) {
+                $email =    $val->email;
+                break;
+            } else {
+                $email =    null;
+            }
+        }
+        //gender
+        foreach ($secondary as $key => $val) {
+            if ($val->gender != null) {
+                $gender =    $val->gender;
+                break;
+            } else {
+                $gender =    null;
+            }
+        }
+        //gender_identity
+        foreach ($secondary as $key => $val) {
+            if ($val->gender_identity != null) {
+                $gender_identity =    $val->gender_identity;
+                break;
+            } else {
+                $gender_identity =    null;
+            }
+        }
+
+
+        //birthdate
+        $birth['date'] =   $primary->birth != null &&  isset($primary->birth['date']) ? $primary->birth['date'] : null;
+        $birth['place'] =  $primary->birth != null &&  isset($primary->birth['place']) ? $primary->birth['place'] : null;
+        $birth['locality'] = $primary->birth != null &&  isset($primary->birth['locality']) ? $primary->birth['locality'] : null;
+        $birth['city'] = $primary->birth != null &&  isset($primary->birth['city']) ? $primary->birth['city'] : null;
+        $birth['province'] =  $primary->birth != null &&  isset($primary->birth['province']) ? $primary->birth['province'] : null;
+
+        foreach ($secondary as $key => $val) {
+            // return $birth;
+
+            if ($val->birth != null) {
+                $date = isset($secondary[$key]->birth['date']) && $secondary[$key]->birth != null ? $secondary[$key]->birth['date'] : null;
+                $birth['date'] == null ?  $birth['date'] = $date : $birth['date'] = $birth['date'];
+
+                $place = isset($secondary[$key]->birth['place']) && $secondary[$key]->birth != null ? $secondary[$key]->birth['place'] : null;
+                $birth['place'] == null ? $birth['place'] = $place  : $birth['place'] = $birth['place'];
+
+                $locality = isset($secondary[$key]->birth['locality']) && $secondary[$key]->birth != null ? $secondary[$key]->birth['locality'] : null;
+                $birth['locality'] == null  ? $birth['locality'] = $locality : $birth['locality'] = $birth['locality'];
+
+                $province = isset($secondary[$key]->birth['province']) && $secondary[$key]->birth != null ? $secondary[$key]->birth['province'] : null;
+                $birth['province'] == null ? $birth['province'] = $province : $birth['province'] = $birth['province'];
+
+                $city = isset($secondary[$key]->birth['city']) && $secondary[$key]->birth != null ? $secondary[$key]->birth['city'] : null;
+                $birth['city'] == null ? $birth['city'] = $city : $birth['city'] = $birth['city'];
+            } else {
+                $birth =    $birth;
+            }
+        }
+        if ($birth == []) {
+            $birth = null;
+        }
+
+        // return $birth;
+        //nationality
+        foreach ($secondary as $key => $val) {
+            if ($val->nationality != null) {
+                $nationality =    $val->nationality;
+                break;
+            } else {
+                $nationality =    null;
+            }
+        }
+
+        //spoken_languages
+        foreach ($secondary as $key => $val) {
+            if ($val->spoken_languages != null) {
+                if ($primary->spoken_languages != null) {
+                    $spoken_languages =    array_merge($secondary[$key]->spoken_languages, $spoken_languages, $primary->spoken_languages);
+                } else {
+                    $spoken_languages =    array_merge($secondary[$key]->spoken_languages, $spoken_languages);
+                }
+            } else {
+                $spoken_languages =    $spoken_languages;
+            }
+        }
+        $spoken_languagesu = array_unique($spoken_languages);
+        $spoken_languagess = [];
+        foreach ($spoken_languagesu as $key => $value) {
+            $spoken_languagess[] = $value;
+        }
+        if (count($spoken_languagess) == 0) {
+            $spoken_languagess = null;
+        }
+
+        //jobs
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->jobs != null) {
+                if ($primary->jobs != null) {
+                    $jobs =    array_merge($secondary[$key]->jobs, $jobs, $primary->jobs);
+                } else {
+                    $jobs =    array_merge($secondary[$key]->jobs, $jobs);
+                }
+
+                // break;
+            } else {
+                $jobs =    $jobs;
+            }
+        }
+        $jobsu = array_unique($jobs);
+        $jobss = [];
+        foreach ($jobsu as $key => $value) {
+            $jobss[] = $value;
+        }
+        if (count($jobss) == 0) {
+            $jobss = null;
+        }
+
+        //headshot
+        foreach ($secondary as $key => $val) {
+            if ($val->headshot != null) {
+                $headshot =    $val->headshot;
+                break;
+            } else {
+                $headshot =    null;
+            }
+        }
+
+        // address
+        // primary not empty, not $key+1,
+        if ($primary->address != null) {
+            foreach ($primary->address as $key => $value) {
+                $address[$key]['label'] =  isset($primary->address[$key]['label']) ? $primary->address[$key]['label'] : null;
+                $address[$key]['address'] =  isset($primary->address[$key]['address']) ? $primary->address[$key]['address'] : null;
+                $address[$key]['zip'] =  isset($primary->address[$key]['zip']) ? $primary->address[$key]['zip'] : null;
+                $address[$key]['city'] =  isset($primary->address[$key]['city']) ? $primary->address[$key]['city'] : null;
+                $address[$key]['province'] =  isset($primary->address[$key]['province']) ? $primary->address[$key]['province'] : null;
+                $address[$key]['state'] =  isset($primary->address[$key]['state']) ? $primary->address[$key]['state'] : null;
+                $address[$key]['country'] =  isset($primary->address[$key]['country']) ? $primary->address[$key]['country'] : null;
+            }
+        }
+
+        // return $address;
+        $ua = [];
+        $key = 0;
+        foreach ($secondary as $key3 => $val) {
+            // return $val->address;
+            if ($val->address != null) {
+                foreach ($val->address as $key2 => $value) {
+
+                    if (isset($address[$key2])) {
+                        foreach ($address as $key1 => $value1) {
+
+                            if ($value1['address'] == $value['address']) {
+                                $label = isset($value['label']) && $value != null ? $value['label'] : null;
+                                !isset($address[$key1]['label']) ?  $address[$key1]['label'] = $label : $address[$key1]['label'] = $address[$key1]['label'];
+
+                                $address1 = isset($value['address']) && $value != null ? $value['address'] : null;
+                                !isset($address[$key1]['address']) ?  $address[$key1]['address'] = $address1 : $address[$key1]['address'] = $address[$key1]['address'];
+
+                                $zip = isset($value['zip']) && $value != null ? $value['zip'] : null;
+                                !isset($address[$key1]['zip']) ?  $address[$key1]['zip'] = $zip : $address[$key1]['zip'] = $address[$key1]['zip'];
+
+                                $city = isset($value['city']) && $value != null ? $value['city'] : null;
+                                !isset($address[$key1]['city']) ?  $address[$key1]['city'] = $city : $address[$key1]['city'] = $address[$key1]['city'];
+
+                                $province = isset($value['province']) && $value != null ? $value['province'] : null;
+                                !isset($address[$key1]['province']) ?  $address[$key1]['province'] = $province : $address[$key1]['province'] = $address[$key1]['province'];
+
+                                $state = isset($value['state']) && $value != null ? $value['state'] : null;
+                                !isset($address[$key1]['state']) ?  $address[$key1]['state'] = $state : $address[$key1]['state'] = $address[$key1]['state'];
+
+                                $country = isset($value['country']) && $value != null ? $value['country'] : null;
+                                !isset($address[$key1]['country']) ?  $address[$key1]['country'] = $country : $address[$key1]['country'] = $address[$key1]['country'];
+                                break;
+                            } else {
+                                if ($key1 == count($address) - 1) {
+                                    $address[count($address)] = $value;
+                                }
+                            }
+                        }
+                    } else {
+                        if (in_array($value['address'], $ua)) {
+                            continue;
+                        } else {
+
+                            $label = isset($value['label']) && $value != null ? $value['label'] : null;
+                            !isset($address[$key]['label']) ?  $address[$key]['label'] = $label : $address[$key]['label'] = $address[$key]['label'];
+
+                            $address1 = isset($value['address']) && $value != null ? $value['address'] : null;
+                            !isset($address[$key]['address']) ?  $address[$key]['address'] = $address1 : $address[$key]['address'] = $address[$key]['address'];
+
+                            $zip = isset($value['zip']) && $value != null ? $value['zip'] : null;
+                            !isset($address[$key]['zip']) ?  $address[$key]['zip'] = $zip : $address[$key]['zip'] = $address[$key]['zip'];
+
+                            $city = isset($value['city']) && $value != null ? $value['city'] : null;
+                            !isset($address[$key]['city']) ?  $address[$key]['city'] = $city : $address[$key]['city'] = $address[$key]['city'];
+
+                            $province = isset($value['province']) && $value != null ? $value['province'] : null;
+                            !isset($address[$key]['province']) ?  $address[$key]['province'] = $province : $address[$key]['province'] = $address[$key]['province'];
+
+                            $state = isset($value['state']) && $value != null ? $value['state'] : null;
+                            !isset($address[$key]['state']) ?  $address[$key]['state'] = $state : $address[$key]['state'] = $address[$key]['state'];
+
+                            $country = isset($value['country']) && $value != null ? $value['country'] : null;
+                            !isset($address[$key]['country']) ?  $address[$key]['country'] = $country : $address[$key]['country'] = $address[$key]['country'];
+                        }
+                        $ua[] = $value['address'];
+                    }
+                }
+                $key++;
+                // break;
+            } else {
+                $address =    $address;
+            }
+        }
+
+        if ($address == []) {
+            $address = null;
+        }
+
+        // return $address;
+
+        //contacts
+        //primary not empty, not $key+1,
+        $contacts['email'] = $primary->contacts != null &&  isset($primary->contacts['email']) ? $primary->contacts['email'] : null;
+        $contacts['phone'] = $primary->contacts != null &&  isset($primary->contacts['phone']) ? $primary->contacts['phone'] : null;
+        $contacts['social'] = $primary->contacts != null &&  isset($primary->contacts['social']) ? $primary->contacts['social'] : null;
+
+        // return $contacts;
+        $uemail = [];
+        $uphone = [];
+        $keye = 0;
+        $keyf = 0;
+        foreach ($secondary as $key3 => $val) {
+            if ($val->contacts != null) {
+                if (isset($val->contacts['email'])) {
+                    foreach ($val->contacts['email'] as $key2 => $value) {
+
+                        if ($contacts != null) {
+                            if (isset($contacts['email'])) {
+                                foreach ($contacts['email'] as $key1 => $value1) {
+                                    if ($value['email'] == $value1['email']) {
+                                        $label = isset($value['label']) && $val->contacts != null ? $value['label'] : null;
+                                        !isset($contacts['email'][$key1]['label']) ?  $contacts['email'][$key1]['label'] = $label : $contacts['email'][$key1]['label'] = $contacts['email'][$key1]['label'];
+
+                                        $email = isset($value['email']) && $val->contacts != null ? $value['email'] : null;
+                                        !isset($contacts['email'][$key1]['email']) ?  $contacts['email'][$key1]['email'] = $email : $contacts['email'][$key1]['email'] = $contacts['email'][$key1]['email'];
+                                        break;
+                                    } else {
+                                        if ($key1 == count($contacts['email']) - 1) {
+                                            $contacts['email'][count($contacts['email'])] = $value;
+                                        }
+                                    }
+                                }
+                            } else {
+                                $contacts['email'][$keye] = $value;
+                            }
+                        } else {
+                            if (in_array($value['email'], $uemail)) {
+                                continue;
+                            } else {
+
+                                $label = isset($value['label']) && $val->contacts != null ? $value['label'] : null;
+                                !isset($contacts['email'][$key1]['label']) ?  $contacts['email'][$key1]['label'] = $label : $contacts['email'][$key1]['label'] = $contacts['email'][$key1]['label'];
+
+                                $email = isset($value['email']) && $val->contacts != null ? $value['email'] : null;
+                                !isset($contacts['email'][$key1]['email']) ?  $contacts['email'][$key1]['email'] = $email : $contacts['email'][$key1]['email'] = $contacts['email'][$key1]['email'];
+                            }
+                            $uemail[] = $value['email'];
+                        }
+                        $keye++;
+                    }
+                }
+                if (isset($val->contacts['phone'])) {
+                    foreach ($val->contacts['phone'] as $key2 => $value) {
+
+                        if ($contacts != null) {
+                            if (isset($contacts['phone'])) {
+                                foreach ($contacts['phone'] as $key1 => $value1) {
+                                    if ($value['phone'] == $value1['phone']) {
+                                        $label = isset($value['label']) && $val->contacts != null ? $value['label'] : null;
+                                        !isset($contacts['phone'][$key1]['label']) ?  $contacts['phone'][$key1]['label'] = $label : $contacts['phone'][$key1]['label'] = $contacts['phone'][$key1]['label'];
+
+                                        $phone = isset($value['phone']) && $val->contacts != null ? $value['phone'] : null;
+                                        !isset($contacts['phone'][$key1]['phone']) ?  $contacts['phone'][$key1]['phone'] = $phone : $contacts['phone'][$key1]['phone'] = $contacts['phone'][$key1]['phone'];
+                                        break;
+                                    } else {
+                                        if ($key1 == count($contacts['phone']) - 1) {
+                                            $contacts['phone'][count($contacts['phone'])] = $value;
+                                        }
+                                    }
+                                }
+                            } else {
+                                $contacts['phone'][$keyf] = $value;
+                            }
+                        } else {
+                            if (in_array($value['phone'], $uphone)) {
+                                continue;
+                            } else {
+
+                                $label = isset($value['label']) && $val->contacts != null ? $value['label'] : null;
+                                !isset($contacts['phone'][$key1]['label']) ?  $contacts['phone'][$key1]['label'] = $label : $contacts['phone'][$key1]['label'] = $contacts['phone'][$key1]['label'];
+
+                                $phone = isset($value['phone']) && $val->contacts != null ? $value['phone'] : null;
+                                !isset($contacts['phone'][$key1]['phone']) ?  $contacts['phone'][$key1]['phone'] = $phone : $contacts['phone'][$key1]['phone'] = $contacts['phone'][$key1]['phone'];
+                            }
+                            $uphone[] = $value['phone'];
+                        }
+                        $keyf++;
+                    }
+                }
+                if (isset($val->contacts['social'])) {
+
+                    if ($contacts != null && isset($contacts['social'])) {
+
+                        $twitter = isset($val->contacts['social']['twitter']) && $val->contacts != null ? $val->contacts['social']['twitter'] : null;
+                        !isset($contacts['social']['twitter']) ?  $contacts['social']['twitter'] = $twitter : $contacts['social']['twitter'] = $contacts['social']['twitter'];
+                    } else {
+                        $twitter = isset($val->contacts['social']['twitter']) && $val->contacts != null ? $val->contacts['social']['twitter'] : null;
+                        !isset($contacts['social']['twitter']) ?  $contacts['social']['twitter'] = $twitter : $contacts['social']['twitter'] = $contacts['social']['twitter'];
+                        $facebook = isset($val->contacts['social']['facebook']) && $val->contacts != null ? $val->contacts['social']['facebook'] : null;
+                        !isset($contacts['social']['facebook']) ?  $contacts['social']['facebook'] = $facebook : $contacts['social']['facebook'] = $contacts['social']['facebook'];
+                        $instagram = isset($val->contacts['social']['instagram']) && $val->contacts != null ? $val->contacts['social']['instagram'] : null;
+                        !isset($contacts['social']['instagram']) ?  $contacts['social']['instagram'] = $instagram : $contacts['social']['instagram'] = $contacts['social']['instagram'];
+                        $youtube = isset($val->contacts['social']['youtube']) && $val->contacts != null ? $val->contacts['social']['youtube'] : null;
+                        !isset($contacts['social']['youtube']) ?  $contacts['social']['youtube'] = $youtube : $contacts['social']['youtube'] = $contacts['social']['youtube'];
+                        $whatsapp = isset($val->contacts['social']['whatsapp']) && $val->contacts != null ? $val->contacts['social']['whatsapp'] : null;
+                        !isset($contacts['social']['whatsapp']) ?  $contacts['social']['whatsapp'] = $whatsapp : $contacts['social']['whatsapp'] = $contacts['social']['whatsapp'];
+                    }
+                }
+            } else {
+                $contacts =    $contacts;
+            }
+        }
+        if ($contacts == []) {
+            $contacts = null;
+        }
+        // return $contacts;
+        //info
+        //primary not empty, not $key+1,
+        $info['bio'] =   $primary->info != null &&  isset($primary->info['bio']) ? $primary->info['bio'] : null;
+        $info['food'] =  $primary->info != null &&  isset($primary->info['food']) ? $primary->info['food'] : null;
+        $info['flight'] = $primary->info != null &&  isset($primary->info['flight']) ? $primary->info['flight'] : null;
+        $info['flight']['airport'] = $primary->info != null &&  isset($primary->info['flight']['airport']) ? $primary->info['flight']['airport'] : null;
+        $info['flight']['city'] = $primary->info != null &&  isset($primary->info['flight']['city']) ? $primary->info['flight']['city'] : null;
+        $info['flight']['info'] = $primary->info != null &&  isset($primary->info['flight']['info']) ? $primary->info['flight']['info'] : null;
+        $info['flight']['remarks'] = $primary->info != null &&  isset($primary->info['flight']['remarks']) ? $primary->info['flight']['remarks'] : null;
+
+        $info['medical_notes'] =  $primary->info != null &&  isset($primary->info['medical_notes']) ? $primary->info['medical_notes'] : null;
+        $info['cf_check'] =  $primary->info != null &&  isset($primary->info['cf_check']) ? $primary->info['cf_check'] : null;
+        $info['privacy1'] =  $primary->info != null &&  isset($primary->info['privacy1']) ? $primary->info['privacy1'] : null;
+        $info['visto_coni'] =  $primary->info != null &&  isset($primary->info['visto_coni']) ? $primary->info['visto_coni'] : null;
+        $info['first_membership'] =  $primary->info != null &&  isset($primary->info['first_membership']) ? $primary->info['first_membership'] : null;
+        $info['first_membership_year'] =  $primary->info != null &&  isset($primary->info['first_membership_year']) ? $primary->info['first_membership_year'] : null;
+
+        foreach ($secondary as $key => $val) {
+
+
+            if ($val->info != null) {
+                $bio = isset($secondary[$key]->info['bio']) && $secondary[$key]->info != null ? $secondary[$key]->info['bio'] : null;
+                $info['bio'] == null ?  $info['bio'] = $bio : $info['bio'] = $info['bio'];
+
+                $food = isset($secondary[$key]->info['food']) && $secondary[$key]->info != null ? $secondary[$key]->info['food'] : null;
+                $info['food'] == null ?  $info['food'] = $food : $info['food'] = $info['food'];
+
+                $flightairport = isset($secondary[$key]->info['flight']['airport']) && $secondary[$key]->info != null ? $secondary[$key]->info['flight']['airport'] : null;
+                $info['flight']['airport'] == null ?  $info['flight']['airport'] = $flightairport : $info['flight']['airport'] = $info['flight']['airport'];
+
+                $flightcity = isset($secondary[$key]->info['flight']['city']) && $secondary[$key]->info != null ? $secondary[$key]->info['flight']['city'] : null;
+                $info['flight']['city'] == null ?  $info['flight']['city'] = $flightcity : $info['flight']['city'] = $info['flight']['city'];
+
+                $flightinfo = isset($secondary[$key]->info['flight']['info']) && $secondary[$key]->info != null ? $secondary[$key]->info['flight']['info'] : null;
+                $info['flight']['info'] == null ?  $info['flight']['info'] = $flightinfo : $info['flight']['info'] = $info['flight']['info'];
+
+                $flightremarks = isset($secondary[$key]->info['flight']['remarks']) && $secondary[$key]->info != null ?
+                    $secondary[$key]->info['flight']['remarks'] : null;
+                $info['flight']['remarks'] == null ?  $info['flight']['remarks'] = $flightremarks : $info['flight']['remarks'] = $info['flight']['remarks'];
+
+                $medical_notes = isset($secondary[$key]->info['medical_notes']) && $secondary[$key]->info != null ? $secondary[$key]->info['medical_notes'] : null;
+                $info['medical_notes'] == null ?  $info['medical_notes'] = $medical_notes : $info['medical_notes'] = $info['medical_notes'];
+
+                $cf_check = isset($secondary[$key]->info['cf_check']) && $secondary[$key]->info != null ? $secondary[$key]->info['cf_check'] : null;
+                $info['cf_check'] == null ?  $info['cf_check'] = $cf_check : $info['cf_check'] = $info['cf_check'];
+
+                $privacy1 = isset($secondary[$key]->info['privacy1']) && $secondary[$key]->info != null ? $secondary[$key]->info['privacy1'] : null;
+                $info['privacy1'] == null ?  $info['privacy1'] = $privacy1 : $info['privacy1'] = $info['privacy1'];
+
+                $visto_coni = isset($secondary[$key]->info['visto_coni']) && $secondary[$key]->info != null ? $secondary[$key]->info['visto_coni'] : null;
+                $info['visto_coni'] == null ?  $info['visto_coni'] = $visto_coni : $info['visto_coni'] = $info['visto_coni'];
+
+                $first_membership = isset($secondary[$key]->info['first_membership']) && $secondary[$key]->info != null ? $secondary[$key]->info['first_membership'] : null;
+                $info['first_membership'] == null ?  $info['first_membership'] = $first_membership : $info['first_membership'] = $info['first_membership'];
+
+                $first_membership_year = isset($secondary[$key]->info['first_membership_year']) && $secondary[$key]->info != null ? $secondary[$key]->info['first_membership_year'] : null;
+                $info['first_membership_year'] == null ?  $info['first_membership_year'] = $first_membership_year : $info['first_membership_year'] = $info['first_membership_year'];
+
+
+                // break;
+            } else {
+                $info =    $info;
+            }
+        }
+        if ($info == []) {
+            $info = null;
+        }
+
+        // return $info;
+
+        //materials
+        //primary not empty, not $key+1,
+        $materials['bats'] =   $primary->materials != null &&  isset($primary->materials['bats']) ? $primary->materials['bats'] : null;
+        $materials['throws'] =   $primary->materials != null &&  isset($primary->materials['throws']) ? $primary->materials['throws'] : null;
+        $materials['height'] =   $primary->materials != null &&  isset($primary->materials['height']) ? $primary->materials['height'] : null;
+        $materials['weight'] =   $primary->materials != null &&  isset($primary->materials['weight']) ? $primary->materials['weight'] : null;
+        $materials['shirt'] =   $primary->materials != null &&  isset($primary->materials['shirt']) ? $primary->materials['shirt'] : null;
+        $materials['pant'] =   $primary->materials != null &&  isset($primary->materials['pant']) ? $primary->materials['pant'] : null;
+        $materials['waist'] =   $primary->materials != null &&  isset($primary->materials['waist']) ? $primary->materials['waist'] : null;
+        $materials['hip'] =   $primary->materials != null &&  isset($primary->materials['hip']) ? $primary->materials['hip'] : null;
+        $materials['leg_outside'] =   $primary->materials != null &&  isset($primary->materials['leg_outside']) ? $primary->materials['leg_outside'] : null;
+        $materials['leg_inside'] =   $primary->materials != null &&  isset($primary->materials['leg_inside']) ? $primary->materials['leg_inside'] : null;
+        $materials['thigh'] =   $primary->materials != null &&  isset($primary->materials['thigh']) ? $primary->materials['thigh'] : null;
+        $materials['neck'] =   $primary->materials != null &&  isset($primary->materials['neck']) ? $primary->materials['neck'] : null;
+        $materials['shoulder'] =   $primary->materials != null &&  isset($primary->materials['shoulder']) ? $primary->materials['shoulder'] : null;
+        $materials['sleeve'] =   $primary->materials != null &&  isset($primary->materials['sleeve']) ? $primary->materials['sleeve'] : null;
+        $materials['chest'] =   $primary->materials != null &&  isset($primary->materials['chest']) ? $primary->materials['chest'] : null;
+        $materials['cap'] =   $primary->materials != null &&  isset($primary->materials['cap']) ? $primary->materials['cap'] : null;
+        $materials['shoe'] =   $primary->materials != null &&  isset($primary->materials['shoe']) ? $primary->materials['shoe'] : null;
+
+
+        foreach ($secondary as $key => $val) {
+            if ($val->materials != null) {
+                $bats = isset($secondary[$key]->materials['bats']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['bats'] : null;
+                $materials['bats'] == null ?  $materials['bats'] = $bats : $materials['bats'] = $materials['bats'];
+
+                $throws = isset($secondary[$key]->materials['throws']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['throws'] : null;
+                $materials['throws'] == null ?  $materials['throws'] = $throws : $materials['throws'] = $materials['throws'];
+
+                $height = isset($secondary[$key]->materials['height']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['height'] : null;
+                $materials['height'] == null ?  $materials['height'] = $height : $materials['height'] = $materials['height'];
+
+                $weight = isset($secondary[$key]->materials['weight']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['weight'] : null;
+                $materials['weight'] == null ?  $materials['weight'] = $weight : $materials['weight'] = $materials['weight'];
+
+                $shirt = isset($secondary[$key]->materials['shirt']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['shirt'] : null;
+                $materials['shirt'] == null ?  $materials['shirt'] = $shirt : $materials['shirt'] = $materials['shirt'];
+
+                $pant = isset($secondary[$key]->materials['pant']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['pant'] : null;
+                $materials['pant'] == null ?  $materials['pant'] = $pant : $materials['pant'] = $materials['pant'];
+
+                $waist = isset($secondary[$key]->materials['waist']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['waist'] : null;
+                $materials['waist'] == null ?  $materials['waist'] = $waist : $materials['waist'] = $materials['waist'];
+
+                $hip = isset($secondary[$key]->materials['hip']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['hip'] : null;
+                $materials['hip'] == null ?  $materials['hip'] = $hip : $materials['hip'] = $materials['hip'];
+
+                $leg_outside = isset($secondary[$key]->materials['leg_outside']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['leg_outside'] : null;
+                $materials['leg_outside'] == null ?  $materials['leg_outside'] = $leg_outside : $materials['leg_outside'] = $materials['leg_outside'];
+
+                $leg_inside = isset($secondary[$key]->materials['leg_inside']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['leg_inside'] : null;
+                $materials['leg_inside'] == null ?  $materials['leg_inside'] = $leg_inside : $materials['leg_inside'] = $materials['leg_inside'];
+
+                $thigh = isset($secondary[$key]->materials['thigh']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['thigh'] : null;
+                $materials['thigh'] == null ?  $materials['thigh'] = $thigh : $materials['thigh'] = $materials['thigh'];
+
+                $neck = isset($secondary[$key]->materials['neck']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['neck'] : null;
+                $materials['neck'] == null ?  $materials['neck'] = $neck : $materials['neck'] = $materials['neck'];
+
+                $shoulder = isset($secondary[$key]->materials['shoulder']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['shoulder'] : null;
+                $materials['shoulder'] == null ?  $materials['shoulder'] = $shoulder : $materials['shoulder'] = $materials['shoulder'];
+
+                $sleeve = isset($secondary[$key]->materials['sleeve']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['sleeve'] : null;
+                $materials['sleeve'] == null ?  $materials['sleeve'] = $sleeve : $materials['sleeve'] = $materials['sleeve'];
+
+                $chest = isset($secondary[$key]->materials['chest']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['chest'] : null;
+                $materials['chest'] == null ?  $materials['chest'] = $chest : $materials['chest'] = $materials['chest'];
+
+                $cap = isset($secondary[$key]->materials['cap']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['cap'] : null;
+                $materials['cap'] == null ?  $materials['cap'] = $cap : $materials['cap'] = $materials['cap'];
+
+                $shoe = isset($secondary[$key]->materials['shoe']) && $secondary[$key]->materials != null ? $secondary[$key]->materials['shoe'] : null;
+                $materials['shoe'] == null ?  $materials['shoe'] = $shoe : $materials['shoe'] = $materials['shoe'];
+            } else {
+                $materials =    $materials;
+            }
+        }
+        if ($materials == []) {
+            $materials = null;
+        }
+
+        // return $materials;
+        //financial
+        //primary not empty, not $key+1,
+        $financial['iban'] =   $primary->financial != null &&  isset($primary->financial['iban']) ? $primary->financial['iban'] : null;
+        if ($financial['iban'] != null) {
+            foreach ($financial['iban'] as $key => $value) {
+                $financial['iban'][$key]['bank_label'] =  $primary->financial != null &&  isset($primary->financial['iban'][$key]['bank_label']) ? $primary->financial['iban'][$key]['bank_label'] : null;
+                $financial['iban'][$key]['bank_name'] =  $primary->financial != null &&  isset($primary->financial['iban'][$key]['bank_name']) ? $primary->financial['iban'][$key]['bank_name'] : null;
+                $financial['iban'][$key]['bank_address'] =  $primary->financial != null &&  isset($primary->financial['iban'][$key]['bank_address']) ? $primary->financial['iban'][$key]['bank_address'] : null;
+                $financial['iban'][$key]['bank_iban'] =  $primary->financial != null &&  isset($primary->financial['iban'][$key]['bank_iban']) ? $primary->financial['iban'][$key]['bank_iban'] : null;
+                $financial['iban'][$key]['bank_bic_swift'] =  $primary->financial != null &&  isset($primary->financial['iban'][$key]['bank_bic_swift']) ? $primary->financial['iban'][$key]['bank_bic_swift'] : null;
+            }
+        }
+
+        // return $secondary;
+        $uib = [];
+        $key = 0;
+        foreach ($secondary as $key3 => $val) {
+            if ($val->financial != null) {
+                if ($val->financial['iban'] != null) {
+
+                    foreach ($val->financial['iban'] as $key2 => $value) {
+                        if ($financial['iban'] != null) {
+                            foreach ($financial['iban'] as $key1 => $value1) {
+
+                                if ($value1['bank_iban'] == $value['bank_iban']) {
+
+                                    $bank_label = isset($value['bank_label']) && $value != null ? $value['bank_label'] : null;
+                                    !isset($financial['iban'][$key1]['bank_label']) ?  $financial['iban'][$key1]['bank_label'] = $bank_label : $financial['iban'][$key1]['bank_label'] = $financial['iban'][$key1]['bank_label'];
+
+                                    $bank_name = isset($value['bank_name']) && $value != null ? $value['bank_name'] : null;
+                                    !isset($financial['iban'][$key1]['bank_name']) ?  $financial['iban'][$key1]['bank_name'] = $bank_name : $financial['iban'][$key1]['bank_name'] = $financial['iban'][$key1]['bank_name'];
+
+                                    $bank_address = isset($value['bank_address']) && $value != null ? $value['bank_address'] : null;
+                                    !isset($financial['iban'][$key1]['bank_address']) ?  $financial['iban'][$key1]['bank_address'] = $bank_address : $financial['iban'][$key1]['bank_address'] = $financial['iban'][$key1]['bank_address'];
+
+                                    $bank_iban = isset($value['bank_iban']) && $value != null ? $value['bank_iban'] : null;
+                                    !isset($financial['iban'][$key1]['bank_iban']) ?  $financial['iban'][$key1]['bank_iban'] = $bank_iban : $financial['iban'][$key1]['bank_iban'] = $financial['iban'][$key1]['bank_iban'];
+
+                                    $bank_bic_swift = isset($value['bank_bic_swift']) && $value != null ? $value['bank_bic_swift'] : null;
+                                    !isset($financial['iban'][$key1]['bank_bic_swift']) ?  $financial['iban'][$key1]['bank_bic_swift'] = $bank_bic_swift : $financial['iban'][$key1]['bank_bic_swift'] = $financial['iban'][$key1]['bank_bic_swift'];
+                                    break;
+                                } else {
+                                    if ($key1 == count($financial['iban']) - 1) {
+                                        $financial['iban'][count($financial['iban'])] = $value;
+                                    }
+                                }
+                            }
+                        } else {
+                            if (in_array($value['bank_iban'], $uib)) {
+                                continue;
+                            } else {
+                                $bank_label = isset($value['bank_label']) && $value != null ? $value['bank_label'] : null;
+                                !isset($financial['iban'][$key]['bank_label']) ?  $financial['iban'][$key]['bank_label'] = $bank_label : $financial['iban'][$key]['bank_label'] = $financial['iban'][$key]['bank_label'];
+
+                                $bank_name = isset($value['bank_name']) && $value != null ? $value['bank_name'] : null;
+                                !isset($financial['iban'][$key]['bank_name']) ?  $financial['iban'][$key]['bank_name'] = $bank_name : $financial['iban'][$key]['bank_name'] = $financial['iban'][$key]['bank_name'];
+
+                                $bank_address = isset($value['bank_address']) && $value != null ? $value['bank_address'] : null;
+                                !isset($financial['iban'][$key]['bank_address']) ?  $financial['iban'][$key]['bank_address'] = $bank_address : $financial['iban'][$key]['bank_address'] = $financial['iban'][$key]['bank_address'];
+
+                                $bank_iban = isset($value['bank_iban']) && $value != null ? $value['bank_iban'] : null;
+                                !isset($financial['iban'][$key]['bank_iban']) ?  $financial['iban'][$key]['bank_iban'] = $bank_iban : $financial['iban'][$key]['bank_iban'] = $financial['iban'][$key]['bank_iban'];
+
+                                $bank_bic_swift = isset($value['bank_bic_swift']) && $value != null ? $value['bank_bic_swift'] : null;
+                                !isset($financial['iban'][$key]['bank_bic_swift']) ?  $financial['iban'][$key]['bank_bic_swift'] = $bank_bic_swift : $financial['iban'][$key]['bank_bic_swift'] = $financial['iban'][$key]['bank_bic_swift'];
+
+                                $uib[] = $value['bank_iban'];
+                            }
+                            $key++;
+                        }
+                    }
+                }
+            } else {
+                $financial =    $financial;
+            }
+        }
+        if ($financial == []) {
+            $financial = null;
+        }
+
+        // return $financial;
+
+        //federation_refund_locality_id
+        foreach ($secondary as $key => $val) {
+            if ($val->federation_refund_locality_id != null) {
+                $federation_refund_locality_id =    $val->federation_refund_locality_id;
+                break;
+            } else {
+                $federation_refund_locality_id =    null;
+            }
+        }
+
+        //internal_notes
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->internal_notes != null) {
+                if ($primary->internal_notes != null) {
+                    $internal_notes =    array_merge($secondary[$key]->internal_notes, $internal_notes, $primary->internal_notes);
+                } else {
+                    $internal_notes =    array_merge($secondary[$key]->internal_notes, $internal_notes);
+                }
+
+                // break;
+            } else {
+                $internal_notes =    $internal_notes;
+            }
+        }
+        if ($internal_notes == []) {
+            $internal_notes = null;
+        }
+
+        //notes
+        //primary not empty, not $key+1,
+        foreach ($secondary as $key => $val) {
+            if ($val->notes != null) {
+                if ($primary->notes != null) {
+                    $notes =    array_merge($secondary[$key]->notes, $notes, $primary->notes);
+                } else {
+                    $notes =    array_merge($secondary[$key]->notes, $notes);
+                }
+
+                // break;
+            } else {
+                $notes =    $notes;
+            }
+        }
+        if ($notes == []) {
+            $notes = null;
+        }
+
+
+        // dead_date
+        foreach ($secondary as $key => $val) {
+
+            if ($val->dead_date != null) {
+                $dead_date =    $val->dead_date;
+                break;
+            } else {
+                $dead_date =    null;
+            }
+        }
+        // is_dead
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->is_dead == 0 || $primary->is_dead == 1) {
+                $is_dead =    $primary->is_dead;
+                break;
+            } else {
+                $is_dead =    $val->is_dead;
+            }
+        }
+        // disbarment
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->disbarment == 0 || $primary->disbarment == 1 || $primary->disbarment == -1) {
+                $disbarment =    $primary->disbarment;
+                break;
+            } else {
+                $disbarment =    $val->disbarment;
+            }
+        }
+        // status
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->status == 0 || $primary->status == 1) {
+                $status =    $primary->status;
+                break;
+            } else {
+                $status =    $val->status;
+            }
+        }
+        // disable
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->disable == 0 || $primary->disable == 1) {
+                $disable =    $primary->disable;
+                break;
+            } else {
+                $disable =    $val->disable;
+            }
+        }
+
+
+
+        // myballclubid
+        foreach ($secondary as $key => $val) {
+
+            if ($val->myballclubid != null) {
+                $myballclubid =    $val->myballclubid;
+                break;
+            } else {
+                $myballclubid =    0;
+            }
+        }
+
+
+        // 	confirmed
+        foreach ($secondary as $key => $val) {
+
+            if ($primary->confirmed == 0 || $primary->confirmed == 1) {
+                $confirmed =    $primary->confirmed;
+                break;
+            } else {
+                $confirmed =    $val->confirmed;
+            }
+        }
+
+
+
+
+        // return $birth;
+        // saving in db
+        $primary->user_id < 0 ? $primary->user_id = $userId : 'null';
+        $primary->firstname == null ? $primary->firstname = $firstname : 'null';
+        $primary->lastname == null ? $primary->lastname = $lastname : 'null';
+        $primary->short_firstname == null ? $primary->short_firstname = $short_firstname : 'null';
+        $primary->short_lastname == null ? $primary->short_lastname = $short_lastname : 'null';
+        $primary->email == null ? $primary->email = $email : 'null';
+        $primary->gender == null ? $primary->gender = $gender : 'null';
+        $primary->gender_identity == null ? $primary->gender_identity = $gender_identity : 'null';
+        $primary->birth = $birth;
+        $primary->nationality == null ? $primary->nationality = $nationality : 'null';
+        $primary->spoken_languages = $spoken_languagess;
+        $primary->jobs = $jobss;
+        $primary->headshot == null ? $primary->headshot = $headshot : 'null';
+        $primary->address = $address;
+        $primary->contacts = $contacts;
+        $primary->info = $info;
+        $primary->materials = $materials;
+        $primary->financial = $financial;
+        $primary->federation_refund_locality_id == null ? $primary->federation_refund_locality_id = $federation_refund_locality_id : 'null';
+        $primary->dead_date == null ? $primary->dead_date = $dead_date : 'null';
+        $primary->is_dead == null ? $primary->is_dead = $is_dead : 'null';
+        $primary->disbarment == null ? $primary->disbarment = $disbarment : 'null';
+        $primary->status == null ? $primary->status = $status : 'null';
+        $primary->disable == null ? $primary->disable = $disable : 'null';
+        $primary->myballclubid == null ? $primary->myballclubid = $myballclubid : 'null';
+        $primary->confirmed == null ? $primary->confirmed = $confirmed : 'null';
+
+        $primary->save();
+
+
+        //replacing secondary profile ids
+        $accreditations = Accreditation::whereIn('person_id', $req->secondary)->get();
+        foreach ($accreditations as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_board = FederationBoard::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_board as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_contracts = FederationContract::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_contracts as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_custom_events = FederationCustomEvent::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_custom_events as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_custom_events_item = FederationCustomEventItem::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_custom_events_item as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_markets = FederationMarket::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_markets as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_movement = FederationMovements::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_movement as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_refund = FederationRefund::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_refund as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $federation_sanction = FederationSanction::whereIn('person_id', $req->secondary)->get();
+        foreach ($federation_sanction as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $group_person = Person::whereIn('id', $req->secondary)->get();
+        foreach ($group_person as $key => $value) {
+            foreach ($value->groups as $key => $g) {
+                if ($g && $g->pivot) {
+                    $g->pivot->person_id = $req->primary;
+                    $g->pivot->save();
+                }
+            }
+        }
+
+        $person_memberships = PersonMemberships::whereIn('person_id', $req->secondary)->get();
+        foreach ($person_memberships as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $person_registries = PersonRegistry::whereIn('person_id', $req->secondary)->get();
+        foreach ($person_registries as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $person_unavailabilities = PersonUnavailability::whereIn('person_id', $req->secondary)->get();
+        foreach ($person_unavailabilities as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $users = User::whereIn('person_id', $req->secondary)->get();
+        foreach ($users as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $wbsc_tournament_assignment = EventAssignment::whereIn('personid', $req->secondary)->get();
+        foreach ($wbsc_tournament_assignment as $key => $value) {
+            $value->personid = $req->primary;
+            $value->save();
+        }
+
+        $wbsc_tournament_assignment_invitation = EventAssignmentInvitation::whereIn('person_id', $req->secondary)->get();
+        foreach ($wbsc_tournament_assignment_invitation as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $wbsc_tournament_player = EventPlayer::whereIn('person_id', $req->secondary)->get();
+        foreach ($wbsc_tournament_player as $key => $value) {
+            $value->person_id = $req->primary;
+            $value->save();
+        }
+
+        $documents = Document::where('target_type', 'Person')->whereIn('target_id', $req->secondary)->get();
+        foreach ($documents as $key => $value) {
+            $value->target_id = $req->primary;
+            $value->save();
+        }
+
+        foreach ($secondary as $key => $value) {
+            $value->delete();
+        }
+
+        return back();
+    }

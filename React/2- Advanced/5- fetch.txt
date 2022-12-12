@@ -1,0 +1,4 @@
+const fetchUsers = async () => {
+    let res = await fetch('https://api.github.com/user')
+    console.log(res)
+  }

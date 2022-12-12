@@ -1,0 +1,28 @@
+Storage::put('file.jpg', $contents, 'public');
+$visibility = Storage::getVisibility('file.jpg');
+Storage::setVisibility('file.jpg', 'public');
+
+
+$request->file('avatar')->storePubliclyAs(
+    'avatars',
+    $request->user()->id,
+    's3'
+);
+
+
+
+//local file visibility
+'local' => [
+    'driver' => 'local',
+    'root' => storage_path('app'),
+    'permissions' => [
+        'file' => [
+            'public' => 0644,
+            'private' => 0600,
+        ],
+        'dir' => [
+            'public' => 0755,
+            'private' => 0700,
+        ],
+    ],
+],

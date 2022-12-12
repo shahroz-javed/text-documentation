@@ -1,0 +1,4 @@
+npm i lodash
+import _ from 'lodash'
+
+res.send(_.pick(result, ['_id', 'name', 'email']))

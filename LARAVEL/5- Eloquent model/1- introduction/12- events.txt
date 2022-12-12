@@ -1,0 +1,64 @@
+retrieved, creating, created, updating, updated, saving, saved, 
+deleting, deleted, trashed, forceDeleted, restoring, restored, replicating
+
+
+
+protected $dispatchesEvents = [
+        'saved' => UserSaved::class,
+        'deleted' => UserDeleted::class,
+    ];
+
+
+//when using mass for update or delete
+	saved, updated, deleting, deleted model events will not be dispatched
+
+
+
+
+
+
+//using closure	[if not want custom event class]
+protected static function booted()
+    {
+        static::created(function ($user) {
+            //
+        });
+    }
+
+use function Illuminate\Events\queueable;
+static::created(queueable(function ($user) {
+    //
+}));
+
+
+
+
+
+
+
+//using observer
+php artisan make:observer UserObserver --model=User
+User::observe(UserObserver::class);			//in boot of EventServiceProvider
+
+or
+
+protected $observers = [				//in EventServiceProvider
+    User::class => [UserObserver::class],
+];
+
+
+//Handle events after all transactions are committed. [add property on observer class]
+public $afterCommit = true;
+
+
+
+
+
+
+
+//muting event
+$user = User::withoutEvents(function () use () {
+    User::findOrFail(1)->delete();
+    return User::find(2);
+});
+$user->saveQuietly();

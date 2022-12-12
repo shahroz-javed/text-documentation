@@ -1,0 +1,11 @@
+import {
+  Formik,
+  Form,
+  Field,
+  ErrorMessage,
+  FieldArray,
+  FastField,
+} from 'formik'
+
+
+<FastField type='text' name='name' className='form-control' />

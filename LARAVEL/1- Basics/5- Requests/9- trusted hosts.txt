@@ -1,0 +1,7 @@
+//TrustHosts middleware
+
+
+ return [
+        'laravel.test',
+        $this->allSubdomainsOfApplicationUrl(),
+    ];

@@ -1,0 +1,12 @@
+//only one method in controller
+public function __invoke()
+    {
+        // ...
+    }
+
+
+Route::post('/server', ProvisionServer::class);
+
+
+
+php artisan make:controller ProvisionServer --invokable

@@ -1,0 +1,37 @@
+//give all data of both tables
+DB::table('users')
+        ->crossJoin('orders')->select('users.id as user_id', 'users.*', 'orders.*')
+        ->get();
+
+
+
+//give matched data with users all data
+$users = DB::table('users')
+            ->leftJoin('posts', 'users.id', '=', 'posts.user_id')
+            ->get();
+ 
+
+
+
+//give only matched data from all tables like join
+$users = DB::table('users')
+            ->rightJoin('posts', 'users.id', '=', 'posts.user_id')
+            ->get();
+
+
+
+//advance joins query try two join one two or more basis
+DB::table('users')
+        ->join('contacts', function ($join) {
+            $join->on('users.id', '=', 'contacts.user_id')->orOn()
+                 ->where('contacts.user_id', '>', 5);
+        })
+        ->get();
+
+
+
+//subquery join
+$users = DB::table('users')
+        ->joinSub($latestPosts, 'latest_posts', function ($join) {
+            $join->on('users.id', '=', 'latest_posts.user_id');
+        })->get();

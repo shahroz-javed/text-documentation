@@ -1,0 +1,6 @@
+//aggregates
+count()
+max('price')
+min('price')
+avg('price')
+sum('price')

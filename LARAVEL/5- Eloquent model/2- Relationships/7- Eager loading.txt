@@ -1,0 +1,29 @@
+Book::with('author')->get()	//best
+$books = Book::with(['author', 'publisher'])->get();
+$books = Book::with('author.contacts')->get();
+
+
+//Eager Loading Specific Columns
+$books = Book::with('author:id,name,book_id')->get();		[must include id, foriegn keys]
+
+
+protected $with = ['author'];		//by default eager loading
+Book::without('author')->get()		//after by default if want to remove
+$books = Book::withOnly('genre')->get();
+
+
+
+
+
+
+
+//lazy eager loading
+$books->load('author', 'publisher');
+$book->loadMissing('author');
+
+
+
+
+
+//prevent lazy loading
+Model::preventLazyLoading(! $this->app->isProduction());

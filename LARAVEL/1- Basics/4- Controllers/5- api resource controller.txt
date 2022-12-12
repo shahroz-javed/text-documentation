@@ -1,0 +1,11 @@
+php artisan make:controller PhotoController --api
+
+
+Route::apiResource('photos', PhotoController::class);
+
+
+
+Route::apiResources([
+    'photos' => PhotoController::class,
+    'posts' => PostController::class,
+]);

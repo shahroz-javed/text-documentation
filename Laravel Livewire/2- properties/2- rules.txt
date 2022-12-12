@@ -1,0 +1,5 @@
+not use reserved words for Livewire properties(e.g. rules or messages)
+NOT store sensitive data in public property
+Properties can ONLY be either JavaScript-friendly data types
+	 string, int, array, boolean 
+	 PHP types: Stringable, Collection, DateTime, Model, EloquentCollection.

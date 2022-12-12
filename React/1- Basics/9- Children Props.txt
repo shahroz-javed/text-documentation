@@ -1,0 +1,10 @@
+<Book name="shahroz" age={age}><p>My name is shahroz</p></Book>
+
+const Book = (props) =>{ <h1>{props.children}</h1> }
+
+
+const Book = ({name,age,children})=>{ <h1>{age}{children}</h1> }
+
+or
+
+const {name,age} =props;

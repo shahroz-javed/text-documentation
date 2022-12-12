@@ -1,0 +1,18 @@
+make file etc	logger.js
+make functions
+
+//export
+module.exports.sayHello=hello	[hello is function name]
+module.exports.endUrl=url
+
+
+//import
+const logger = require('./logger')
+logger.sayHello('shahroz')
+
+
+
+//if we only want to export one function
+module.exports = hello
+const logger = require('./logger')
+logger('shahroz')

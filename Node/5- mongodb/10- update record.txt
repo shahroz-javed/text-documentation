@@ -1,0 +1,27 @@
+two ways: query first, update first
+
+'6368ea48b533b8f213d8dae9'
+
+//first way
+const course = await Course.findById('6368ea48b533b8f213d8dae9')
+  if (!course) return
+  //course.isPublished = false
+  course.set({
+    isPublished: false,
+    author: 'Ali',
+  })
+  course.save()
+
+
+
+//second [see mongo db update operator]
+first arg selection criteria
+second the properties you want to update
+
+const course = await Course.updateMany(
+    { _id: '6368ea48b533b8f213d8dae9' },
+    { isPublished: false }
+  )
+
+
+

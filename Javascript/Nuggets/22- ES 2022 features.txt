@@ -1,0 +1,7 @@
+//at()			
+//top level await 		//await without async [work only with modules]
+
+
+//works on strings,arrays
+arr.at(-1)		//from last    -1,-2,-3	[start from last]
+arr.at(0)		//from start	0,1,2,3 [start from start]

@@ -1,0 +1,15 @@
+//args
+1- values to update
+2- unique cols
+3- values to update if matching record found
+
+
+
+DB::table('flights')->upsert(
+    [
+        ['departure' => 'Oakland', 'destination' => 'San Diego', 'price' => 99],
+        ['departure' => 'Chicago', 'destination' => 'New York', 'price' => 150]
+    ],
+    ['departure', 'destination'],
+    ['price']
+);

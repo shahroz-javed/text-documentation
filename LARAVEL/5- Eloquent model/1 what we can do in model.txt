@@ -1,0 +1,23 @@
+1-	protected $fillable = ['type'];
+2-	protected $casts = [ 'date' => 'datetime'];
+3-	protected $appends = ['edit_path','delete_path' ];
+4-	protected $attributes = ['name' => null ];
+5-	protected $hidden = ['password','remember_token', ];
+6-	public $incrementing = false;
+7-	protected $touches = ['post'];
+8-	protected $table = 'my_flights';
+9-	protected $primaryKey = 'flight_id';
+10-	public $timestamps = false;
+11-	protected $dateFormat = 'U';
+12-	const CREATED_AT = 'creation_date';
+13-	const UPDATED_AT = 'updated_date';
+14-	protected $connection = 'sqlite';
+15-	protected $dispatchesEvents = ['saved' => UserSaved::class,'deleted' => UserDeleted::class,];
+
+
+
+3-	public function validationRules() { return ['type' => 'required|in:1,2']; }
+4-	relationships
+5-	Accessors
+6-	Mutators
+7-	public static function boot() { parent::boot();	self::creating(function ($model) { $model->uuid = (string)Uuid::generate();});	}

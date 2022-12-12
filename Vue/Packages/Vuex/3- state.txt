@@ -1,0 +1,35 @@
+state: {
+    counter: 0,
+    colorCode: 'blue',
+  }
+
+
+
+
+//accessing
+$store.state.counter
+this.$store.state.colorCode;		//in methods or computed etc
+
+
+//binding not recomended
+v-model="colorCode"
+
+
+
+
+
+//do it like this
+computed: {
+    colorCode: {
+      get() {
+        return this.$store.state.colorCode;
+      },
+      set(color) {
+        return this.$store.commit("setColorCode", color);
+      },
+    },
+  },
+//in mutation
+setColorCode(state, color) {
+      state.colorCode = color
+    },

@@ -1,0 +1,11 @@
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+
+
+//automatically add the token to all request headers
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});

@@ -1,0 +1,26 @@
+npm install vue-router@3	[for vue 2.6]
+
+import VueRouter from "vue-router";
+import Vue from "vue";
+import { routes } from "./routes";
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    mode: "history",
+    routes: routes,
+});
+
+
+const app = new Vue({
+    el: "#app",
+    router: router,
+});
+
+
+
+//router view
+<router-view></router-view>
+
+
+<router-link :to="{name:'Home'}">Home</router-link>

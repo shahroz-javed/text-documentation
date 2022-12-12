@@ -1,0 +1,13 @@
+use App\Events\PodcastProcessed;
+use App\Listeners\SendPodcastNotification;
+
+
+//in boot of event service provider
+Event::listen(
+        PodcastProcessed::class,
+        [SendPodcastNotification::class, 'handle']
+    );
+ 
+Event::listen(function (PodcastProcessed $event) {
+     //
+});

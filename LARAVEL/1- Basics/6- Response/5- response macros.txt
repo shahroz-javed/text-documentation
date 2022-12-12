@@ -1,0 +1,12 @@
+//AppServiceProvider boot method to reuse response
+
+
+
+Response::macro('caps', function ($value) {
+            return Response::make(strtoupper($value));
+        });
+
+
+
+
+return response()->caps('foo');

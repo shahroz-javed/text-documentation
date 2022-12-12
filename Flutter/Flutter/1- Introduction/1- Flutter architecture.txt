@@ -1,0 +1,7 @@
+UI as Code: Build a widget tree
+Embrace platform diffrences
+one codebase
+
+
+everything is a widget
+app UI is a widget tree

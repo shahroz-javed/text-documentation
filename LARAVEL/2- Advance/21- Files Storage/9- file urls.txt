@@ -1,0 +1,33 @@
+//get url of given file
+
+
+
+$url = Storage::url('file.jpg');
+
+
+
+$url = Storage::temporaryUrl(
+    'file.jpg',
+    now()->addMinutes(5),
+    [
+        'ResponseContentType' => 'application/octet-stream',
+        'ResponseContentDisposition' => 'attachment; filename=file2.jpg',
+    ]
+);
+
+
+
+//customize temporary url
+Storage::disk('local')->buildTemporaryUrlsUsing(function ($path, $expiration, $options) {
+            return URL::temporarySignedRoute(
+                'files.download',
+                $expiration,
+                array_merge($options, ['path' => $path])
+            );
+        });
+
+
+
+
+//URL Host Customization
+'url' => env('APP_URL').'/storage',

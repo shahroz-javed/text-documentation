@@ -1,0 +1,15 @@
+Tinker allows you to interact with your entire Laravel application on the command line
+
+composer require laravel/tinker
+
+php artisan tinker
+php artisan vendor:publish --provider="Laravel\Tinker\TinkerServiceProvider"
+config/tinker.php
+
+
+//can add/allow commands in commands array
+
+//Classes That Should Not Be Aliased
+'dont_alias' => [
+    App\Models\User::class,
+],

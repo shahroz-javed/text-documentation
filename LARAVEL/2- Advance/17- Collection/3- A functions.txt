@@ -1,0 +1,6 @@
+//call these methods on $collection and $collections
+all()
+average()
+
+avg()
+avg(['key'])		/args ['key'] if key value array

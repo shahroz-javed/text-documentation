@@ -1,0 +1,24 @@
+all()
+get()
+first()
+find()
+take(10)
+lazy()
+cursor()
+firstWhere('active', 1)
+
+
+//refreshing model
+$flight->fresh();
+$flight->refresh();
+
+
+
+//chuncking
+Flight::chunk(200, closure);
+chunkById(200,closure)
+
+
+//streaming lazy
+lazy()
+->lazyById(200, $column = 'id')

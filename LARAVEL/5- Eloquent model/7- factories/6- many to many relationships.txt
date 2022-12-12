@@ -1,0 +1,28 @@
+$posts = Post::factory()
+            ->count(3)
+            ->for(User::factory()->state([
+                'name' => 'Jessica Archer',
+            ]))
+
+$user = User::factory()->create();
+$posts = Post::factory()->count(3)->for($user)->create();
+
+
+//require by convention
+User,Post model
+user relationship method in Post model
+
+
+
+
+//magic method
+$posts = Post::factory()->count(3)
+            ->forUser([
+                'name' => 'Jessica Archer',
+            ])
+            ->create();
+
+
+look for user relationship in Post model
+sec arg to overide attributes
+

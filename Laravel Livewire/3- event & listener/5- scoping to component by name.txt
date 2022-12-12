@@ -1,0 +1,2 @@
+$this->emitTo('counter', 'postAdded');		//counter is component name
+<button wire:click="$emitTo('counter', 'postAdded')">
