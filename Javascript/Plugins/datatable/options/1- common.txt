@@ -1,0 +1,6 @@
+ajax - Ajax data source configuration
+data - Javascript sourced data
+serverSide - Enable server-side processing
+columns.data - Data source options for a column
+scrollX - Horizontal scrolling
+scrollY - Vertical scrolling

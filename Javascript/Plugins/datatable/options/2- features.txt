@@ -1,0 +1,12 @@
+autoWidth: false,
+deferRender: false,		//for speed
+info: false,			//showing 10 recorde out of etc
+lengthChange: false,		//change page length drop down
+ordering: false
+paging: false
+scrollX: true
+scrollY: 400
+searching: false
+serverSide: true,		// filtering, paging and sorting by server
+ajax: "xhr.php"			//directly related to serverSide
+stateSave: true			//state info pagination position, display length, filtering and sorting
