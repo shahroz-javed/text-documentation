@@ -1,5 +1,7 @@
 php artisan make:model Flight
 
+--controller --resource --requests --policy
+-csR
 
 php artisan make:model Flight --migration
 

@@ -22,3 +22,4 @@ chunkById(200,closure)
 //streaming lazy
 lazy()
 ->lazyById(200, $column = 'id')
+

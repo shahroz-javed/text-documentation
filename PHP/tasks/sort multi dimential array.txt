@@ -1,0 +1,4 @@
+$keys = array_column($data, 'sale');
+array_multisort($keys, SORT_DESC, $data);
+
+return $data;

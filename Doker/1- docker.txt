@@ -1,0 +1,14 @@
+docker is platform for develop,ship,run your application
+it allow us to build and run apk in containers.
+
+//i.e a laravel proect will require minimum
+server
+database
+php
+
+//with doker you can build container for each component
+
+//important
+once you create docker build for your project
+you can rebuild on any other computer
+without spending anytime on configuring your server manually

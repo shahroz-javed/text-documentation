@@ -11,7 +11,9 @@ $user->isClean(['first_name', 'title']);	//return true if col not changed
 $user->wasChanged(['first_name', 'title']);	//model was last saved within the current request cycle
 $user->getOriginal('name');			//get name the was first setup or befor change
 
-
+$user->isDirty();
+$user->isClean();
+$user->wasChanged();
 
 
 

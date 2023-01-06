@@ -1,0 +1,5 @@
+$merged = [];
+
+foreach ($oids as $key => $ids) {
+   $merged = array_merge($merged, $ids);
+}

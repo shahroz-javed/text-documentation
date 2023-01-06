@@ -1,0 +1,4 @@
+//provides a convenient overview of all the model's attributes and relations
+
+
+php artisan model:show Flight

@@ -24,14 +24,24 @@ not supported
 //uuid col instead of primary key
 $table->uuid('id');
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use HasUuids;
+use HasUuids or HasUlids;
+
+public function newUniqueId()
+{
+    return (string) Uuid::uuid4();
+}
+--//column that will get unique identifier
+public function uniqueIds()
+{
+    return ['id', 'discount_code'];
+}
 
 //timestamps
-public $timestamps = false;
-protected $dateFormat = 'U';
+public $timestamps = false;		//prevent model from handling timestamp
+protected $dateFormat = 'U';		//format of timestamps
 const CREATED_AT = 'creation_date';
 const UPDATED_AT = 'updated_date';
-
+Model::withoutTimestamps(fn () => $post->increment(['reads']));		//update model without updating created_at
 
 
 //connections
@@ -43,3 +53,16 @@ protected $connection = 'sqlite';
 protected $attributes = [
         'name' => null,
     ];
+
+
+//configure model strictness
+public function boot()
+{
+	Model::preventLazyLoading(! $this->app->isProduction());
+	Model::preventSilentlyDiscardingAttributes(! $this->app->isProduction());
+	Model::preventAccessingMissingAttributes(! $this->app->isProduction());
+	
+//or enable all three by
+	Model::shouldBeStrict(! $this->app->isProduction());
+
+}

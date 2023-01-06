@@ -1,0 +1,5 @@
+download and install
+install wsl2
+
+in docker setting/Resources/wsl integration/Enable integration with my default WSL distro
+
